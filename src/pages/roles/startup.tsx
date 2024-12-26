@@ -29,6 +29,11 @@ const StartupForm = () => {
   const [productDemoLink, setProductDemoLink] = useState<string>("");
   const [geographicalReach, setGeographicalReach] = useState<string>("");
   const [exitStrategy, setExitStrategy] = useState<string>("");
+  const [bankAccountNumber, setBankAccountNumber] = useState("");
+  const [bankName, setBankName] = useState("");
+  const [ifscCode, setIfscCode] = useState("");
+  const [cryptoType, setCryptoType] = useState("");
+  const [cryptoWalletAddress, setCryptoWalletAddress] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,6 +64,15 @@ const StartupForm = () => {
       productDemoLink,
       geographicalReach,
       exitStrategy,
+      bankAccount: {
+        accountNumber: bankAccountNumber,
+        bankName,
+        ifscCode,
+      },
+      cryptoAccount: {
+        type: cryptoType,
+        walletAddress: cryptoWalletAddress,
+      },
       createdAt: new Date().toISOString(),
     };
 
@@ -411,6 +425,43 @@ const StartupForm = () => {
             onChange={(e) => setExitStrategy(e.target.value)}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
             rows={4}
+          />
+        </div>
+
+        {/* Crypto Account Details */}
+        <div>
+          <label
+            htmlFor="cryptoType"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Cryptocurrency Type
+          </label>
+          <select
+            id="cryptoType"
+            value={cryptoType}
+            onChange={(e) => setCryptoType(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          >
+            <option value="Bitcoin">Bitcoin</option>
+            <option value="Ethereum">Ethereum</option>
+            <option value="Litecoin">Litecoin</option>
+            {/* Add more options for different cryptocurrencies */}
+          </select>
+        </div>
+
+        <div>
+          <label
+            htmlFor="cryptoWalletAddress"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Crypto Wallet Address
+          </label>
+          <input
+            type="text"
+            id="cryptoWalletAddress"
+            value={cryptoWalletAddress}
+            onChange={(e) => setCryptoWalletAddress(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
           />
         </div>
 

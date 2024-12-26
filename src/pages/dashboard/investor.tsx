@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { db } from "../../utils/firebase";
-import { doc, getDoc, getDocs, collection } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  getDocs,
+  collection,
+  query,
+  where,
+} from "firebase/firestore";
 import { useAuth } from "../../hooks/useAuth";
 
 const InvestorDashboard = () => {
@@ -53,27 +60,34 @@ const InvestorDashboard = () => {
     fetchData();
 
     const fetchMentorsAndStartups = async () => {
-      try {
-        // Fetch all mentors
-        const mentorsSnapshot = await getDocs(
-          collection(db, "users", user.uid, "roles", "mentor")
-        );
-        const mentorsList = mentorsSnapshot.docs.map((doc) => doc.data());
-        setMentors(mentorsList);
+      if (user) {
+        try {
+          // Fetch all users where role is 'mentor'
+          const mentorsQuery = query(
+            collection(db, "users"),
+            where("role", "==", "mentor")
+          );
+          const mentorsSnapshot = await getDocs(mentorsQuery);
+          const mentorsList = mentorsSnapshot.docs.map((doc) => doc.data());
+          setMentors(mentorsList);
 
-        // Fetch all startups
-        const startupsSnapshot = await getDocs(
-          collection(db, "users", user.uid, "roles", "startup")
-        );
-        const startupsList = startupsSnapshot.docs.map((doc) => doc.data());
-        console.log(startupsList);
-        setStartups(startupsList);
-      } catch (error) {
-        console.error("Error fetching mentors and startups:", error);
-      } finally {
-        setLoading(false);
+          // Fetch all users where role is 'startup'
+          const startupsQuery = query(
+            collection(db, "users"),
+            where("role", "==", "startup")
+          );
+          const startupsSnapshot = await getDocs(startupsQuery);
+          const startupsList = startupsSnapshot.docs.map((doc) => doc.data());
+          setStartups(startupsList);
+        } catch (error) {
+          console.error("Error fetching mentors and startups:", error);
+        } finally {
+          setLoading(false); // Set loading to false once data is fetched
+        }
       }
     };
+
+    fetchMentorsAndStartups();
 
     fetchMentorsAndStartups();
   }, [user, authLoading]); // Add authLoading to the dependency array
@@ -140,7 +154,7 @@ const InvestorDashboard = () => {
           <ul className="list-disc pl-6">
             {mentors.map((mentor, index) => (
               <li key={index}>
-                <strong>{mentor.name}</strong> - {mentor.expertise}
+                <strong>{mentor.email}</strong> - {mentor.expertise}
               </li>
             ))}
           </ul>
@@ -155,7 +169,7 @@ const InvestorDashboard = () => {
           <ul className="list-disc pl-6">
             {startups.map((startup, index) => (
               <li key={index}>
-                <strong>{startup.name}</strong> - {startup.industry}
+                <strong>{startup.email}</strong> - {startup.fullName}
               </li>
             ))}
           </ul>
