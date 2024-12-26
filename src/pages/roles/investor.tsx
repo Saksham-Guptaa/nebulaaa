@@ -12,6 +12,24 @@ const InvestorForm = () => {
   const [investmentSize, setInvestmentSize] = useState<number | string>("");
   const [investmentStrategy, setInvestmentStrategy] = useState<string>("");
   const [investmentHistory, setInvestmentHistory] = useState<string>("");
+  const [investmentFocus, setInvestmentFocus] = useState<string>("");
+  const [geographicalPreferences, setGeographicalPreferences] =
+    useState<string>("");
+  const [investmentType, setInvestmentType] = useState<string>("");
+  const [minInvestmentAmount, setMinInvestmentAmount] = useState<
+    number | string
+  >("");
+  const [exitStrategy, setExitStrategy] = useState<string>("");
+  const [riskTolerance, setRiskTolerance] = useState<string>("");
+  const [contactPreferences, setContactPreferences] = useState<string>("");
+  const [fundSize, setFundSize] = useState<number | string>("");
+  const [portfolioOverview, setPortfolioOverview] = useState<string>("");
+  const [investmentHorizon, setInvestmentHorizon] = useState<string>("");
+  const [advisoryRole, setAdvisoryRole] = useState<boolean>(false);
+  const [socialImpactFocus, setSocialImpactFocus] = useState<boolean>(false);
+  const [investmentRestrictions, setInvestmentRestrictions] =
+    useState<string>("");
+  const [websiteLink, setWebsiteLink] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,6 +44,20 @@ const InvestorForm = () => {
       investmentSize,
       investmentStrategy,
       investmentHistory,
+      investmentFocus,
+      geographicalPreferences,
+      investmentType,
+      minInvestmentAmount,
+      exitStrategy,
+      riskTolerance,
+      contactPreferences,
+      fundSize,
+      portfolioOverview,
+      investmentHorizon,
+      advisoryRole,
+      socialImpactFocus,
+      investmentRestrictions,
+      websiteLink,
       createdAt: new Date().toISOString(),
     };
 
@@ -73,7 +105,7 @@ const InvestorForm = () => {
           </select>
         </div>
 
-        {/* Average Investment Size */}
+        {/* Investment Size */}
         <div>
           <label
             htmlFor="investmentSize"
@@ -127,13 +159,238 @@ const InvestorForm = () => {
           />
         </div>
 
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="mt-4 w-full bg-blue-500 text-white p-2 rounded-md"
-        >
-          Submit
-        </button>
+        {/* Investment Focus */}
+        <div>
+          <label
+            htmlFor="investmentFocus"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Investment Focus
+          </label>
+          <input
+            type="text"
+            id="investmentFocus"
+            value={investmentFocus}
+            onChange={(e) => setInvestmentFocus(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        {/* Geographical Preferences */}
+        <div>
+          <label
+            htmlFor="geographicalPreferences"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Geographical Preferences
+          </label>
+          <input
+            type="text"
+            id="geographicalPreferences"
+            value={geographicalPreferences}
+            onChange={(e) => setGeographicalPreferences(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        {/* Minimum Investment Amount */}
+        <div>
+          <label
+            htmlFor="minInvestmentAmount"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Minimum Investment Amount ($)
+          </label>
+          <input
+            type="number"
+            id="minInvestmentAmount"
+            value={minInvestmentAmount}
+            onChange={(e) => setMinInvestmentAmount(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        {/* Exit Strategy */}
+        <div>
+          <label
+            htmlFor="exitStrategy"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Preferred Exit Strategy
+          </label>
+          <input
+            type="text"
+            id="exitStrategy"
+            value={exitStrategy}
+            onChange={(e) => setExitStrategy(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        {/* Risk Tolerance */}
+        <div>
+          <label
+            htmlFor="riskTolerance"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Risk Tolerance
+          </label>
+          <select
+            id="riskTolerance"
+            value={riskTolerance}
+            onChange={(e) => setRiskTolerance(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          >
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+
+        {/* Contact Preferences */}
+        <div>
+          <label
+            htmlFor="contactPreferences"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Contact Preferences
+          </label>
+          <input
+            type="text"
+            id="contactPreferences"
+            value={contactPreferences}
+            onChange={(e) => setContactPreferences(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        {/* Fund Size */}
+        <div>
+          <label
+            htmlFor="fundSize"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Fund Size ($)
+          </label>
+          <input
+            type="number"
+            id="fundSize"
+            value={fundSize}
+            onChange={(e) => setFundSize(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        {/* Portfolio Overview */}
+        <div>
+          <label
+            htmlFor="portfolioOverview"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Portfolio Overview
+          </label>
+          <textarea
+            id="portfolioOverview"
+            value={portfolioOverview}
+            onChange={(e) => setPortfolioOverview(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            rows={4}
+          />
+        </div>
+
+        {/* Investment Horizon */}
+        <div>
+          <label
+            htmlFor="investmentHorizon"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Investment Horizon
+          </label>
+          <input
+            type="text"
+            id="investmentHorizon"
+            value={investmentHorizon}
+            onChange={(e) => setInvestmentHorizon(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        {/* Advisory Role */}
+        <div>
+          <label
+            htmlFor="advisoryRole"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Willing to Take Advisory Role?
+          </label>
+          <input
+            type="checkbox"
+            id="advisoryRole"
+            checked={advisoryRole}
+            onChange={(e) => setAdvisoryRole(e.target.checked)}
+            className="mt-1"
+          />
+        </div>
+
+        {/* Social Impact Focus */}
+        <div>
+          <label
+            htmlFor="socialImpactFocus"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Interested in Social Impact Investments?
+          </label>
+          <input
+            type="checkbox"
+            id="socialImpactFocus"
+            checked={socialImpactFocus}
+            onChange={(e) => setSocialImpactFocus(e.target.checked)}
+            className="mt-1"
+          />
+        </div>
+
+        {/* Investment Restrictions */}
+        <div>
+          <label
+            htmlFor="investmentRestrictions"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Investment Restrictions
+          </label>
+          <input
+            type="text"
+            id="investmentRestrictions"
+            value={investmentRestrictions}
+            onChange={(e) => setInvestmentRestrictions(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        {/* Website Link */}
+        <div>
+          <label
+            htmlFor="websiteLink"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Website or Portfolio Link
+          </label>
+          <input
+            type="url"
+            id="websiteLink"
+            value={websiteLink}
+            onChange={(e) => setWebsiteLink(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        <div className="mt-4">
+          <button
+            type="submit"
+            className="px-4 py-2 bg-blue-600 text-white rounded-md"
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );

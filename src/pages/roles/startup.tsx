@@ -3,13 +3,11 @@ import { useRouter } from "next/router";
 import { db } from "../../utils/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { useAuth } from "../../hooks/useAuth"; // Custom hook for authentication
-// import { uploadFileToCloudinary } from "../../utils/cloudinary"; // Custom function for file upload
 
 const StartupForm = () => {
   const { user } = useAuth(); // Ensure user is authenticated
   const router = useRouter();
-
-  const [gender, setGender] = useState<string>("");
+  const [gener, setGener] = useState<string>("");
   const [totalFunding, setTotalFunding] = useState<number | string>("");
   const [totalMembers, setTotalMembers] = useState<number | string>("");
   const [members, setMembers] = useState<{ username: string; email: string }[]>(
@@ -17,13 +15,20 @@ const StartupForm = () => {
   );
   const [startupDetails, setStartupDetails] = useState<string>("");
   const [milestones, setMilestones] = useState<string>("");
-  const [pdfFile, setPdfFile] = useState<File | null>(null);
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      setPdfFile(e.target.files[0]);
-    }
-  };
+  const [pdfLink, setPdfLink] = useState<string>("");
+  const [industryCategory, setIndustryCategory] = useState<string>("");
+  const [startupStage, setStartupStage] = useState<string>("");
+  const [founderBackground, setFounderBackground] = useState<string>("");
+  const [fundingSources, setFundingSources] = useState<string>("");
+  const [competitors, setCompetitors] = useState<string>("");
+  const [marketSize, setMarketSize] = useState<string>("");
+  const [technologyStack, setTechnologyStack] = useState<string>("");
+  const [userFeedback, setUserFeedback] = useState<string>("");
+  const [patentIP, setPatentIP] = useState<string>("");
+  const [linkedinProfiles, setLinkedinProfiles] = useState<string[]>([]);
+  const [productDemoLink, setProductDemoLink] = useState<string>("");
+  const [geographicalReach, setGeographicalReach] = useState<string>("");
+  const [exitStrategy, setExitStrategy] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,22 +37,28 @@ const StartupForm = () => {
       return alert("You must be logged in to submit this form.");
     }
 
-    // Upload PDF to Cloudinary
-    let pdfUrl = "";
-    // if (pdfFile) {
-    //   const uploadResponse = await uploadFileToCloudinary(pdfFile);
-    //   pdfUrl = uploadResponse.url;
-    // }
-
     // Prepare data to be saved
     const startupData = {
-      gender,
+      gener,
       totalFunding,
       totalMembers,
       members,
       startupDetails,
-      pdfUrl,
+      pdfLink,
       milestones,
+      industryCategory,
+      startupStage,
+      founderBackground,
+      fundingSources,
+      competitors,
+      marketSize,
+      technologyStack,
+      userFeedback,
+      patentIP,
+      linkedinProfiles,
+      productDemoLink,
+      geographicalReach,
+      exitStrategy,
       createdAt: new Date().toISOString(),
     };
 
@@ -68,18 +79,18 @@ const StartupForm = () => {
         {/* Gender */}
         <div>
           <label
-            htmlFor="gender"
+            htmlFor="gener"
             className="block text-sm font-medium text-gray-700"
           >
-            Gender of Startup
+            Gener of Startup
           </label>
           <select
-            id="gender"
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
+            id="gener"
+            value={gener}
+            onChange={(e) => setGener(e.target.value)}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
           >
-            <option value="">Select Gender</option>
+            <option value="">Select Gener</option>
             <option value="Technology">Technology</option>
             <option value="Healthcare">Healthcare</option>
             <option value="Education">Education</option>
@@ -163,42 +174,250 @@ const StartupForm = () => {
           ))}
         </div>
 
-        {/* Startup Details (PDF) */}
+        {/* Industry Category */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Details About the Startup (PDF)
+          <label
+            htmlFor="industryCategory"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Industry/Category
           </label>
-          <input
-            type="file"
-            accept=".pdf"
-            onChange={handleFileChange}
+          <select
+            id="industryCategory"
+            value={industryCategory}
+            onChange={(e) => setIndustryCategory(e.target.value)}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-            // required
+          >
+            <option value="">Select Industry</option>
+            <option value="Technology">Technology</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Fintech">Fintech</option>
+            <option value="Retail">Retail</option>
+            <option value="Education">Education</option>
+          </select>
+        </div>
+
+        {/* Stage of Startup */}
+        <div>
+          <label
+            htmlFor="startupStage"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Stage of Startup
+          </label>
+          <select
+            id="startupStage"
+            value={startupStage}
+            onChange={(e) => setStartupStage(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          >
+            <option value="">Select Stage</option>
+            <option value="Ideation">Ideation</option>
+            <option value="Prototype">Prototype</option>
+            <option value="Early Stage">Early Stage</option>
+            <option value="Scaling">Scaling</option>
+            <option value="Established">Established</option>
+          </select>
+        </div>
+
+        {/* Founder Background */}
+        <div>
+          <label
+            htmlFor="founderBackground"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Founder Background
+          </label>
+          <textarea
+            id="founderBackground"
+            value={founderBackground}
+            onChange={(e) => setFounderBackground(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            rows={4}
           />
         </div>
 
-        {/* Milestones */}
+        {/* Funding Sources */}
         <div>
           <label
-            htmlFor="milestones"
+            htmlFor="fundingSources"
             className="block text-sm font-medium text-gray-700"
           >
-            Milestones
+            Funding Sources
+          </label>
+          <select
+            id="fundingSources"
+            value={fundingSources}
+            onChange={(e) => setFundingSources(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          >
+            <option value="">Select Funding Source</option>
+            <option value="Bootstrapped">Bootstrapped</option>
+            <option value="Angel Investment">Angel Investment</option>
+            <option value="VC Funding">VC Funding</option>
+            <option value="Crowdfunding">Crowdfunding</option>
+            <option value="Government Grants">Government Grants</option>
+          </select>
+        </div>
+
+        {/* Competitors */}
+        <div>
+          <label
+            htmlFor="competitors"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Competitors
           </label>
           <textarea
-            id="milestones"
-            value={milestones}
-            onChange={(e) => setMilestones(e.target.value)}
+            id="competitors"
+            value={competitors}
+            onChange={(e) => setCompetitors(e.target.value)}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
             rows={4}
-            required
+          />
+        </div>
+
+        {/* Market Size */}
+        <div>
+          <label
+            htmlFor="marketSize"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Market Size
+          </label>
+          <textarea
+            id="marketSize"
+            value={marketSize}
+            onChange={(e) => setMarketSize(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            rows={4}
+          />
+        </div>
+
+        {/* Technology Stack */}
+        <div>
+          <label
+            htmlFor="technologyStack"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Technology Stack
+          </label>
+          <textarea
+            id="technologyStack"
+            value={technologyStack}
+            onChange={(e) => setTechnologyStack(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            rows={4}
+          />
+        </div>
+
+        {/* User Feedback */}
+        <div>
+          <label
+            htmlFor="userFeedback"
+            className="block text-sm font-medium text-gray-700"
+          >
+            User Feedback
+          </label>
+          <textarea
+            id="userFeedback"
+            value={userFeedback}
+            onChange={(e) => setUserFeedback(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            rows={4}
+          />
+        </div>
+
+        {/* Patent/IP */}
+        <div>
+          <label
+            htmlFor="patentIP"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Patent/IP
+          </label>
+          <textarea
+            id="patentIP"
+            value={patentIP}
+            onChange={(e) => setPatentIP(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            rows={4}
+          />
+        </div>
+
+        {/* LinkedIn Profiles */}
+        <div>
+          <label
+            htmlFor="linkedinProfiles"
+            className="block text-sm font-medium text-gray-700"
+          >
+            LinkedIn Profiles
+          </label>
+          <textarea
+            id="linkedinProfiles"
+            value={linkedinProfiles.join(", ")}
+            onChange={(e) => setLinkedinProfiles(e.target.value.split(", "))}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            rows={4}
+            placeholder="Enter LinkedIn profiles, separated by commas"
+          />
+        </div>
+
+        {/* Product Demo Link */}
+        <div>
+          <label
+            htmlFor="productDemoLink"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Product Demo Link
+          </label>
+          <input
+            type="url"
+            id="productDemoLink"
+            value={productDemoLink}
+            onChange={(e) => setProductDemoLink(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        {/* Geographical Reach */}
+        <div>
+          <label
+            htmlFor="geographicalReach"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Geographical Reach
+          </label>
+          <input
+            type="text"
+            id="geographicalReach"
+            value={geographicalReach}
+            onChange={(e) => setGeographicalReach(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        {/* Exit Strategy */}
+        <div>
+          <label
+            htmlFor="exitStrategy"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Exit Strategy
+          </label>
+          <textarea
+            id="exitStrategy"
+            value={exitStrategy}
+            onChange={(e) => setExitStrategy(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            rows={4}
           />
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
-          className="mt-4 w-full bg-blue-500 text-white p-2 rounded-md"
+          className="w-full p-3 mt-4 bg-blue-500 text-white font-semibold rounded-md"
         >
           Submit
         </button>

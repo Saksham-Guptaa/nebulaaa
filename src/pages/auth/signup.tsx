@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { useRouter } from "next/router";
-import axios from "axios";
 import { auth, db } from "../../utils/firebase";
 
 type Role = "startup" | "investor" | "influencer" | "mentor" | "admin";
@@ -12,7 +11,6 @@ interface SignUpFormValues {
   email: string;
   password: string;
   phoneNumber: string;
-  profileImage: File | null;
   role: Role;
 }
 
@@ -23,15 +21,14 @@ const SignUpForm: React.FC = () => {
     email: "",
     password: "",
     phoneNumber: "",
-    profileImage: null,
     role: "startup",
   });
+
   interface SignUpFormErrors {
     fullName?: string;
     email?: string;
     password?: string;
     phoneNumber?: string;
-    profileImage?: string;
     role?: string;
   }
 
@@ -42,10 +39,9 @@ const SignUpForm: React.FC = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value, type } = e.target as HTMLInputElement;
-    const files = (e.target as HTMLInputElement).files;
     setFormValues((prev) => ({
       ...prev,
-      [name]: type === "file" ? (files ? files[0] : null) : value,
+      [name]: type === "file" ? (e.target as HTMLInputElement).files : value,
     }));
   };
 
@@ -70,20 +66,6 @@ const SignUpForm: React.FC = () => {
     setLoading(true);
 
     try {
-      // If profile image exists, upload it to Cloudinary
-      let uploadedImageUrl = "";
-      if (formValues.profileImage) {
-        const formData = new FormData();
-        formData.append("file", formValues.profileImage as File);
-        formData.append("upload_preset", "your_cloudinary_preset");
-
-        const res = await axios.post(
-          "https://api.cloudinary.com/v1_1/your_cloudinary_name/image/upload",
-          formData
-        );
-        uploadedImageUrl = res.data.secure_url;
-      }
-
       // Create user in Firebase Authentication
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -97,7 +79,6 @@ const SignUpForm: React.FC = () => {
         fullName: formValues.fullName,
         email: formValues.email,
         phoneNumber: formValues.phoneNumber,
-        profileImage: uploadedImageUrl || null, // If no image, store null
         role: formValues.role,
       });
 
@@ -173,22 +154,6 @@ const SignUpForm: React.FC = () => {
         />
         {errors.phoneNumber && (
           <p className="text-red-500 text-sm">{errors.phoneNumber}</p>
-        )}
-      </div>
-
-      {/* Profile Image */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">
-          Profile Image (Optional)
-        </label>
-        <input
-          type="file"
-          name="profileImage"
-          onChange={handleInputChange}
-          className="w-full"
-        />
-        {errors.profileImage && (
-          <p className="text-red-500 text-sm">{errors.profileImage}</p>
         )}
       </div>
 

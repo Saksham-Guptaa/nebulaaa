@@ -18,6 +18,15 @@ const InfluencerForm = () => {
   const [rating, setRating] = useState<number | string>("");
   const [description, setDescription] = useState<string>("");
   const [otherDetails, setOtherDetails] = useState<string>("");
+  const [audienceDemographics, setAudienceDemographics] = useState<string>("");
+  const [preferredBrands, setPreferredBrands] = useState<string>("");
+  const [collaborationType, setCollaborationType] = useState<string>("");
+  const [socialImpact, setSocialImpact] = useState<string>("");
+  const [bankAccountNumber, setBankAccountNumber] = useState("");
+  const [bankName, setBankName] = useState("");
+  const [ifscCode, setIfscCode] = useState("");
+  const [cryptoType, setCryptoType] = useState("");
+  const [cryptoWalletAddress, setCryptoWalletAddress] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,6 +47,19 @@ const InfluencerForm = () => {
       rating,
       description,
       otherDetails,
+      audienceDemographics,
+      preferredBrands,
+      collaborationType,
+      socialImpact,
+      bankAccount: {
+        accountNumber: bankAccountNumber,
+        bankName,
+        ifscCode,
+      },
+      cryptoAccount: {
+        type: cryptoType,
+        walletAddress: cryptoWalletAddress,
+      },
       createdAt: new Date().toISOString(),
     };
 
@@ -203,6 +225,160 @@ const InfluencerForm = () => {
             onChange={(e) => setOtherDetails(e.target.value)}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
             rows={4}
+          />
+        </div>
+
+        {/* Audience Demographics */}
+        <div>
+          <label
+            htmlFor="audienceDemographics"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Audience Demographics
+          </label>
+          <textarea
+            id="audienceDemographics"
+            value={audienceDemographics}
+            onChange={(e) => setAudienceDemographics(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            rows={4}
+          />
+        </div>
+
+        {/* Preferred Brands */}
+        <div>
+          <label
+            htmlFor="preferredBrands"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Preferred Brands for Collaboration
+          </label>
+          <input
+            type="text"
+            id="preferredBrands"
+            value={preferredBrands}
+            onChange={(e) => setPreferredBrands(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        {/* Collaboration Type */}
+        <div>
+          <label
+            htmlFor="collaborationType"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Preferred Collaboration Type
+          </label>
+          <input
+            type="text"
+            id="collaborationType"
+            value={collaborationType}
+            onChange={(e) => setCollaborationType(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        {/* Social Impact */}
+        <div>
+          <label
+            htmlFor="socialImpact"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Social Impact (Causes/Charities)
+          </label>
+          <textarea
+            id="socialImpact"
+            value={socialImpact}
+            onChange={(e) => setSocialImpact(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            rows={4}
+          />
+        </div>
+
+        {/* Bank Account Details */}
+        <div>
+          <label
+            htmlFor="bankAccountNumber"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Bank Account Number
+          </label>
+          <input
+            type="text"
+            id="bankAccountNumber"
+            value={bankAccountNumber}
+            onChange={(e) => setBankAccountNumber(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        <div>
+          <label
+            htmlFor="bankName"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Bank Name
+          </label>
+          <input
+            type="text"
+            id="bankName"
+            value={bankName}
+            onChange={(e) => setBankName(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        <div>
+          <label
+            htmlFor="ifscCode"
+            className="block text-sm font-medium text-gray-700"
+          >
+            IFSC Code
+          </label>
+          <input
+            type="text"
+            id="ifscCode"
+            value={ifscCode}
+            onChange={(e) => setIfscCode(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
+        {/* Crypto Account Details */}
+        <div>
+          <label
+            htmlFor="cryptoType"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Cryptocurrency Type
+          </label>
+          <select
+            id="cryptoType"
+            value={cryptoType}
+            onChange={(e) => setCryptoType(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          >
+            <option value="Bitcoin">Bitcoin</option>
+            <option value="Ethereum">Ethereum</option>
+            <option value="Litecoin">Litecoin</option>
+            {/* Add more options for different cryptocurrencies */}
+          </select>
+        </div>
+
+        <div>
+          <label
+            htmlFor="cryptoWalletAddress"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Crypto Wallet Address
+          </label>
+          <input
+            type="text"
+            id="cryptoWalletAddress"
+            value={cryptoWalletAddress}
+            onChange={(e) => setCryptoWalletAddress(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
           />
         </div>
 

@@ -4,7 +4,7 @@ const Home = () => {
   const router = useRouter();
 
   const handleStart = () => {
-    router.push("/login");
+    router.push("/auth/signin");
   };
 
   return (

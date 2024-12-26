@@ -12,7 +12,16 @@ const MentorForm = () => {
   const [availability, setAvailability] = useState<string[]>([]);
   const [interests, setInterests] = useState<string>("");
   const [expertise, setExpertise] = useState<string>("");
-  const [certification, setCertification] = useState<File | null>(null);
+  const [certificationLink, setCertificationLink] = useState<string>("");
+  const [linkedinProfile, setLinkedinProfile] = useState<string>("");
+  const [yearsOfExperience, setYearsOfExperience] = useState<number | string>(
+    ""
+  );
+  const [previousMentoringExperience, setPreviousMentoringExperience] =
+    useState<string>("");
+  const [preferredModeOfMentorship, setPreferredModeOfMentorship] =
+    useState<string>("");
+  const [location, setLocation] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,7 +36,12 @@ const MentorForm = () => {
       availability,
       interests,
       expertise,
-      certification: certification ? certification.name : "",
+      certificationLink,
+      linkedinProfile,
+      yearsOfExperience,
+      previousMentoringExperience,
+      preferredModeOfMentorship,
+      location,
       createdAt: new Date().toISOString(),
     };
 
@@ -38,12 +52,6 @@ const MentorForm = () => {
     } catch (error) {
       console.error("Error saving mentor data:", error);
       alert("There was an error submitting your form.");
-    }
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setCertification(e.target.files[0]);
     }
   };
 
@@ -141,19 +149,109 @@ const MentorForm = () => {
           />
         </div>
 
-        {/* Certification Upload */}
+        {/* Certification Link */}
         <div>
           <label
-            htmlFor="certification"
+            htmlFor="certificationLink"
             className="block text-sm font-medium text-gray-700"
           >
-            Certification (PDF or Image)
+            Certification Link
           </label>
           <input
-            type="file"
-            id="certification"
-            accept=".pdf,image/*"
-            onChange={handleFileChange}
+            type="url"
+            id="certificationLink"
+            value={certificationLink}
+            onChange={(e) => setCertificationLink(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            required
+          />
+        </div>
+
+        {/* LinkedIn Profile */}
+        <div>
+          <label
+            htmlFor="linkedinProfile"
+            className="block text-sm font-medium text-gray-700"
+          >
+            LinkedIn Profile URL
+          </label>
+          <input
+            type="url"
+            id="linkedinProfile"
+            value={linkedinProfile}
+            onChange={(e) => setLinkedinProfile(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            required
+          />
+        </div>
+
+        {/* Years of Experience */}
+        <div>
+          <label
+            htmlFor="yearsOfExperience"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Years of Experience
+          </label>
+          <input
+            type="number"
+            id="yearsOfExperience"
+            value={yearsOfExperience}
+            onChange={(e) => setYearsOfExperience(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            required
+          />
+        </div>
+
+        {/* Previous Mentoring Experience */}
+        <div>
+          <label
+            htmlFor="previousMentoringExperience"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Previous Mentoring Experience
+          </label>
+          <textarea
+            id="previousMentoringExperience"
+            value={previousMentoringExperience}
+            onChange={(e) => setPreviousMentoringExperience(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            rows={4}
+            required
+          />
+        </div>
+
+        {/* Preferred Mode of Mentorship */}
+        <div>
+          <label
+            htmlFor="preferredModeOfMentorship"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Preferred Mode of Mentorship
+          </label>
+          <input
+            type="text"
+            id="preferredModeOfMentorship"
+            value={preferredModeOfMentorship}
+            onChange={(e) => setPreferredModeOfMentorship(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            required
+          />
+        </div>
+
+        {/* Location */}
+        <div>
+          <label
+            htmlFor="location"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Location
+          </label>
+          <input
+            type="text"
+            id="location"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
             required
           />

@@ -19,6 +19,7 @@
     "dropzone": "^6.0.0-beta.2",
     "firebase": "^11.1.0",
     "flatpickr": "^4.6.13",
+    "formidable": "^3.5.2",
     "joi": "^17.13.3",
     "jsvectormap": "^1.5.3",
     "mongoose": "^8.9.2",
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/formidable": "^3.4.5",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^18",

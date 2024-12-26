@@ -5,14 +5,19 @@ import { doc, getDoc } from "firebase/firestore";
 import { useAuth } from "../../hooks/useAuth";
 
 const MentorDashboard = () => {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth(); // Assuming useAuth has a loading state
   const router = useRouter();
   const [mentorData, setMentorData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    // Wait until user authentication state is loaded
+    if (authLoading) return; // Don't proceed until auth is done
+
+    console.log(user); // Check user object
+
     if (!user) {
-      router.push("/signin"); // Redirect to signin if not authenticated
+      router.push("/auth/signin"); // Redirect to signin if not authenticated
       return;
     }
 
@@ -44,7 +49,7 @@ const MentorDashboard = () => {
     };
 
     fetchData();
-  }, [user]);
+  }, [user, authLoading]); // Add authLoading to the dependency array
 
   if (loading) {
     return <div>Loading...</div>;

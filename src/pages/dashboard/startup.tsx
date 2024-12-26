@@ -5,12 +5,16 @@ import { doc, getDoc } from "firebase/firestore";
 import { useAuth } from "../../hooks/useAuth";
 
 const StartupDashboard = () => {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth(); // Assuming useAuth has a loading state
   const router = useRouter();
   const [startupData, setStartupData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    // Wait until user authentication state is loaded
+    if (authLoading) return;
+
+    console.log(user); // Check user object
     if (!user) {
       router.push("/auth/signin"); // Redirect to signin if not authenticated
       return;
@@ -44,7 +48,7 @@ const StartupDashboard = () => {
     };
 
     fetchData();
-  }, [user]);
+  }, [user, authLoading]); // Add authLoading to the dependency array
 
   if (loading) {
     return <div>Loading...</div>;
@@ -65,8 +69,7 @@ const StartupDashboard = () => {
           <strong>Genre:</strong> {startupData.favoriteGenre}
         </p>
         <p>
-          <strong>Total Funding Required:</strong> $
-          {startupData.totalFundingRequired}
+          <strong>Total Funding Required:</strong> ${startupData.totalFunding}
         </p>
         <p>
           <strong>Total Members:</strong> {startupData.totalMembers}

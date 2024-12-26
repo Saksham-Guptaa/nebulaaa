@@ -37,7 +37,7 @@ const SignIn = () => {
         if (formCompleted) {
           router.push(`/dashboard/${role}`); // Redirect to role-specific dashboard
         } else {
-          router.push(`/roles/${role}`); // Redirect to role-specific form
+          router.push(`/dashboard/${role}`); // Redirect to role-specific form
         }
       } else {
         throw new Error("User data not found. Please contact support.");
