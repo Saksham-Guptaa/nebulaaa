@@ -88,14 +88,14 @@ const InvestorForm = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="mb-4 text-2xl font-bold">Investor Form</h1>
+    <div className="max-w-4xl mx-auto p-6 bg-blue-100/40 my-8 rounded-xl shadow-lg">
+      <h1 className="mb-6 text-4xl font-bold text-gray-800">Investor Form</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Preferred Industries */}
         <div>
           <label
             htmlFor="preferredIndustries"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Preferred Industries
           </label>
@@ -108,7 +108,7 @@ const InvestorForm = () => {
                 Array.from(e.target.selectedOptions, (option) => option.value),
               )
             }
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           >
             <option value="Technology">Technology</option>
             <option value="Healthcare">Healthcare</option>
@@ -122,7 +122,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="investmentSize"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Average Investment Size ($)
           </label>
@@ -131,7 +131,7 @@ const InvestorForm = () => {
             id="investmentSize"
             value={investmentSize}
             onChange={(e) => setInvestmentSize(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             required
           />
         </div>
@@ -140,7 +140,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="investmentStrategy"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Investment Strategy
           </label>
@@ -148,7 +148,7 @@ const InvestorForm = () => {
             id="investmentStrategy"
             value={investmentStrategy}
             onChange={(e) => setInvestmentStrategy(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             rows={4}
             required
           />
@@ -158,7 +158,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="investmentHistory"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Investment History
           </label>
@@ -166,7 +166,7 @@ const InvestorForm = () => {
             id="investmentHistory"
             value={investmentHistory}
             onChange={(e) => setInvestmentHistory(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             rows={4}
             required
           />
@@ -176,7 +176,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="investmentFocus"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Investment Focus
           </label>
@@ -185,7 +185,7 @@ const InvestorForm = () => {
             id="investmentFocus"
             value={investmentFocus}
             onChange={(e) => setInvestmentFocus(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
@@ -193,7 +193,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="geographicalPreferences"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Geographical Preferences
           </label>
@@ -202,7 +202,7 @@ const InvestorForm = () => {
             id="geographicalPreferences"
             value={geographicalPreferences}
             onChange={(e) => setGeographicalPreferences(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
@@ -210,7 +210,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="minInvestmentAmount"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Minimum Investment Amount ($)
           </label>
@@ -219,7 +219,7 @@ const InvestorForm = () => {
             id="minInvestmentAmount"
             value={minInvestmentAmount}
             onChange={(e) => setMinInvestmentAmount(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
@@ -227,7 +227,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="exitStrategy"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Preferred Exit Strategy
           </label>
@@ -236,7 +236,7 @@ const InvestorForm = () => {
             id="exitStrategy"
             value={exitStrategy}
             onChange={(e) => setExitStrategy(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
@@ -244,7 +244,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="riskTolerance"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Risk Tolerance
           </label>
@@ -252,7 +252,7 @@ const InvestorForm = () => {
             id="riskTolerance"
             value={riskTolerance}
             onChange={(e) => setRiskTolerance(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           >
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
@@ -264,7 +264,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="contactPreferences"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Contact Preferences
           </label>
@@ -273,7 +273,7 @@ const InvestorForm = () => {
             id="contactPreferences"
             value={contactPreferences}
             onChange={(e) => setContactPreferences(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
@@ -281,7 +281,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="fundSize"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Fund Size ($)
           </label>
@@ -290,7 +290,7 @@ const InvestorForm = () => {
             id="fundSize"
             value={fundSize}
             onChange={(e) => setFundSize(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
@@ -298,7 +298,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="portfolioOverview"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Portfolio Overview
           </label>
@@ -306,7 +306,7 @@ const InvestorForm = () => {
             id="portfolioOverview"
             value={portfolioOverview}
             onChange={(e) => setPortfolioOverview(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             rows={4}
           />
         </div>
@@ -315,7 +315,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="investmentHorizon"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Investment Horizon
           </label>
@@ -324,7 +324,7 @@ const InvestorForm = () => {
             id="investmentHorizon"
             value={investmentHorizon}
             onChange={(e) => setInvestmentHorizon(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
@@ -332,7 +332,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="advisoryRole"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Willing to Take Advisory Role?
           </label>
@@ -349,7 +349,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="socialImpactFocus"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Interested in Social Impact Investments?
           </label>
@@ -366,7 +366,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="investmentRestrictions"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Investment Restrictions
           </label>
@@ -375,7 +375,7 @@ const InvestorForm = () => {
             id="investmentRestrictions"
             value={investmentRestrictions}
             onChange={(e) => setInvestmentRestrictions(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
@@ -383,7 +383,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="websiteLink"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Website or Portfolio Link
           </label>
@@ -392,14 +392,14 @@ const InvestorForm = () => {
             id="websiteLink"
             value={websiteLink}
             onChange={(e) => setWebsiteLink(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
         <div>
           <label
             htmlFor="bankName"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Bank Name
           </label>
@@ -408,14 +408,14 @@ const InvestorForm = () => {
             id="bankName"
             value={bankName}
             onChange={(e) => setBankName(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
         <div>
           <label
             htmlFor="ifscCode"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             IFSC Code
           </label>
@@ -424,7 +424,7 @@ const InvestorForm = () => {
             id="ifscCode"
             value={ifscCode}
             onChange={(e) => setIfscCode(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
@@ -432,7 +432,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="cryptoType"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Cryptocurrency Type
           </label>
@@ -440,7 +440,7 @@ const InvestorForm = () => {
             id="cryptoType"
             value={cryptoType}
             onChange={(e) => setCryptoType(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           >
             <option value="Bitcoin">Bitcoin</option>
             <option value="Ethereum">Ethereum</option>
@@ -452,7 +452,7 @@ const InvestorForm = () => {
         <div>
           <label
             htmlFor="cryptoWalletAddress"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Crypto Wallet Address
           </label>
@@ -461,14 +461,14 @@ const InvestorForm = () => {
             id="cryptoWalletAddress"
             value={cryptoWalletAddress}
             onChange={(e) => setCryptoWalletAddress(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
         <div className="mt-4">
           <button
             type="submit"
-            className="rounded-md bg-blue-600 px-4 py-2 text-white"
+            className="mt-4 w-full rounded-md bg-blue-500 p-3 font-semibold text-white"
           >
             Submit
           </button>

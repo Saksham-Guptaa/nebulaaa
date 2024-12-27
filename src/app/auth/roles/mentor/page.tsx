@@ -15,7 +15,7 @@ const MentorForm = () => {
   const [certificationLink, setCertificationLink] = useState<string>("");
   const [linkedinProfile, setLinkedinProfile] = useState<string>("");
   const [yearsOfExperience, setYearsOfExperience] = useState<number | string>(
-    "",
+    ""
   );
   const [bankAccountNumber, setBankAccountNumber] = useState("");
   const [bankName, setBankName] = useState("");
@@ -28,6 +28,14 @@ const MentorForm = () => {
     useState<string>("");
   const [location, setLocation] = useState<string>("");
 
+  const handleAvailabilityChange = (day: string) => {
+    if (availability.includes(day)) {
+      setAvailability(availability.filter((d) => d !== day));
+    } else {
+      setAvailability([...availability, day]);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -35,7 +43,6 @@ const MentorForm = () => {
       return alert("You must be logged in to submit this form.");
     }
 
-    // Prepare data to be saved
     const mentorData = {
       hourlyRate,
       availability,
@@ -60,9 +67,8 @@ const MentorForm = () => {
     };
 
     try {
-      // Save data to Firestore under the user's role (mentor)
       await setDoc(doc(db, "users", user.uid, "roles", "mentor"), mentorData);
-      router.push("/dashboard/mentor"); // Redirect to mentor dashboard
+      router.push("/dashboard/mentor");
     } catch (error) {
       console.error("Error saving mentor data:", error);
       alert("There was an error submitting your form.");
@@ -70,36 +76,51 @@ const MentorForm = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="mb-4 text-2xl font-bold">Mentor Form</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Hourly Rate */}
+    <div className="max-w-4xl mx-auto p-6 bg-blue-100/40 my-8 rounded-xl shadow-lg">
+      <h1 className="mb-6 text-4xl font-bold text-gray-800">Mentor Form</h1>
+      <form onSubmit={handleSubmit} className="space-y-8">
+        {/* Section: Personal Information */}
         <div>
-          <label
-            htmlFor="hourlyRate"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Hourly Rate ($)
-          </label>
-          <input
-            type="number"
-            id="hourlyRate"
-            value={hourlyRate}
-            onChange={(e) => setHourlyRate(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-            required
-          />
+          <h2 className="mb-4 text-xl font-semibold text-gray-700">
+            Personal Information
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Hourly Rate */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Hourly Rate ($)
+              </label>
+              <input
+                type="number"
+                value={hourlyRate}
+                onChange={(e) => setHourlyRate(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                required
+              />
+            </div>
+
+            {/* Location */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Location
+              </label>
+              <input
+                type="text"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                required
+              />
+            </div>
+          </div>
         </div>
 
-        {/* Availability */}
+        {/* Section: Availability */}
         <div>
-          <label
-            htmlFor="availability"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Availability (Select Days)
-          </label>
-          <div className="flex flex-wrap gap-2">
+          <h2 className="mb-4 text-xl font-semibold text-gray-700">
+            Availability
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               "Monday",
               "Tuesday",
@@ -109,241 +130,169 @@ const MentorForm = () => {
               "Saturday",
               "Sunday",
             ].map((day) => (
-              <label key={day} className="inline-flex items-center">
+              <label key={day} className="flex items-center space-x-2">
                 <input
                   type="checkbox"
                   value={day}
-                  onChange={(e) => {
-                    const newAvailability = e.target.checked
-                      ? [...availability, day]
-                      : availability.filter((item) => item !== day);
-                    setAvailability(newAvailability);
-                  }}
-                  className="form-checkbox"
+                  checked={availability.includes(day)}
+                  onChange={() => handleAvailabilityChange(day)}
+                  className="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500"
                 />
-                <span className="ml-2">{day}</span>
+                <span className="text-gray-700">{day}</span>
               </label>
             ))}
           </div>
         </div>
 
-        {/* Interests */}
+        {/* Section: Professional Details */}
         <div>
-          <label
-            htmlFor="interests"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Interests
-          </label>
-          <textarea
-            id="interests"
-            value={interests}
-            onChange={(e) => setInterests(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-            rows={4}
-            required
-          />
+          <h2 className="mb-4 text-xl font-semibold text-gray-700">
+            Professional Details
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Interests */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Interests
+              </label>
+              <input
+                type="text"
+                value={interests}
+                onChange={(e) => setInterests(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                required
+              />
+            </div>
+
+            {/* Expertise */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Expertise
+              </label>
+              <input
+                type="text"
+                value={expertise}
+                onChange={(e) => setExpertise(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                required
+              />
+            </div>
+
+            {/* Years of Experience */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Years of Experience
+              </label>
+              <input
+                type="number"
+                value={yearsOfExperience}
+                onChange={(e) => setYearsOfExperience(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                required
+              />
+            </div>
+
+            {/* LinkedIn Profile */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                LinkedIn Profile URL
+              </label>
+              <input
+                type="url"
+                value={linkedinProfile}
+                onChange={(e) => setLinkedinProfile(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                required
+              />
+            </div>
+          </div>
         </div>
 
-        {/* Expertise */}
+        {/* Section: Payment Details */}
         <div>
-          <label
-            htmlFor="expertise"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Expertise
-          </label>
-          <textarea
-            id="expertise"
-            value={expertise}
-            onChange={(e) => setExpertise(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-            rows={4}
-            required
-          />
-        </div>
+          <h2 className="mb-4 text-xl font-semibold text-gray-700">
+            Payment Details
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Bank Account Number */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Bank Account Number
+              </label>
+              <input
+                type="text"
+                value={bankAccountNumber}
+                onChange={(e) => setBankAccountNumber(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                required
+              />
+            </div>
 
-        {/* Certification Link */}
-        <div>
-          <label
-            htmlFor="certificationLink"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Certification Link
-          </label>
-          <input
-            type="url"
-            id="certificationLink"
-            value={certificationLink}
-            onChange={(e) => setCertificationLink(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-            required
-          />
-        </div>
+            {/* Bank Name */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Bank Name
+              </label>
+              <input
+                type="text"
+                value={bankName}
+                onChange={(e) => setBankName(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                required
+              />
+            </div>
 
-        {/* LinkedIn Profile */}
-        <div>
-          <label
-            htmlFor="linkedinProfile"
-            className="block text-sm font-medium text-gray-700"
-          >
-            LinkedIn Profile URL
-          </label>
-          <input
-            type="url"
-            id="linkedinProfile"
-            value={linkedinProfile}
-            onChange={(e) => setLinkedinProfile(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-            required
-          />
-        </div>
+            {/* IFSC Code */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                IFSC Code
+              </label>
+              <input
+                type="text"
+                value={ifscCode}
+                onChange={(e) => setIfscCode(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                required
+              />
+            </div>
 
-        {/* Years of Experience */}
-        <div>
-          <label
-            htmlFor="yearsOfExperience"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Years of Experience
-          </label>
-          <input
-            type="number"
-            id="yearsOfExperience"
-            value={yearsOfExperience}
-            onChange={(e) => setYearsOfExperience(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-            required
-          />
-        </div>
+            {/* Cryptocurrency Type */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Cryptocurrency Type
+              </label>
+              <select
+                value={cryptoType}
+                onChange={(e) => setCryptoType(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              >
+                <option value="">Select Type</option>
+                <option value="Bitcoin">Bitcoin</option>
+                <option value="Ethereum">Ethereum</option>
+                <option value="Litecoin">Litecoin</option>
+              </select>
+            </div>
 
-        {/* Previous Mentoring Experience */}
-        <div>
-          <label
-            htmlFor="previousMentoringExperience"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Previous Mentoring Experience
-          </label>
-          <textarea
-            id="previousMentoringExperience"
-            value={previousMentoringExperience}
-            onChange={(e) => setPreviousMentoringExperience(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-            rows={4}
-            required
-          />
-        </div>
-
-        {/* Preferred Mode of Mentorship */}
-        <div>
-          <label
-            htmlFor="preferredModeOfMentorship"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Preferred Mode of Mentorship
-          </label>
-          <input
-            type="text"
-            id="preferredModeOfMentorship"
-            value={preferredModeOfMentorship}
-            onChange={(e) => setPreferredModeOfMentorship(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-            required
-          />
-        </div>
-
-        {/* Location */}
-        <div>
-          <label
-            htmlFor="location"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Location
-          </label>
-          <input
-            type="text"
-            id="location"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-            required
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="bankName"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Bank Name
-          </label>
-          <input
-            type="text"
-            id="bankName"
-            value={bankName}
-            onChange={(e) => setBankName(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="ifscCode"
-            className="block text-sm font-medium text-gray-700"
-          >
-            IFSC Code
-          </label>
-          <input
-            type="text"
-            id="ifscCode"
-            value={ifscCode}
-            onChange={(e) => setIfscCode(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-          />
-        </div>
-
-        {/* Crypto Account Details */}
-        <div>
-          <label
-            htmlFor="cryptoType"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Cryptocurrency Type
-          </label>
-          <select
-            id="cryptoType"
-            value={cryptoType}
-            onChange={(e) => setCryptoType(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-          >
-            <option value="Bitcoin">Bitcoin</option>
-            <option value="Ethereum">Ethereum</option>
-            <option value="Litecoin">Litecoin</option>
-            {/* Add more options for different cryptocurrencies */}
-          </select>
-        </div>
-
-        <div>
-          <label
-            htmlFor="cryptoWalletAddress"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Crypto Wallet Address
-          </label>
-          <input
-            type="text"
-            id="cryptoWalletAddress"
-            value={cryptoWalletAddress}
-            onChange={(e) => setCryptoWalletAddress(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-          />
+            {/* Crypto Wallet Address */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700">
+                Crypto Wallet Address
+              </label>
+              <input
+                type="text"
+                value={cryptoWalletAddress}
+                onChange={(e) => setCryptoWalletAddress(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                required
+              />
+            </div>
+          </div>
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
-          className="mt-4 w-full rounded-md bg-blue-500 p-2 text-white"
+          className="w-full rounded-lg bg-blue-500 p-3 text-white hover:bg-blue-600"
         >
           Submit
         </button>

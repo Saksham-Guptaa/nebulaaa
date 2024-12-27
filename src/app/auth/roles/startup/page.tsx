@@ -88,14 +88,14 @@ const StartupForm = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="mb-4 text-2xl font-bold">Startup Form</h1>
+    <div className="max-w-4xl mx-auto p-6 bg-blue-100/40 my-8 rounded-xl shadow-lg">
+      <h1 className="mb-6 text-4xl font-bold text-gray-800">Startup Form</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Gender */}
         <div>
           <label
             htmlFor="gener"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Gener of Startup
           </label>
@@ -103,7 +103,7 @@ const StartupForm = () => {
             id="gener"
             value={gener}
             onChange={(e) => setGener(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           >
             <option value="">Select Gener</option>
             <option value="Technology">Technology</option>
@@ -118,7 +118,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="totalFunding"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Total Funding Required ($)
           </label>
@@ -127,7 +127,7 @@ const StartupForm = () => {
             id="totalFunding"
             value={totalFunding}
             onChange={(e) => setTotalFunding(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             required
           />
         </div>
@@ -136,7 +136,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="totalMembers"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Total Members
           </label>
@@ -145,14 +145,14 @@ const StartupForm = () => {
             id="totalMembers"
             value={totalMembers}
             onChange={(e) => setTotalMembers(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             required
           />
         </div>
 
         {/* Members (Username and Email) */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-semibold text-gray-700">
             Members
           </label>
           {Array.from({ length: Number(totalMembers) }).map((_, index) => (
@@ -169,7 +169,7 @@ const StartupForm = () => {
                   };
                   setMembers(updatedMembers);
                 }}
-                className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
               />
               <input
                 type="email"
@@ -183,7 +183,7 @@ const StartupForm = () => {
                   };
                   setMembers(updatedMembers);
                 }}
-                className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
               />
             </div>
           ))}
@@ -193,7 +193,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="industryCategory"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Industry/Category
           </label>
@@ -201,7 +201,7 @@ const StartupForm = () => {
             id="industryCategory"
             value={industryCategory}
             onChange={(e) => setIndustryCategory(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           >
             <option value="">Select Industry</option>
             <option value="Technology">Technology</option>
@@ -216,7 +216,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="startupStage"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Stage of Startup
           </label>
@@ -224,7 +224,7 @@ const StartupForm = () => {
             id="startupStage"
             value={startupStage}
             onChange={(e) => setStartupStage(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           >
             <option value="">Select Stage</option>
             <option value="Ideation">Ideation</option>
@@ -239,7 +239,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="founderBackground"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Founder Background
           </label>
@@ -247,7 +247,7 @@ const StartupForm = () => {
             id="founderBackground"
             value={founderBackground}
             onChange={(e) => setFounderBackground(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             rows={4}
           />
         </div>
@@ -256,7 +256,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="fundingSources"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Funding Sources
           </label>
@@ -264,7 +264,7 @@ const StartupForm = () => {
             id="fundingSources"
             value={fundingSources}
             onChange={(e) => setFundingSources(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           >
             <option value="">Select Funding Source</option>
             <option value="Bootstrapped">Bootstrapped</option>
@@ -279,7 +279,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="competitors"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Competitors
           </label>
@@ -287,7 +287,7 @@ const StartupForm = () => {
             id="competitors"
             value={competitors}
             onChange={(e) => setCompetitors(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             rows={4}
           />
         </div>
@@ -296,7 +296,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="marketSize"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Market Size
           </label>
@@ -304,7 +304,7 @@ const StartupForm = () => {
             id="marketSize"
             value={marketSize}
             onChange={(e) => setMarketSize(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             rows={4}
           />
         </div>
@@ -313,7 +313,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="technologyStack"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Technology Stack
           </label>
@@ -321,7 +321,7 @@ const StartupForm = () => {
             id="technologyStack"
             value={technologyStack}
             onChange={(e) => setTechnologyStack(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             rows={4}
           />
         </div>
@@ -330,7 +330,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="userFeedback"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             User Feedback
           </label>
@@ -338,7 +338,7 @@ const StartupForm = () => {
             id="userFeedback"
             value={userFeedback}
             onChange={(e) => setUserFeedback(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             rows={4}
           />
         </div>
@@ -347,7 +347,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="patentIP"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Patent/IP
           </label>
@@ -355,7 +355,7 @@ const StartupForm = () => {
             id="patentIP"
             value={patentIP}
             onChange={(e) => setPatentIP(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             rows={4}
           />
         </div>
@@ -364,7 +364,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="linkedinProfiles"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             LinkedIn Profiles
           </label>
@@ -372,7 +372,7 @@ const StartupForm = () => {
             id="linkedinProfiles"
             value={linkedinProfiles.join(", ")}
             onChange={(e) => setLinkedinProfiles(e.target.value.split(", "))}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             rows={4}
             placeholder="Enter LinkedIn profiles, separated by commas"
           />
@@ -382,7 +382,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="productDemoLink"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Product Demo Link
           </label>
@@ -391,7 +391,7 @@ const StartupForm = () => {
             id="productDemoLink"
             value={productDemoLink}
             onChange={(e) => setProductDemoLink(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
@@ -399,7 +399,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="geographicalReach"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Geographical Reach
           </label>
@@ -408,7 +408,7 @@ const StartupForm = () => {
             id="geographicalReach"
             value={geographicalReach}
             onChange={(e) => setGeographicalReach(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
@@ -416,7 +416,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="exitStrategy"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Exit Strategy
           </label>
@@ -424,7 +424,7 @@ const StartupForm = () => {
             id="exitStrategy"
             value={exitStrategy}
             onChange={(e) => setExitStrategy(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             rows={4}
           />
         </div>
@@ -432,7 +432,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="bankName"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Bank Name
           </label>
@@ -441,14 +441,14 @@ const StartupForm = () => {
             id="bankName"
             value={bankName}
             onChange={(e) => setBankName(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
         <div>
           <label
             htmlFor="ifscCode"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             IFSC Code
           </label>
@@ -457,7 +457,7 @@ const StartupForm = () => {
             id="ifscCode"
             value={ifscCode}
             onChange={(e) => setIfscCode(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 
@@ -465,7 +465,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="cryptoType"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Cryptocurrency Type
           </label>
@@ -473,7 +473,7 @@ const StartupForm = () => {
             id="cryptoType"
             value={cryptoType}
             onChange={(e) => setCryptoType(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           >
             <option value="Bitcoin">Bitcoin</option>
             <option value="Ethereum">Ethereum</option>
@@ -485,7 +485,7 @@ const StartupForm = () => {
         <div>
           <label
             htmlFor="cryptoWalletAddress"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Crypto Wallet Address
           </label>
@@ -494,7 +494,7 @@ const StartupForm = () => {
             id="cryptoWalletAddress"
             value={cryptoWalletAddress}
             onChange={(e) => setCryptoWalletAddress(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 

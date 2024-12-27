@@ -78,14 +78,16 @@ const InfluencerForm = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="mb-4 text-2xl font-bold">Influencer Form</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="max-w-5xl mx-auto p-8 bg-blue-100/40 my-8 rounded-xl shadow-lg">
+      <h1 className="mb-6 text-4xl font-bold text-gray-800 text-center">
+        Influencer Form
+      </h1>
+      <form onSubmit={handleSubmit} className="space-y-8">
         {/* Favorite Genre */}
         <div>
           <label
             htmlFor="favoriteGenre"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Favorite Genre
           </label>
@@ -93,7 +95,7 @@ const InfluencerForm = () => {
             id="favoriteGenre"
             value={favoriteGenre}
             onChange={(e) => setFavoriteGenre(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             required
           >
             <option value="">Select Genre</option>
@@ -103,7 +105,6 @@ const InfluencerForm = () => {
             <option value="Lifestyle">Lifestyle</option>
             <option value="Travel">Travel</option>
             <option value="Food">Food</option>
-            {/* Add more genres as needed */}
           </select>
         </div>
 
@@ -111,7 +112,7 @@ const InfluencerForm = () => {
         <div>
           <label
             htmlFor="totalReach"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Total Reach
           </label>
@@ -120,17 +121,17 @@ const InfluencerForm = () => {
             id="totalReach"
             value={totalReach}
             onChange={(e) => setTotalReach(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             required
           />
         </div>
 
-        {/* Followers on Different Platforms */}
-        <div className="space-y-4">
+        {/* Followers on Different Platforms (Grid Layout) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div>
             <label
               htmlFor="followersInstagram"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-semibold text-gray-700"
             >
               Instagram Followers
             </label>
@@ -139,13 +140,13 @@ const InfluencerForm = () => {
               id="followersInstagram"
               value={followersInstagram}
               onChange={(e) => setFollowersInstagram(e.target.value)}
-              className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             />
           </div>
           <div>
             <label
               htmlFor="followersTwitter"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-semibold text-gray-700"
             >
               Twitter Followers
             </label>
@@ -154,13 +155,13 @@ const InfluencerForm = () => {
               id="followersTwitter"
               value={followersTwitter}
               onChange={(e) => setFollowersTwitter(e.target.value)}
-              className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             />
           </div>
           <div>
             <label
               htmlFor="followersYouTube"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-semibold text-gray-700"
             >
               YouTube Followers
             </label>
@@ -169,7 +170,7 @@ const InfluencerForm = () => {
               id="followersYouTube"
               value={followersYouTube}
               onChange={(e) => setFollowersYouTube(e.target.value)}
-              className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             />
           </div>
         </div>
@@ -178,7 +179,7 @@ const InfluencerForm = () => {
         <div>
           <label
             htmlFor="rating"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-gray-700"
           >
             Rating (1-5)
           </label>
@@ -187,208 +188,217 @@ const InfluencerForm = () => {
             id="rating"
             value={rating}
             onChange={(e) => setRating(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             min="1"
             max="5"
             required
           />
         </div>
 
-        {/* Description */}
-        <div>
-          <label
-            htmlFor="description"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Description
-          </label>
-          <textarea
-            id="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-            rows={4}
-            required
-          />
+        {/* Text Fields Group (Description, Other Details, Audience Demographics, Preferred Brands) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label
+              htmlFor="description"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Description
+            </label>
+            <textarea
+              id="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              rows={4}
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="otherDetails"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Other Details
+            </label>
+            <textarea
+              id="otherDetails"
+              value={otherDetails}
+              onChange={(e) => setOtherDetails(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              rows={4}
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="audienceDemographics"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Audience Demographics
+            </label>
+            <textarea
+              id="audienceDemographics"
+              value={audienceDemographics}
+              onChange={(e) => setAudienceDemographics(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              rows={4}
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="preferredBrands"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Preferred Brands for Collaboration
+            </label>
+            <input
+              type="text"
+              id="preferredBrands"
+              value={preferredBrands}
+              onChange={(e) => setPreferredBrands(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
         </div>
 
-        {/* Other Details */}
-        <div>
-          <label
-            htmlFor="otherDetails"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Other Details
-          </label>
-          <textarea
-            id="otherDetails"
-            value={otherDetails}
-            onChange={(e) => setOtherDetails(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-            rows={4}
-          />
+        {/* Collaboration Type & Social Impact */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label
+              htmlFor="collaborationType"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Preferred Collaboration Type
+            </label>
+            <input
+              type="text"
+              id="collaborationType"
+              value={collaborationType}
+              onChange={(e) => setCollaborationType(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="socialImpact"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Social Impact Focus
+            </label>
+            <input
+              type="text"
+              id="socialImpact"
+              value={socialImpact}
+              onChange={(e) => setSocialImpact(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
         </div>
 
-        {/* Audience Demographics */}
+        {/* Bank Details Group */}
         <div>
-          <label
-            htmlFor="audienceDemographics"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Audience Demographics
-          </label>
-          <textarea
-            id="audienceDemographics"
-            value={audienceDemographics}
-            onChange={(e) => setAudienceDemographics(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-            rows={4}
-          />
+          <h2 className="text-lg font-semibold text-gray-700 mb-4">Bank Details</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label
+                htmlFor="bankAccountNumber"
+                className="block text-sm font-semibold text-gray-700"
+              >
+                Bank Account Number
+              </label>
+              <input
+                type="text"
+                id="bankAccountNumber"
+                value={bankAccountNumber}
+                onChange={(e) => setBankAccountNumber(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                required
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="bankName"
+                className="block text-sm font-semibold text-gray-700"
+              >
+                Bank Name
+              </label>
+              <input
+                type="text"
+                id="bankName"
+                value={bankName}
+                onChange={(e) => setBankName(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                required
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="ifscCode"
+                className="block text-sm font-semibold text-gray-700"
+              >
+                IFSC Code
+              </label>
+              <input
+                type="text"
+                id="ifscCode"
+                value={ifscCode}
+                onChange={(e) => setIfscCode(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                required
+              />
+            </div>
+          </div>
         </div>
 
-        {/* Preferred Brands */}
+        {/* Crypto Details Group */}
         <div>
-          <label
-            htmlFor="preferredBrands"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Preferred Brands for Collaboration
-          </label>
-          <input
-            type="text"
-            id="preferredBrands"
-            value={preferredBrands}
-            onChange={(e) => setPreferredBrands(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-          />
-        </div>
+          <h2 className="text-lg font-semibold text-gray-700 mb-4">Crypto Details</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label
+                htmlFor="cryptoType"
+                className="block text-sm font-semibold text-gray-700"
+              >
+                Crypto Type (e.g., Bitcoin)
+              </label>
+              <input
+                type="text"
+                id="cryptoType"
+                value={cryptoType}
+                onChange={(e) => setCryptoType(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              />
+            </div>
 
-        {/* Collaboration Type */}
-        <div>
-          <label
-            htmlFor="collaborationType"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Preferred Collaboration Type
-          </label>
-          <input
-            type="text"
-            id="collaborationType"
-            value={collaborationType}
-            onChange={(e) => setCollaborationType(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-          />
-        </div>
-
-        {/* Social Impact */}
-        <div>
-          <label
-            htmlFor="socialImpact"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Social Impact (Causes/Charities)
-          </label>
-          <textarea
-            id="socialImpact"
-            value={socialImpact}
-            onChange={(e) => setSocialImpact(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-            rows={4}
-          />
-        </div>
-
-        {/* Bank Account Details */}
-        <div>
-          <label
-            htmlFor="bankAccountNumber"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Bank Account Number
-          </label>
-          <input
-            type="text"
-            id="bankAccountNumber"
-            value={bankAccountNumber}
-            onChange={(e) => setBankAccountNumber(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="bankName"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Bank Name
-          </label>
-          <input
-            type="text"
-            id="bankName"
-            value={bankName}
-            onChange={(e) => setBankName(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="ifscCode"
-            className="block text-sm font-medium text-gray-700"
-          >
-            IFSC Code
-          </label>
-          <input
-            type="text"
-            id="ifscCode"
-            value={ifscCode}
-            onChange={(e) => setIfscCode(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-          />
-        </div>
-
-        {/* Crypto Account Details */}
-        <div>
-          <label
-            htmlFor="cryptoType"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Cryptocurrency Type
-          </label>
-          <select
-            id="cryptoType"
-            value={cryptoType}
-            onChange={(e) => setCryptoType(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-          >
-            <option value="Bitcoin">Bitcoin</option>
-            <option value="Ethereum">Ethereum</option>
-            <option value="Litecoin">Litecoin</option>
-            {/* Add more options for different cryptocurrencies */}
-          </select>
-        </div>
-
-        <div>
-          <label
-            htmlFor="cryptoWalletAddress"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Crypto Wallet Address
-          </label>
-          <input
-            type="text"
-            id="cryptoWalletAddress"
-            value={cryptoWalletAddress}
-            onChange={(e) => setCryptoWalletAddress(e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
-          />
+            <div>
+              <label
+                htmlFor="cryptoWalletAddress"
+                className="block text-sm font-semibold text-gray-700"
+              >
+                Crypto Wallet Address
+              </label>
+              <input
+                type="text"
+                id="cryptoWalletAddress"
+                value={cryptoWalletAddress}
+                onChange={(e) => setCryptoWalletAddress(e.target.value)}
+                className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
-          className="mt-4 w-full rounded-md bg-blue-500 p-2 text-white"
+          className="w-full py-4 text-white bg-primary rounded-xl"
         >
-          Submit
+          Submit Form
         </button>
       </form>
     </div>
