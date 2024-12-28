@@ -2,14 +2,43 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { signOut } from "firebase/auth";
-import { auth } from "../../utils/firebase"; // Import your Firebase auth instance
 import { useRouter } from "next/navigation";
+import { onAuthStateChanged } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "../../utils/firebase";
+
+
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [user, setUser] = useState<null | { uid: string; fullName: string; role: string }>(null);
 
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
   const router = useRouter();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser) {
+        try {
+          const userDoc = await getDoc(doc(db, "users", currentUser.uid));
+          console.log("User document fetched:", userDoc.data());
+          if (userDoc.exists()) {
+            setUser({ uid: currentUser.uid, fullName: userDoc.data().fullName, role: userDoc.data().role });
+          } else {
+            console.warn("User document does not exist in Firestore");
+          }
+        } catch (error) {
+          console.error("Error fetching user document:", error);
+        }
+      } else {
+        console.log("No user is signed in");
+        setUser(null);
+      }
+    });
+  
+    return () => unsubscribe();
+  }, []);
+
   // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
@@ -55,9 +84,9 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            Pravash Dey
+            {user?.fullName}
           </span>
-          <span className="block text-xs">Investor</span>
+          <span className="block text-xs">{user?.role}</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
