@@ -1,12 +1,26 @@
 "use client";
+
+import dynamic from "next/dynamic";
 import Breadcrumb from "../Breadcrumbs/Breadcrumb";
-import ChartFour from "@/components/Charts/ChartFour";
-import ChartSeven from "@/components/Charts/ChartSeven";
-import ChartEight from "@/components/Charts/ChartEight";
-import ChartSix from "@/components/Charts/ChartSix";
-import ChartNine from "@/components/Charts/ChartNine";
-import ChartTwelve from "@/components/Charts/ChartTwelve";
-import React from "react";
+
+const ChartFour = dynamic(() => import("@/components/Charts/ChartFour"), {
+  ssr: false,
+});
+const ChartSeven = dynamic(() => import("@/components/Charts/ChartSeven"), {
+  ssr: false,
+});
+const ChartEight = dynamic(() => import("@/components/Charts/ChartEight"), {
+  ssr: false,
+});
+const ChartSix = dynamic(() => import("@/components/Charts/ChartSix"), {
+  ssr: false,
+});
+const ChartNine = dynamic(() => import("@/components/Charts/ChartNine"), {
+  ssr: false,
+});
+const ChartTwelve = dynamic(() => import("@/components/Charts/ChartTwelve"), {
+  ssr: false,
+});
 
 const AdvancedChart: React.FC = () => {
   return (
@@ -29,7 +43,6 @@ const AdvancedChart: React.FC = () => {
         <div className="col-span-12 xl:col-span-5">
           <ChartNine />
         </div>
-
         <ChartTwelve />
       </div>
     </>

@@ -1,10 +1,24 @@
 "use client";
 import React from "react";
-import ChartTwelve from "@/components/Charts/ChartTwelve";
-import DataStatsFour from "@/components/DataStats/DataStatsFour";
-import MyStocks from "@/components/Stocks/MyStocks";
-import TrendingStocks from "@/components/Stocks/TrendingStocks";
-import LatestTransaction from "@/components/Stocks/LatestTransaction";
+import dynamic from "next/dynamic";
+const ChartTwelve = dynamic(() => import("@/components/Charts/ChartTwelve"), {
+  ssr: false,
+});
+const DataStatsFour = dynamic(
+  () => import("@/components/DataStats/DataStatsFour"),
+  { ssr: false },
+);
+const MyStocks = dynamic(() => import("@/components/Stocks/MyStocks"), {
+  ssr: false,
+});
+const TrendingStocks = dynamic(
+  () => import("@/components/Stocks/TrendingStocks"),
+  { ssr: false },
+);
+const LatestTransaction = dynamic(
+  () => import("@/components/Stocks/LatestTransaction"),
+  { ssr: false },
+);
 
 const Stocks: React.FC = () => {
   return (

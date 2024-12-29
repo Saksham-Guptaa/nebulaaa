@@ -1,20 +1,19 @@
 "use client";
 import React, { useEffect } from "react";
+import dynamic from "next/dynamic";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
-import ChartFour from "../Charts/ChartFour";
-import DataStats from "../DataStats/DataStats";
-import ChartThree from "../Charts/ChartThree";
-import TopContent from "../TopContent";
-import TopChannels from "../TopChannels";
-import TableTwo from "../Tables/TableTwo";
-
-// without this the component renders on server and throws an error
-import dynamic from "next/dynamic";
-
-const MapTwo = dynamic(() => import("../Maps/MapTwo"), {
+const ChartFour = dynamic(() => import("../Charts/ChartFour"), { ssr: false });
+const DataStats = dynamic(() => import("../DataStats/DataStats"), {
   ssr: false,
 });
+const MapTwo = dynamic(() => import("../Maps/MapTwo"), { ssr: false });
+const TopContent = dynamic(() => import("../TopContent"), { ssr: false });
+const TopChannels = dynamic(() => import("../TopChannels"), { ssr: false });
+const ChartThree = dynamic(() => import("../Charts/ChartThree"), {
+  ssr: false,
+});
+const TableTwo = dynamic(() => import("../Tables/TableTwo"), { ssr: false });
 
 const Analytics: React.FC = () => {
   useEffect(() => {

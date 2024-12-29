@@ -1,6 +1,12 @@
 "use client";
-import NebulaMain from "@/components/Dashboard/E-commerce";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import dynamic from "next/dynamic";
+const NebulaMain = dynamic(() => import("@/components/Dashboard/E-commerce"), {
+  ssr: false,
+});
+const DefaultLayout = dynamic(
+  () => import("@/components/Layouts/DefaultLayout"),
+  { ssr: false },
+);
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { auth } from "../utils/firebase";

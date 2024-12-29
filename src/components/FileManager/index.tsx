@@ -1,11 +1,26 @@
 "use client";
 import React from "react";
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import ChartTen from "@/components/Charts/ChartTen";
-import FileDetailsList from "@/components/FileDetailsList";
-import StorageChart from "@/components/Storage/StorageChart";
-import StorageList from "@/components/Storage/StorageList";
-import DownloadList from "@/components/DownloadList";
+import dynamic from "next/dynamic";
+const Breadcrumb = dynamic(
+  () => import("@/components/Breadcrumbs/Breadcrumb"),
+  { ssr: false },
+);
+const ChartTen = dynamic(() => import("@/components/Charts/ChartTen"), {
+  ssr: false,
+});
+const FileDetailsList = dynamic(() => import("@/components/FileDetailsList"), {
+  ssr: false,
+});
+const StorageChart = dynamic(
+  () => import("@/components/Storage/StorageChart"),
+  { ssr: false },
+);
+const StorageList = dynamic(() => import("@/components/Storage/StorageList"), {
+  ssr: false,
+});
+const DownloadList = dynamic(() => import("@/components/DownloadList"), {
+  ssr: false,
+});
 
 const FileManager: React.FC = () => {
   return (

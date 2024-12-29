@@ -1,12 +1,17 @@
 "use client";
 import React from "react";
-import DataStatsTwo from "../DataStats/DataStatsTwo";
-import ChartFive from "../Charts/ChartFive";
-import TableFour from "../Tables/TableFour";
-import ExternalLink from "../ExternalLink";
-import ChartSix from "../Charts/ChartSix";
-import FeaturedCampaigns from "../FeaturedCampaigns";
-import Feedback from "../Feedback";
+import dynamic from "next/dynamic";
+const DataStatsTwo = dynamic(() => import("../DataStats/DataStatsTwo"), {
+  ssr: false,
+});
+const ChartFive = dynamic(() => import("../Charts/ChartFive"), { ssr: false });
+const TableFour = dynamic(() => import("../Tables/TableFour"), { ssr: false });
+const ExternalLink = dynamic(() => import("../ExternalLink"), { ssr: false });
+const ChartSix = dynamic(() => import("../Charts/ChartSix"), { ssr: false });
+const FeaturedCampaigns = dynamic(() => import("../FeaturedCampaigns"), {
+  ssr: false,
+});
+const Feedback = dynamic(() => import("../Feedback"), { ssr: false });
 
 const Marketing: React.FC = () => {
   return (
