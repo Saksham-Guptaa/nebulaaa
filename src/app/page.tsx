@@ -1,31 +1,12 @@
-// import NebulaMain from "@/components/Dashboard/E-commerce";
-// import { Metadata } from "next";
-// import DefaultLayout from "@/components/Layouts/DefaultLayout";
-
-// export const metadata: Metadata = {
-//   title: "Nebula",
-//   description: "",
-// };
-
-// export default function Home() {
-//   return (
-//     <>
-//       <DefaultLayout>
-//         <NebulaMain />
-//       </DefaultLayout>
-//     </>
-//   );
-// }
-
 "use client";
 import NebulaMain from "@/components/Dashboard/E-commerce";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { auth } from "../utils/firebase"; // Import your Firebase auth instance
-import { onAuthStateChanged, User } from "firebase/auth"; // Import User type
+import { auth } from "../utils/firebase";
+import { onAuthStateChanged, User } from "firebase/auth";
 export default function Home() {
-  const [user, setUser] = useState<User | null>(null); // Explicitly type the state
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   useEffect(() => {
