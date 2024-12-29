@@ -15,23 +15,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
+    setLoading(true);
+    const timer = setTimeout(() => setLoading(false), 1000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <html lang="en">
-      <body suppressHydrationWarning={true}>
-        <UserProvider>
-          <FirebaseProvider>
-            <div className="dark:bg-boxdark-2 dark:text-bodydark">
-              {loading ? <Loader /> : children}
-            </div>
-          </FirebaseProvider>
-        </UserProvider>
-      </body>
-    </html>
+    <div suppressHydrationWarning>
+      <UserProvider>
+        <FirebaseProvider>
+          <div className="dark:bg-boxdark-2 dark:text-bodydark">
+            {loading ? <Loader /> : children}
+          </div>
+        </FirebaseProvider>
+      </UserProvider>
+    </div>
   );
 }

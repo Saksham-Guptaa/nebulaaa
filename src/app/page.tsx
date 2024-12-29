@@ -10,17 +10,16 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   useEffect(() => {
+    setUser(auth.currentUser); // Initialize with the current user
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-      } else {
-        setUser(null);
-        router.push("/auth/signin"); // Redirect to the sign-in page if no user
+      setUser(currentUser);
+      setLoading(false);
+      if (!currentUser) {
+        router.push("/auth/signin");
       }
-      setLoading(false); // Stop the loading spinner once auth state is resolved
     });
 
-    return () => unsubscribe(); // Cleanup the listener on unmount
+    return () => unsubscribe();
   }, [router]);
 
   if (loading) {
