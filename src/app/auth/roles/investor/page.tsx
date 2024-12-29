@@ -88,7 +88,7 @@ const InvestorForm = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-blue-100/40 my-8 rounded-xl shadow-lg">
+    <div className="mx-auto my-8 max-w-4xl rounded-xl bg-blue-100/40 p-6 shadow-lg">
       <h1 className="mb-6 text-4xl font-bold text-gray-800">Investor Form</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Preferred Industries */}

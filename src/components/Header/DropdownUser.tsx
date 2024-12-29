@@ -7,10 +7,14 @@ import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../../utils/firebase";
 
-
 const DropdownUser = () => {
+  // Get user details from the context
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [user, setUser] = useState<null | { uid: string; fullName: string; role: string }>(null);
+  const [user, setUser] = useState<null | {
+    uid: string;
+    fullName: string;
+    role: string;
+  }>(null);
 
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
@@ -23,7 +27,11 @@ const DropdownUser = () => {
           const userDoc = await getDoc(doc(db, "users", currentUser.uid));
           console.log("User document fetched:", userDoc.data());
           if (userDoc.exists()) {
-            setUser({ uid: currentUser.uid, fullName: userDoc.data().fullName, role: userDoc.data().role });
+            setUser({
+              uid: currentUser.uid,
+              fullName: userDoc.data().fullName,
+              role: userDoc.data().role,
+            });
           } else {
             console.warn("User document does not exist in Firestore");
           }
@@ -35,7 +43,7 @@ const DropdownUser = () => {
         setUser(null);
       }
     });
-  
+
     return () => unsubscribe();
   }, []);
 

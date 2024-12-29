@@ -107,7 +107,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Dashboard --> */}
               <SidebarLinkGroup
                 activeCondition={
-                  pathname === "/" || pathname.includes("dashboard")
+                  pathname === "/" || pathname?.includes("dashboard") || false
                 }
               >
                 {(handleClick, open) => {
@@ -117,7 +117,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         href="#"
                         className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                           (pathname === "/" ||
-                            pathname.includes("dashboard")) &&
+                            (pathname ?? "").includes("dashboard")) &&
                           "bg-graydark dark:bg-meta-4"
                         }`}
                         onClick={(e) => {
@@ -220,7 +220,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               }`}
                             >
                               CRM
-                            
                             </Link>
                           </li>
                           <li>
@@ -231,7 +230,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               }`}
                             >
                               Investments
-                         
                             </Link>
                           </li>
                         </ul>
@@ -248,7 +246,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <Link
                   href="/calendar"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes("calendar") &&
+                    pathname?.includes("calendar") &&
                     "bg-graydark dark:bg-meta-4"
                   }`}
                 >
@@ -275,7 +273,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <Link
                   href="/profile"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes("profile") && "bg-graydark dark:bg-meta-4"
+                    pathname?.includes("profile") &&
+                    "bg-graydark dark:bg-meta-4"
                   }`}
                 >
                   <svg
@@ -303,7 +302,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Task --> */}
               <SidebarLinkGroup
                 activeCondition={
-                  pathname === "/tasks" || pathname.includes("tasks")
+                  pathname === "/tasks" || pathname?.includes("tasks") || false
                 }
               >
                 {(handleClick, open) => {
@@ -313,7 +312,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         href="#"
                         className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                           (pathname === "/tasks" ||
-                            pathname.includes("tasks")) &&
+                            pathname?.includes("tasks")) &&
                           "bg-graydark dark:bg-meta-4"
                         }`}
                         onClick={(e) => {
@@ -409,7 +408,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               } `}
                             >
                               TaskBoard
-                         
                             </Link>
                           </li>
                         </ul>
@@ -422,7 +420,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Tables --> */}
               <SidebarLinkGroup
                 activeCondition={
-                  pathname === "/tables" || pathname.includes("tables")
+                  pathname === "/tables" ||
+                  pathname?.includes("tables") ||
+                  false
                 }
               >
                 {(handleClick, open) => {
@@ -432,7 +432,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         href="#"
                         className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                           (pathname === "/tables" ||
-                            pathname.includes("tables")) &&
+                            pathname?.includes("tables")) &&
                           "bg-graydark dark:bg-meta-4"
                         }`}
                         onClick={(e) => {
@@ -512,7 +512,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               }`}
                             >
                               Team Members
-                           
                             </Link>
                           </li>
                         </ul>
@@ -527,7 +526,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Pages --> */}
               <SidebarLinkGroup
                 activeCondition={
-                  pathname === "/pages" || pathname.includes("pages")
+                  pathname === "/pages" || pathname?.includes("pages") || false
                 }
               >
                 {(handleClick, open) => {
@@ -537,7 +536,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         href="#"
                         className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                           (pathname === "/pages" ||
-                            pathname.includes("pages")) &&
+                            pathname?.includes("pages")) &&
                           "bg-graydark dark:bg-meta-4"
                         }`}
                         onClick={(e) => {
@@ -617,7 +616,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             </Link>
                           </li>
                           <li>
-                             <Link
+                            <Link
                               href="/pages/file-manager"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
                                 pathname === "/pages/file-manager" &&
@@ -625,11 +624,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               } `}
                             >
                               File Manager
-                             
-                            </Link> 
+                            </Link>
                           </li>
                           <li>
-                             <Link
+                            <Link
                               href="/pages/data-tables"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
                                 pathname === "/pages/data-tables" &&
@@ -637,8 +635,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               } `}
                             >
                               All Startups
-                           
-                            </Link> 
+                            </Link>
                           </li>
                           <li>
                             <Link
@@ -649,7 +646,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               } `}
                             >
                               Pricing Tables
-                           
                             </Link>
                           </li>
 
@@ -661,7 +657,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               }`}
                             >
                               Teams
-                          
                             </Link>
                           </li>
                           {/* <li>
@@ -734,7 +729,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <Link
                   href="/messages"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes("messages") &&
+                    pathname?.includes("messages") &&
                     "bg-graydark dark:bg-meta-4"
                   }`}
                 >
@@ -755,7 +750,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   <span className="absolute right-14 top-1/2 -translate-y-1/2 rounded bg-primary px-2.5 py-1 text-xs font-medium text-white">
                     5
                   </span>
-                 
                 </Link>
               </li>
               {/* <!-- Menu Item Messages --> */}
@@ -866,7 +860,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Auth Pages --> */}
               <SidebarLinkGroup
                 activeCondition={
-                  pathname === "/auth" || pathname.includes("auth")
+                  pathname === "/auth" || pathname?.includes("auth") || false
                 }
               >
                 {(handleClick, open) => {
@@ -875,7 +869,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                       <Link
                         href="#"
                         className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                          (pathname === "/auth" || pathname.includes("auth")) &&
+                          (pathname === "/auth" ||
+                            pathname?.includes("auth")) &&
                           "bg-graydark dark:bg-meta-4"
                         }`}
                         onClick={(e) => {
@@ -969,7 +964,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               }`}
                             >
                               Reset Password
-                             
                             </Link>
                           </li>
                           <li>
@@ -980,7 +974,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               }`}
                             >
                               Coming Soon
-                            
                             </Link>
                           </li>
                           <li>
@@ -992,7 +985,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               }`}
                             >
                               2 Step Verification
-                           
                             </Link>
                           </li>
                           <li>
@@ -1004,7 +996,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               }`}
                             >
                               Under Maintenance
-                           
                             </Link>
                           </li>
                         </ul>

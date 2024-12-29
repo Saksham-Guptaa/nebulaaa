@@ -9,6 +9,7 @@ import "@/css/style.css";
 import React, { useEffect, useState } from "react";
 import Loader from "@/components/common/Loader";
 import { FirebaseProvider } from "@/context/FirebaseContext";
+import { UserProvider } from "@/context/RoleContext";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,11 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        <FirebaseProvider>
-          <div className="dark:bg-boxdark-2 dark:text-bodydark">
-            {loading ? <Loader /> : children}
-          </div>
-        </FirebaseProvider>
+        <UserProvider>
+          <FirebaseProvider>
+            <div className="dark:bg-boxdark-2 dark:text-bodydark">
+              {loading ? <Loader /> : children}
+            </div>
+          </FirebaseProvider>
+        </UserProvider>
       </body>
     </html>
   );

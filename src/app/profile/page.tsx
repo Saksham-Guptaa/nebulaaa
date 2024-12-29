@@ -1,20 +1,21 @@
+"use client";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import Image from "next/image";
-import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Nebula",
-  description:""
-};
-
+import { useFirebase } from "../../context/FirebaseContext";
+import { useUsers } from "@/context/RoleContext";
 const Profile = () => {
+  const firebaseContext = useFirebase();
+  const { usersByRole, loading } = useUsers();
+  console.log(usersByRole, loading);
+  if (!firebaseContext) return null;
+  const { roles, userDetails } = firebaseContext;
+  console.log(roles, userDetails);
   return (
     <DefaultLayout>
       <div className="mx-auto max-w-242.5">
         <Breadcrumb pageName="Profile" />
-
         <div className="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
           <div className="relative z-20 h-35 md:h-65">
             <Image
@@ -115,9 +116,9 @@ const Profile = () => {
             </div>
             <div className="mt-4">
               <h3 className="mb-1.5 text-2xl font-semibold text-black dark:text-white">
-                Pravash Dey
+                {userDetails?.fullName}
               </h3>
-              <p className="font-medium">Investor</p>
+              <p className="font-medium">{userDetails?.role}</p>
               <div className="mx-auto mb-5.5 mt-4.5 grid max-w-94 grid-cols-3 rounded-md border border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
                 <div className="flex flex-col items-center justify-center gap-1 border-r border-stroke px-4 dark:border-strokedark xsm:flex-row">
                   <span className="font-semibold text-black dark:text-white">
