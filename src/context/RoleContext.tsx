@@ -3,6 +3,8 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../utils/firebase";
 
 interface User {
+  fullName: string;
+  phoneNumber: string;
   id: string;
   name: string;
   role: string;
