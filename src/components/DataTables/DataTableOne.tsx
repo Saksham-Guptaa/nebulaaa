@@ -9,6 +9,8 @@ import {
 } from "react-table";
 import { FilterProps } from "react-table";
 import ColumnFilter from "./ColumnFilter";
+import { useFirebase } from "../../context/FirebaseContext";
+import { useUsers } from "@/context/RoleContext";
 
 interface Employee {
   id: string;
@@ -365,8 +367,15 @@ const DataTableOne = () => {
     setPageSize,
     gotoPage,
   } = tableInstance;
-
   const { globalFilter, pageIndex, pageSize } = state;
+
+  const firebaseContext = useFirebase();
+  const { usersByRole, loading } = useUsers();
+  if (!firebaseContext) return null;
+  if (loading) return <div>Loading...</div>;
+  const { roles, userDetails } = firebaseContext;
+  console.log(usersByRole);
+  console.log(roles, userDetails);
 
   return (
     <section className="data-table-common rounded-sm border border-stroke bg-white py-4 shadow-default dark:border-strokedark dark:bg-boxdark">

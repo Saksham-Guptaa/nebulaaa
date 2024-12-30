@@ -7,6 +7,7 @@ const DefaultLayout = dynamic(
   () => import("@/components/Layouts/DefaultLayout"),
   { ssr: false },
 );
+
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { auth } from "../utils/firebase";
