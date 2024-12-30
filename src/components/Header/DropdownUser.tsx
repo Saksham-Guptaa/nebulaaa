@@ -25,7 +25,6 @@ const DropdownUser = () => {
       if (currentUser) {
         try {
           const userDoc = await getDoc(doc(db, "users", currentUser.uid));
-          console.log("User document fetched:", userDoc.data());
           if (userDoc.exists()) {
             setUser({
               uid: currentUser.uid,
