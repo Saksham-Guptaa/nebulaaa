@@ -44,11 +44,7 @@ const columns: Column<Employee>[] = [
 
 const InfluencersTable: FC = () => {
   const firebaseContext = useFirebase();
-  const { usersByRole, loading } = useUsers();
-  console.log(usersByRole);
-  
-
-  console.log(usersByRole.influencers);
+  const { usersByRole, loading } = useUsers();  
 
   // Memoize the data for the table to prevent unnecessary recalculations
   const data: Employee[] = useMemo(() => {

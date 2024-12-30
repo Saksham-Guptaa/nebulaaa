@@ -46,8 +46,6 @@ const MentorsTable: FC = () => {
   const firebaseContext = useFirebase();
   const { usersByRole, loading } = useUsers();
 
-  console.log(usersByRole.mentors);
-
   // Memoize the data for the table to prevent unnecessary recalculations
   const data: Employee[] = useMemo(() => {
     return (

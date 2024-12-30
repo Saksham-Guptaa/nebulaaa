@@ -46,8 +46,6 @@ const StartupTable: FC = () => {
   const firebaseContext = useFirebase();
   const { usersByRole, loading } = useUsers();
 
-  console.log(usersByRole.startups);
-
   // Memoize the data for the table to prevent unnecessary recalculations
   const data: Employee[] = useMemo(() => {
     return (

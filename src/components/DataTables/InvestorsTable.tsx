@@ -46,8 +46,6 @@ const InvestorTable: FC = () => {
   const firebaseContext = useFirebase();
   const { usersByRole, loading } = useUsers();
 
-  console.log(usersByRole.investors);
-
   // Memoize the data for the table to prevent unnecessary recalculations
   const data: Employee[] = useMemo(() => {
     return (
