@@ -14,7 +14,6 @@ import { format } from "date-fns";
 interface PrivateChatProps {
   selectedUser: Record<string, any>;
 }
-
 const PrivateChat: React.FC<PrivateChatProps> = ({ selectedUser }) => {
   const [messages, setMessages] = useState<any[]>([]);
   const [message, setMessage] = useState("");
