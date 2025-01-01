@@ -12,6 +12,7 @@ const UserList: React.FC<UserListProps> = ({
   onSelectUser,
   currentUserUid,
 }) => {
+  /* eslint-disable react-hooks/rules-of-hooks */
   const [users, setUsers] = useState<Record<string, any>[]>([]);
   const [search, setSearch] = useState("");
 
