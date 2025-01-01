@@ -7,14 +7,14 @@ const PricingTableOne: React.FC = () => {
       {/* <!-- Pricing Item --> */}
       <div className="relative rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark md:p-9 xl:p-11.5">
         <span className="mb-2.5 block text-title-sm2 font-bold text-black dark:text-white">
-          Starter
+          Exclusive Membership
         </span>
         <h3>
           <span className="text-xl font-medium text-black dark:text-white">
             $
           </span>
           <span className="text-title-xxl2 font-bold text-black dark:text-white">
-            25.00
+            99.00
           </span>
           <span className="font-medium"> Per Month</span>
         </h3>
@@ -24,11 +24,11 @@ const PricingTableOne: React.FC = () => {
         </h4>
 
         <ul className="flex flex-col gap-3.5">
-          <li className="font-medium">Get Figma Source File</li>
-          <li className="font-medium">Use on Unlimited Projects</li>
-          <li className="font-medium">Personal & Commercial Use</li>
-          <li className="font-medium">Downloadable Offline Files</li>
-          <li className="font-medium">Lifetime Free Updates</li>
+          <li className="font-medium">
+            Exclusive Membership offers startups priority access to resources,
+            personalized support, and tailored opportunities to accelerate
+            growth.
+          </li>
         </ul>
 
         <button className="mt-9 flex rounded-md border border-primary px-9 py-3 font-medium text-primary hover:bg-primary hover:text-white">
@@ -62,14 +62,14 @@ const PricingTableOne: React.FC = () => {
           </svg>
         </span>
         <span className="mb-2.5 block text-title-sm2 font-bold text-black dark:text-white">
-          Basic
+          Founders and Teams
         </span>
         <h3>
           <span className="text-xl font-medium text-black dark:text-white">
             $
           </span>
           <span className="text-title-xxl2 font-bold text-black dark:text-white">
-            59.00
+            399.00
           </span>
           <span className="font-medium"> Per Month</span>
         </h3>
@@ -79,11 +79,11 @@ const PricingTableOne: React.FC = () => {
         </h4>
 
         <ul className="flex flex-col gap-3.5">
-          <li className="font-medium">Get Figma Source File</li>
-          <li className="font-medium">Use on Unlimited Projects</li>
-          <li className="font-medium">Personal & Commercial Use</li>
-          <li className="font-medium">Downloadable Offline Files</li>
-          <li className="font-medium">Lifetime Free Updates</li>
+          <li className="font-medium">
+            Founders and Teams membership is designed for startup founders and
+            their core team members to receive comprehensive support and
+            guidance throughout their entrepreneurial journey
+          </li>
         </ul>
 
         <button className="mt-9 flex rounded-md border border-primary px-9 py-3 font-medium text-primary hover:bg-primary hover:text-white">
@@ -94,14 +94,14 @@ const PricingTableOne: React.FC = () => {
       {/* <!-- Pricing Item --> */}
       <div className="relative rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark md:p-9 xl:p-11.5">
         <span className="mb-2.5 block text-title-sm2 font-bold text-black dark:text-white">
-          Premium
+          Mentors in Residence
         </span>
         <h3>
           <span className="text-xl font-medium text-black dark:text-white">
             $
           </span>
           <span className="text-title-xxl2 font-bold text-black dark:text-white">
-            99.00
+            699.00
           </span>
           <span className="font-medium"> Per Month</span>
         </h3>
@@ -111,11 +111,43 @@ const PricingTableOne: React.FC = () => {
         </h4>
 
         <ul className="flex flex-col gap-3.5">
-          <li className="font-medium">Get Figma Source File</li>
-          <li className="font-medium">Use on Unlimited Projects</li>
-          <li className="font-medium">Personal & Commercial Use</li>
-          <li className="font-medium">Downloadable Offline Files</li>
-          <li className="font-medium">Lifetime Free Updates</li>
+          <li className="font-medium">
+            Mentors in Residence membership is tailored for seasoned
+            professionals who wish to contribute their expertise and guidance to
+            early-stage startups within the accelerator program.
+          </li>
+        </ul>
+
+        <button className="mt-9 flex rounded-md border border-primary px-9 py-3 font-medium text-primary hover:bg-primary hover:text-white">
+          Purchase Now
+        </button>
+      </div>
+
+      <div className="relative rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark md:p-9 xl:p-11.5">
+        <span className="mb-2.5 block text-title-sm2 font-bold text-black dark:text-white">
+          Investors in Residence
+        </span>
+        <h3>
+          <span className="text-xl font-medium text-black dark:text-white">
+            $
+          </span>
+          <span className="text-title-xxl2 font-bold text-black dark:text-white">
+            999.00
+          </span>
+          <span className="font-medium"> Per Month</span>
+        </h3>
+
+        <h4 className="mb-5 mt-7.5 text-lg font-medium text-black dark:text-white">
+          Features
+        </h4>
+
+        <ul className="flex flex-col gap-3.5">
+          <li className="font-medium">
+            Investors in Residence membership is designed for angel investors,
+            venture capitalists, and other investment professionals seeking
+            early access to high-potential startups within the accelerator
+            ecosystem.
+          </li>
         </ul>
 
         <button className="mt-9 flex rounded-md border border-primary px-9 py-3 font-medium text-primary hover:bg-primary hover:text-white">

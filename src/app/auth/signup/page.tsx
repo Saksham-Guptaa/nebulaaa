@@ -1,13 +1,11 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import { auth, db } from "../../../utils/firebase";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
 type Role = "startup" | "investor" | "influencer" | "mentor" | "admin";
 
@@ -101,10 +99,6 @@ const SignUp: React.FC = () => {
         <div className="hidden w-full xl:block xl:w-1/2">
           <div className="px-26 py-17.5 text-center">
             <p className="text-3xl font-extrabold text-black">NEBULA</p>
-            <p className="2xl:px-20">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
-              suspendisse.
-            </p>
 
             <span className="mt-15 inline-block">
               <svg
@@ -233,11 +227,9 @@ const SignUp: React.FC = () => {
 
         <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
           <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
-            <span className="mb-1.5 block font-medium">Start for free</span>
             <h2 className="text-blackd mb-9 text-2xl font-bold dark:text-white sm:text-title-xl2">
               Sign Up to Nebula
             </h2>
-
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label className="mb-2.5 block font-medium text-black dark:text-white">
@@ -414,6 +406,13 @@ const SignUp: React.FC = () => {
                   Already have an account?{" "}
                   <Link href="/auth/signin" className="text-primary">
                     Sign in
+                  </Link>
+                </p>
+              </div>
+              <div className="mt-6 text-center">
+                <p>
+                  <Link href="/pages/pricing-tables" className="text-primary">
+                    View Membership Plans
                   </Link>
                 </p>
               </div>

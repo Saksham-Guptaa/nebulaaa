@@ -21,6 +21,7 @@ const DataTables: React.FC = () => {
             <InvestorTable />
             <MentorsTable />
             <InfluencersTable />
+            <StartupTable />
           </>
         );
       case "investor":
@@ -28,7 +29,6 @@ const DataTables: React.FC = () => {
           <>
             <StartupTable />
             <MentorsTable />
-            <InfluencersTable />
           </>
         );
       case "influencer":

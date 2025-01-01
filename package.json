@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "apexcharts": "^4.1.0",
+    "date-fns": "^4.1.0",
     "dropzone": "^6.0.0-beta.2",
     "firebase": "^11.1.0",
     "flatpickr": "^4.6.13",
@@ -19,6 +20,7 @@
     "react": "^18",
     "react-apexcharts": "^1.4.1",
     "react-dom": "^18",
+    "react-firebase-hooks": "^5.1.1",
     "react-table": "^7.8.0",
     "swiper": "^11.0.5"
   },
