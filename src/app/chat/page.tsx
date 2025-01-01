@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import { useFirebase } from "../../context/FirebaseContext";
 import UserList from "../../components/UserList/UserList";
@@ -15,11 +16,19 @@ const Home: React.FC = () => {
     null,
   );
 
+  const handleLogout = () => {
+    auth.signOut().catch((error) => {
+      console.error("Error during logout:", error);
+    });
+  };
+
   return (
-    <div>
+    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       {user ? (
         <>
-          <h1>Welcome, {userDetails?.fullName || user.email}</h1>
+          <h1 style={{ color: "#333" }}>
+            Welcome, {userDetails?.fullName || user.email}
+          </h1>
           <p>
             <strong>Role:</strong> {userDetails?.role || "Not specified"}
           </p>
@@ -38,7 +47,7 @@ const Home: React.FC = () => {
           )}
 
           <button
-            onClick={() => auth.signOut()}
+            onClick={handleLogout}
             style={{
               marginTop: "20px",
               padding: "10px 20px",
