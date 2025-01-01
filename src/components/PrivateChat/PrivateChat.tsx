@@ -20,12 +20,16 @@ const PrivateChat: React.FC<PrivateChatProps> = ({ selectedUser }) => {
 
   const currentUser = auth.currentUser;
 
+  // Ensure conversationId is calculated once and not conditionally inside hooks
   const conversationId =
     currentUser && currentUser.uid > selectedUser.uid
       ? `${currentUser.uid}_${selectedUser.uid}`
       : `${selectedUser.uid}_${currentUser?.uid || ""}`;
 
+  // useEffect should be called unconditionally
   useEffect(() => {
+    if (!conversationId) return; // Early return if conversationId is invalid
+
     const q = query(
       collection(db, "conversations", conversationId, "messages"),
       orderBy("createdAt"),
@@ -37,7 +41,7 @@ const PrivateChat: React.FC<PrivateChatProps> = ({ selectedUser }) => {
     });
 
     return () => unsubscribe();
-  }, [conversationId]);
+  }, [conversationId]); // Only depend on conversationId
 
   const sendMessage = async () => {
     if (!message.trim()) return;
@@ -48,7 +52,7 @@ const PrivateChat: React.FC<PrivateChatProps> = ({ selectedUser }) => {
       createdAt: new Date(),
     });
 
-    setMessage("");
+    setMessage(""); // Clear the message input after sending
   };
 
   return (

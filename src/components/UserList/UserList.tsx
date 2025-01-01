@@ -12,11 +12,10 @@ const UserList: React.FC<UserListProps> = ({
   onSelectUser,
   currentUserUid,
 }) => {
-  // State hooks are called unconditionally at the top
   const [users, setUsers] = useState<Record<string, any>[]>([]);
   const [search, setSearch] = useState("");
 
-  // Fetch users from Firestore
+  // useEffect to fetch users from Firestore
   useEffect(() => {
     const fetchUsers = async () => {
       const userCollection = collection(db, "users");
@@ -30,7 +29,7 @@ const UserList: React.FC<UserListProps> = ({
     fetchUsers();
   }, [currentUserUid]);
 
-  // Filter users based on search
+  // Filter users based on search query
   const filteredUsers = users.filter(
     (user) =>
       user.fullName?.toLowerCase().includes(search.toLowerCase()) ||
