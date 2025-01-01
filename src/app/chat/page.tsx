@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useFirebase } from "../../context/FirebaseContext";
 import UserList from "../../components/UserList/UserList";
 import PrivateChat from "../../components/PrivateChat/PrivateChat";
@@ -9,6 +9,14 @@ import { auth } from "@/utils/firebase";
 const Home: React.FC = () => {
   const firebaseContext = useFirebase();
   if (!firebaseContext) return null;
+  const [loading, setLoading] = useState(true); // Loading state to handle the async nature of useFirebase
+  useEffect(() => {
+    if (firebaseContext) {
+      setLoading(false); // Once firebaseContext is available, stop loading
+    }
+  }, [firebaseContext]);
+
+  if (loading) return <div>Loading...</div>; // Show a loading message until firebaseContext is ready
 
   const { user, userDetails } = firebaseContext;
   const [selectedUser, setSelectedUser] = useState<Record<string, any> | null>(
@@ -20,6 +28,7 @@ const Home: React.FC = () => {
       console.error("Error during logout:", error);
     });
   };
+
   return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       <>
