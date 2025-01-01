@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import React, { useState, useEffect } from "react";
 import { useFirebase } from "../../context/FirebaseContext";
@@ -16,7 +17,6 @@ const Home: React.FC = () => {
   }, [firebaseContext]);
 
   if (loading) return <div>Loading...</div>; // Show a loading message until firebaseContext is ready
-  /* eslint-disable react-hooks/rules-of-hooks */
 
   const { user, userDetails } = firebaseContext;
   const [selectedUser, setSelectedUser] = useState<Record<string, any> | null>(

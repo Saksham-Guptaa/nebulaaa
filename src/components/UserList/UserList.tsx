@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import React, { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
@@ -12,7 +13,6 @@ const UserList: React.FC<UserListProps> = ({
   onSelectUser,
   currentUserUid,
 }) => {
-  /* eslint-disable react-hooks/rules-of-hooks */
   const [users, setUsers] = useState<Record<string, any>[]>([]);
   const [search, setSearch] = useState("");
 

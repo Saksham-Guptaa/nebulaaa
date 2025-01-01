@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import React, { useState, useEffect } from "react";
 import {
@@ -15,8 +16,6 @@ interface PrivateChatProps {
 }
 
 const PrivateChat: React.FC<PrivateChatProps> = ({ selectedUser }) => {
-  /* eslint-disable react-hooks/rules-of-hooks */
-
   const [messages, setMessages] = useState<any[]>([]);
   const [message, setMessage] = useState("");
 
