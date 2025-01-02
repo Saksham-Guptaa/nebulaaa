@@ -8,7 +8,7 @@ import { useAuth } from "../../../../hooks/useAuth"; // Custom hook for authenti
 const StartupForm = () => {
   const { user } = useAuth(); // Ensure user is authenticated
   const router = useRouter();
-  const [gener, setGener] = useState<string>("");
+  const [genre, setgenre] = useState<string>("");
   const [totalFunding, setTotalFunding] = useState<number | string>("");
   const [totalMembers, setTotalMembers] = useState<number | string>("");
   const [members, setMembers] = useState<{ username: string; email: string }[]>(
@@ -43,9 +43,8 @@ const StartupForm = () => {
       return alert("You must be logged in to submit this form.");
     }
 
-    // Prepare data to be saved
     const startupData = {
-      gener,
+      genre,
       totalFunding,
       totalMembers,
       members,
@@ -88,24 +87,24 @@ const StartupForm = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-blue-100/40 my-8 rounded-xl shadow-lg">
+    <div className="mx-auto my-8 max-w-4xl  rounded-xl p-6 shadow-lg">
       <h1 className="mb-6 text-4xl font-bold text-gray-800">Startup Form</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Gender */}
         <div>
           <label
-            htmlFor="gener"
+            htmlFor="genre"
             className="block text-sm font-semibold text-gray-700"
           >
-            Gener of Startup
+            genre of Startup
           </label>
           <select
-            id="gener"
-            value={gener}
-            onChange={(e) => setGener(e.target.value)}
+            id="genre"
+            value={genre}
+            onChange={(e) => setgenre(e.target.value)}
             className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           >
-            <option value="">Select Gener</option>
+            <option value="">Select genre</option>
             <option value="Technology">Technology</option>
             <option value="Healthcare">Healthcare</option>
             <option value="Education">Education</option>

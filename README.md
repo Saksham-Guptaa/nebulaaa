@@ -15,7 +15,6 @@ Industry Trends
 Revenue Streams
 Pricing Strategy
 Unit Economics (CAC, CLTV, Margins)
-
 Key Metrics (Revenue, Growth, Users)
 Customer Testimonials/Case Studies
 Awards/Media Coverage

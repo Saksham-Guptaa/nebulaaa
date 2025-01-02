@@ -5,19 +5,11 @@ const Breadcrumb = dynamic(
   () => import("@/components/Breadcrumbs/Breadcrumb"),
   { ssr: false },
 );
-const ChartTen = dynamic(() => import("@/components/Charts/ChartTen"), {
-  ssr: false,
-});
+
 const FileDetailsList = dynamic(() => import("@/components/FileDetailsList"), {
   ssr: false,
 });
-const StorageChart = dynamic(
-  () => import("@/components/Storage/StorageChart"),
-  { ssr: false },
-);
-const StorageList = dynamic(() => import("@/components/Storage/StorageList"), {
-  ssr: false,
-});
+
 const DownloadList = dynamic(() => import("@/components/DownloadList"), {
   ssr: false,
 });
