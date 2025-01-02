@@ -13,7 +13,6 @@ const Home: React.FC = () => {
   const [selectedUser, setSelectedUser] = useState<Record<string, any> | null>(
     null,
   );
-
   const handleLogout = () => {
     auth.signOut().catch((error) => {
       console.error("Error during logout:", error);

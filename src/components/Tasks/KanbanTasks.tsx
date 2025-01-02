@@ -406,7 +406,6 @@ const TaskKanban: React.FC = () => {
                   </label>
                 </div>
               </div>
-
               <div className="absolute right-4 top-4">
                 <DropdownDefault />
               </div>

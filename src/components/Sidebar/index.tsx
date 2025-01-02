@@ -200,8 +200,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                              
                             </Link>
                           </li> */}
-                          <li>
-                            {/* <Link
+                          {/* <li>
+                            <Link
                               href="/dashboard/marketing"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
                                 pathname === "/dashboard/marketing" &&
@@ -209,10 +209,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               }`}
                             >
                               Marketing
-                           
-                            </Link> */}
-                          </li>
-                          <li>
+                            </Link>
+                          </li> */}
+                          {/* <li>
                             <Link
                               href="/dashboard/crm"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white  ${
@@ -221,7 +220,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             >
                               CRM
                             </Link>
-                          </li>
+                          </li> */}
                           <li>
                             <Link
                               href="/dashboard/stocks"
@@ -579,7 +578,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             fill=""
                           />
                         </svg>
-                        MISC
+                        UTILS
                         <svg
                           className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
                             open && "rotate-180"
@@ -637,7 +636,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               All Startups
                             </Link>
                           </li>
-                          <li>
+                          {/* <li>
                             <Link
                               href="/pages/pricing-tables"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
@@ -647,7 +646,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             >
                               Pricing Tables
                             </Link>
-                          </li>
+                          </li> */}
 
                           <li>
                             <Link
@@ -850,14 +849,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             </ul>
           </div>
 
-          {/* <!-- Others Group --> */}
-          <div>
+          {/* <div>
             <h3 className="mb-4 ml-4 text-sm font-semibold text-bodydark2">
               AUTH
             </h3>
 
             <ul className="mb-6 flex flex-col gap-1.5">
-              {/* <!-- Menu Item Auth Pages --> */}
               <SidebarLinkGroup
                 activeCondition={
                   pathname === "/auth" || pathname?.includes("auth") || false
@@ -928,7 +925,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           />
                         </svg>
                       </Link>
-                      {/* <!-- Dropdown Menu Start --> */}
                       <div
                         className={`translate transform overflow-hidden ${
                           !open && "hidden"
@@ -1000,16 +996,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           </li>
                         </ul>
                       </div>
-                      {/* <!-- Dropdown Menu End --> */}
                     </React.Fragment>
                   );
                 }}
               </SidebarLinkGroup>
-              {/* <!-- Menu Item Auth Pages --> */}
             </ul>
-          </div>
+          </div> */}
         </nav>
-        {/* <!-- Sidebar Menu --> */}
       </div>
     </aside>
   );
