@@ -1,8 +1,7 @@
 import React from "react";
-import Messages from "@/components/Messages";
-
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import Home from "../chat/page";
 
 export const metadata: Metadata = {
   title: "Nebula",
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
 const MessagesPage = () => {
   return (
     <DefaultLayout>
-      <Messages />
+      <Home />
     </DefaultLayout>
   );
 };

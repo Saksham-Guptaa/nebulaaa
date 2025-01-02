@@ -21,18 +21,19 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-      <>
-        <h1 style={{ color: "#333" }}>
+    <div className="flex flex-col items-center justify-center font-sans">
+      <div className="w-full max-w-4xl rounded-lg shadow-2xl p-8">
+        <h1 className="text-4xl font-extrabold mb-6 text-center">
           Welcome, {userDetails?.fullName || user?.email}
         </h1>
-        <p>
-          <strong>Role:</strong> {userDetails?.role || "Not specified"}
-        </p>
-        <p>
-          <strong>Phone Number:</strong>{" "}
-          {userDetails?.phoneNumber || "Not available"}
-        </p>
+        <div className="text-center mb-6">
+          <p className="text-lg">
+            <strong>Role:</strong> {userDetails?.role || "Not specified"}
+          </p>
+          <p className="text-lg">
+            <strong>Phone Number:</strong> {userDetails?.phoneNumber || "Not available"}
+          </p>
+        </div>
         {selectedUser ? (
           <PrivateChat selectedUser={selectedUser} />
         ) : (
@@ -44,19 +45,11 @@ const Home: React.FC = () => {
 
         <button
           onClick={handleLogout}
-          style={{
-            marginTop: "20px",
-            padding: "10px 20px",
-            backgroundColor: "#f44336",
-            color: "#fff",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
+          className="mt-8 w-full py-3 bg-red-500 text-white text-lg font-semibold rounded-lg hover:bg-red-600 transition duration-300"
         >
           Logout
         </button>
-      </>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-"use client";
 import React, { useState, useEffect } from "react";
 import {
   collection,
@@ -14,25 +12,24 @@ import { format } from "date-fns";
 interface PrivateChatProps {
   selectedUser: Record<string, any>;
 }
+
 const PrivateChat: React.FC<PrivateChatProps> = ({ selectedUser }) => {
   const [messages, setMessages] = useState<any[]>([]);
   const [message, setMessage] = useState("");
 
   const currentUser = auth.currentUser;
 
-  // Ensure conversationId is calculated once and not conditionally inside hooks
   const conversationId =
     currentUser && currentUser.uid > selectedUser.uid
       ? `${currentUser.uid}_${selectedUser.uid}`
       : `${selectedUser.uid}_${currentUser?.uid || ""}`;
 
-  // useEffect should be called unconditionally
   useEffect(() => {
-    if (!conversationId) return; // Early return if conversationId is invalid
+    if (!conversationId) return;
 
     const q = query(
       collection(db, "conversations", conversationId, "messages"),
-      orderBy("createdAt"),
+      orderBy("createdAt")
     );
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -41,7 +38,7 @@ const PrivateChat: React.FC<PrivateChatProps> = ({ selectedUser }) => {
     });
 
     return () => unsubscribe();
-  }, [conversationId]); // Only depend on conversationId
+  }, [conversationId]);
 
   const sendMessage = async () => {
     if (!message.trim()) return;
@@ -52,38 +49,57 @@ const PrivateChat: React.FC<PrivateChatProps> = ({ selectedUser }) => {
       createdAt: new Date(),
     });
 
-    setMessage(""); // Clear the message input after sending
+    setMessage("");
   };
 
   return (
-    <div>
-      <h3>Chat with {selectedUser.fullName}</h3>
-      <div>
+    <div className="flex flex-col h-full bg-gray-100/10 p-4 rounded-lg shadow-lg">
+      <h3 className="text-2xl font-bold mb-4">
+        Chat with {selectedUser.fullName}
+      </h3>
+      <div className="flex flex-col flex-grow overflow-y-auto bg-white p-4 rounded-lg mb-4">
         {messages.map((msg, index) => (
-          <p
+          <div
             key={index}
-            style={{
-              textAlign: msg.sender === currentUser?.uid ? "right" : "left",
-            }}
+            className={`flex mb-3 ${
+              msg.sender === currentUser?.uid ? "justify-end" : "justify-start"
+            }`}
           >
-            <strong>{msg.text}</strong>
-            <br />
-            <small>
-              {format(
-                msg.createdAt?.toDate ? msg.createdAt.toDate() : new Date(),
-                "dd MMM yyyy, hh:mm a",
-              )}
-            </small>
-          </p>
+            <div
+              className={`max-w-xs px-4 py-2 rounded-lg text-white text-sm ${
+                msg.sender === currentUser?.uid
+                  ? "bg-blue-500"
+                  : "bg-gray-400"
+              }`}
+            >
+              <p>{msg.text}</p>
+              <small className="block mt-2 text-xs text-gray-200">
+                {format(
+                  msg.createdAt?.toDate
+                    ? msg.createdAt.toDate()
+                    : new Date(),
+                  "dd MMM yyyy, hh:mm a"
+                )}
+              </small>
+            </div>
+          </div>
         ))}
       </div>
-      <input
-        type="text"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="Type a message"
-      />
-      <button onClick={sendMessage}>Send</button>
+      <div className="flex items-center gap-2">
+        <input
+          type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Type a message"
+          className="flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <button
+          onClick={sendMessage}
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300"
+        >
+          Send
+        </button>
+      </div>
     </div>
   );
 };
