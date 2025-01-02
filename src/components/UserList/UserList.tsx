@@ -38,19 +38,20 @@ const UserList: React.FC<UserListProps> = ({
   );
 
   return (
-    <div>
+    <div className="">
       {/* Search input for filtering users */}
       <input
         type="text"
         placeholder="Search by name or role..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        className="p-2 w-full rounded-full"
       />
-      <div>
+      <div className="py-5">
         {/* Render filtered users */}
         {filteredUsers.map((user) => (
           <div key={user.uid} onClick={() => onSelectUser(user)}>
-            <p>
+            <p className="py-2 cursor-pointer">
               <strong>{user.fullName}</strong> - <em>{user.role}</em>
             </p>
           </div>
