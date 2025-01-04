@@ -12,6 +12,7 @@ import { FilterProps } from "react-table";
 import ColumnFilter from "./ColumnFilter";
 import { useFirebase } from "../../context/FirebaseContext";
 import { useUsers } from "@/context/RoleContext";
+import { useRouter } from "next/navigation";
 
 // Define Employee interface
 interface Employee {
@@ -43,6 +44,7 @@ const columns: Column<Employee>[] = [
 ];
 
 const InvestorTable: FC = () => {
+  const router = useRouter();
   const firebaseContext = useFirebase();
   const { usersByRole, loading } = useUsers();
 
@@ -63,7 +65,7 @@ const InvestorTable: FC = () => {
     () => ({
       Filter: ColumnFilter as React.FC<FilterProps<Employee>>,
     }),
-    []
+    [],
   );
 
   // Initialize table instance with useTable and other hooks
@@ -76,7 +78,7 @@ const InvestorTable: FC = () => {
     useFilters,
     useGlobalFilter,
     useSortBy,
-    usePagination
+    usePagination,
   );
 
   const {
@@ -98,7 +100,9 @@ const InvestorTable: FC = () => {
 
   const { globalFilter, pageIndex, pageSize } = state;
 
-  const handleGlobalFilterChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleGlobalFilterChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ): void => {
     const value: string = e.target.value;
     if (value !== globalFilter) {
       setGlobalFilter(value || undefined);
@@ -151,8 +155,7 @@ const InvestorTable: FC = () => {
       >
         <thead>
           {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}
-            >
+            <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
               {headerGroup.headers.map((column) => (
                 <th
                   {...column.getHeaderProps(column.getSortByToggleProps())}
@@ -201,6 +204,9 @@ const InvestorTable: FC = () => {
             prepareRow(row);
             return (
               <tr
+                onClick={() => {
+                  router.push(`/deck/investor/${row.original.id}`);
+                }}
                 className="border-t border-stroke dark:border-strokedark"
                 {...row.getRowProps()}
                 key={row.id}

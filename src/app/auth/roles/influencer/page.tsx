@@ -14,6 +14,12 @@ const InfluencerForm = () => {
   const [followersInstagram, setFollowersInstagram] = useState<number | string>(
     "",
   );
+  const [influencerName, setInfluencerName] = useState<string>("");
+  const [linkedInLink, setLinkedInLink] = useState<string>("");
+  const [instagramLink, setInstagramLink] = useState<string>("");
+  const [twitterLink, setTwitterLink] = useState<string>("");
+  const [facebookLink, setFacebookLink] = useState<string>("");
+  const [youtubeLink, setYoutubeLink] = useState<string>("");
   const [followersTwitter, setFollowersTwitter] = useState<number | string>("");
   const [followersYouTube, setFollowersYouTube] = useState<number | string>("");
   const [rating, setRating] = useState<number | string>("");
@@ -38,6 +44,12 @@ const InfluencerForm = () => {
 
     // Prepare data to be saved
     const influencerData = {
+      influencerName,
+      linkedInLink,
+      instagramLink,
+      twitterLink,
+      facebookLink,
+      youtubeLink,
       favoriteGenre,
       totalReach,
       followers: {
@@ -78,8 +90,8 @@ const InfluencerForm = () => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-8 bg-blue-100/40 my-8 rounded-xl shadow-lg">
-      <h1 className="mb-6 text-4xl font-bold text-gray-800 text-center">
+    <div className="mx-auto my-8 max-w-5xl rounded-xl bg-blue-100/40 p-8 shadow-lg">
+      <h1 className="mb-6 text-center text-4xl font-bold text-gray-800">
         Influencer Form
       </h1>
       <form onSubmit={handleSubmit} className="space-y-8">
@@ -108,6 +120,110 @@ const InfluencerForm = () => {
           </select>
         </div>
 
+        <div>
+          {/* Influencer Name */}
+          <div>
+            <label
+              htmlFor="influencerName"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Influencer Name
+            </label>
+            <input
+              id="influencerName"
+              type="text"
+              value={influencerName}
+              onChange={(e) => setInfluencerName(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* LinkedIn Link */}
+          <div>
+            <label
+              htmlFor="linkedInLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              LinkedIn Link
+            </label>
+            <input
+              id="linkedInLink"
+              type="url"
+              value={linkedInLink}
+              onChange={(e) => setLinkedInLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Instagram Link */}
+          <div>
+            <label
+              htmlFor="instagramLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Instagram Link
+            </label>
+            <input
+              id="instagramLink"
+              type="url"
+              value={instagramLink}
+              onChange={(e) => setInstagramLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Twitter Link */}
+          <div>
+            <label
+              htmlFor="twitterLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Twitter Link
+            </label>
+            <input
+              id="twitterLink"
+              type="url"
+              value={twitterLink}
+              onChange={(e) => setTwitterLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Facebook Link */}
+          <div>
+            <label
+              htmlFor="facebookLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Facebook Link
+            </label>
+            <input
+              id="facebookLink"
+              type="url"
+              value={facebookLink}
+              onChange={(e) => setFacebookLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* YouTube Link */}
+          <div>
+            <label
+              htmlFor="youtubeLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              YouTube Link
+            </label>
+            <input
+              id="youtubeLink"
+              type="url"
+              value={youtubeLink}
+              onChange={(e) => setYoutubeLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+        </div>
+
         {/* Total Reach */}
         <div>
           <label
@@ -127,7 +243,7 @@ const InfluencerForm = () => {
         </div>
 
         {/* Followers on Different Platforms (Grid Layout) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
             <label
               htmlFor="followersInstagram"
@@ -196,7 +312,7 @@ const InfluencerForm = () => {
         </div>
 
         {/* Text Fields Group (Description, Other Details, Audience Demographics, Preferred Brands) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
             <label
               htmlFor="description"
@@ -264,7 +380,7 @@ const InfluencerForm = () => {
         </div>
 
         {/* Collaboration Type & Social Impact */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
             <label
               htmlFor="collaborationType"
@@ -300,8 +416,10 @@ const InfluencerForm = () => {
 
         {/* Bank Details Group */}
         <div>
-          <h2 className="text-lg font-semibold text-gray-700 mb-4">Bank Details</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <h2 className="mb-4 text-lg font-semibold text-gray-700">
+            Bank Details
+          </h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div>
               <label
                 htmlFor="bankAccountNumber"
@@ -357,8 +475,10 @@ const InfluencerForm = () => {
 
         {/* Crypto Details Group */}
         <div>
-          <h2 className="text-lg font-semibold text-gray-700 mb-4">Crypto Details</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <h2 className="mb-4 text-lg font-semibold text-gray-700">
+            Crypto Details
+          </h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div>
               <label
                 htmlFor="cryptoType"
@@ -396,7 +516,7 @@ const InfluencerForm = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full py-4 text-white bg-primary rounded-xl"
+          className="w-full rounded-xl bg-primary py-4 text-white"
         >
           Submit Form
         </button>

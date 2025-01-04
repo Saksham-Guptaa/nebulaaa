@@ -14,6 +14,20 @@ const StartupForm = () => {
   const [members, setMembers] = useState<{ username: string; email: string }[]>(
     [],
   );
+  const [startupEmail, setStartupEmail] = useState<string>("");
+  const [startupName, setStartupName] = useState<string>("");
+  const [tagline, setTagline] = useState<string>("");
+  const [problemStatement, setProblemStatement] = useState<string>("");
+  const [solutionStatement, setSolutionStatement] = useState<string>("");
+  const [uniqueValueProposition, setUniqueValueProposition] =
+    useState<string>("");
+  const [pricingStrategy, setPricingStrategy] = useState<string>("");
+  const [salesPlans, setSalesPlans] = useState<string>("");
+  const [growthStrategy, setGrowthStrategy] = useState<string>("");
+  const [profitabilityTimeline, setProfitabilityTimeline] =
+    useState<string>("");
+  const [valuation, setValuation] = useState<string>("");
+  const [potentialRisks, setPotentialRisks] = useState<string>("");
   const [startupDetails, setStartupDetails] = useState<string>("");
   const [milestones, setMilestones] = useState<string>("");
   const [pdfLink, setPdfLink] = useState<string>("");
@@ -35,6 +49,12 @@ const StartupForm = () => {
   const [ifscCode, setIfscCode] = useState("");
   const [cryptoType, setCryptoType] = useState("");
   const [cryptoWalletAddress, setCryptoWalletAddress] = useState("");
+  const [influencerName, setInfluencerName] = useState<string>("");
+  const [linkedInLink, setLinkedInLink] = useState<string>("");
+  const [instagramLink, setInstagramLink] = useState<string>("");
+  const [twitterLink, setTwitterLink] = useState<string>("");
+  const [facebookLink, setFacebookLink] = useState<string>("");
+  const [youtubeLink, setYoutubeLink] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,6 +64,23 @@ const StartupForm = () => {
     }
 
     const startupData = {
+      startupEmail,
+      startupName,
+      tagline,
+      linkedInLink,
+      instagramLink,
+      twitterLink,
+      facebookLink,
+      youtubeLink,
+      problemStatement,
+      solutionStatement,
+      uniqueValueProposition,
+      pricingStrategy,
+      salesPlans,
+      growthStrategy,
+      profitabilityTimeline,
+      valuation,
+      potentialRisks,
       genre,
       totalFunding,
       totalMembers,
@@ -92,6 +129,210 @@ const StartupForm = () => {
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Gender */}
         <div>
+          {/* Startup Email */}
+          <div>
+            <label
+              htmlFor="startupEmail"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Startup Email
+            </label>
+            <input
+              id="startupEmail"
+              type="email"
+              value={startupEmail}
+              onChange={(e) => setStartupEmail(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Startup Name */}
+          <div>
+            <label
+              htmlFor="startupName"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Startup Name
+            </label>
+            <input
+              id="startupName"
+              type="text"
+              value={startupName}
+              onChange={(e) => setStartupName(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Tagline */}
+          <div>
+            <label
+              htmlFor="tagline"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Tagline
+            </label>
+            <input
+              id="tagline"
+              type="text"
+              value={tagline}
+              onChange={(e) => setTagline(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Problem Statement */}
+          <div>
+            <label
+              htmlFor="problemStatement"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Problem Statement
+            </label>
+            <textarea
+              id="problemStatement"
+              value={problemStatement}
+              onChange={(e) => setProblemStatement(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              rows={4}
+            />
+          </div>
+
+          {/* Solution Statement */}
+          <div>
+            <label
+              htmlFor="solutionStatement"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Solution Statement
+            </label>
+            <textarea
+              id="solutionStatement"
+              value={solutionStatement}
+              onChange={(e) => setSolutionStatement(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              rows={4}
+            />
+          </div>
+
+          {/* Unique Value Proposition */}
+          <div>
+            <label
+              htmlFor="uniqueValueProposition"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Unique Value Proposition
+            </label>
+            <textarea
+              id="uniqueValueProposition"
+              value={uniqueValueProposition}
+              onChange={(e) => setUniqueValueProposition(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              rows={4}
+            />
+          </div>
+
+          {/* Pricing Strategy */}
+          <div>
+            <label
+              htmlFor="pricingStrategy"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Pricing Strategy
+            </label>
+            <textarea
+              id="pricingStrategy"
+              value={pricingStrategy}
+              onChange={(e) => setPricingStrategy(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              rows={4}
+            />
+          </div>
+
+          {/* Sales Plans */}
+          <div>
+            <label
+              htmlFor="salesPlans"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Sales Plans
+            </label>
+            <textarea
+              id="salesPlans"
+              value={salesPlans}
+              onChange={(e) => setSalesPlans(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              rows={4}
+            />
+          </div>
+
+          {/* Growth Strategy */}
+          <div>
+            <label
+              htmlFor="growthStrategy"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Growth Strategy
+            </label>
+            <textarea
+              id="growthStrategy"
+              value={growthStrategy}
+              onChange={(e) => setGrowthStrategy(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              rows={4}
+            />
+          </div>
+
+          {/* Profitability Timeline */}
+          <div>
+            <label
+              htmlFor="profitabilityTimeline"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Profitability Timeline
+            </label>
+            <textarea
+              id="profitabilityTimeline"
+              value={profitabilityTimeline}
+              onChange={(e) => setProfitabilityTimeline(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              rows={4}
+            />
+          </div>
+
+          {/* Valuation */}
+          <div>
+            <label
+              htmlFor="valuation"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Valuation
+            </label>
+            <textarea
+              id="valuation"
+              value={valuation}
+              onChange={(e) => setValuation(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              rows={4}
+            />
+          </div>
+
+          {/* Potential Risks */}
+          <div>
+            <label
+              htmlFor="potentialRisks"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Potential Risks
+            </label>
+            <textarea
+              id="potentialRisks"
+              value={potentialRisks}
+              onChange={(e) => setPotentialRisks(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              rows={4}
+            />
+          </div>
+
           <label
             htmlFor="genre"
             className="block text-sm font-semibold text-gray-700"
@@ -425,6 +666,180 @@ const StartupForm = () => {
             onChange={(e) => setExitStrategy(e.target.value)}
             className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             rows={4}
+          />
+        </div>
+
+        <div>
+          {/* Startup Details */}
+          <div>
+            <label
+              htmlFor="startupDetails"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Startup Details
+            </label>
+            <textarea
+              id="startupDetails"
+              value={startupDetails}
+              onChange={(e) => setStartupDetails(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              rows={4}
+            />
+          </div>
+
+          {/* Milestones */}
+          <div>
+            <label
+              htmlFor="milestones"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Milestones
+            </label>
+            <textarea
+              id="milestones"
+              value={milestones}
+              onChange={(e) => setMilestones(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              rows={4}
+            />
+          </div>
+
+          {/* PDF Link */}
+          <div>
+            <label
+              htmlFor="pdfLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              PDF Link
+            </label>
+            <input
+              id="pdfLink"
+              type="url"
+              value={pdfLink}
+              onChange={(e) => setPdfLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+        </div>
+
+        <div>
+          {/* Influencer Name */}
+          <div>
+            <label
+              htmlFor="influencerName"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Influencer Name
+            </label>
+            <input
+              id="influencerName"
+              type="text"
+              value={influencerName}
+              onChange={(e) => setInfluencerName(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* LinkedIn Link */}
+          <div>
+            <label
+              htmlFor="linkedInLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              LinkedIn Link
+            </label>
+            <input
+              id="linkedInLink"
+              type="url"
+              value={linkedInLink}
+              onChange={(e) => setLinkedInLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Instagram Link */}
+          <div>
+            <label
+              htmlFor="instagramLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Instagram Link
+            </label>
+            <input
+              id="instagramLink"
+              type="url"
+              value={instagramLink}
+              onChange={(e) => setInstagramLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Twitter Link */}
+          <div>
+            <label
+              htmlFor="twitterLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Twitter Link
+            </label>
+            <input
+              id="twitterLink"
+              type="url"
+              value={twitterLink}
+              onChange={(e) => setTwitterLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Facebook Link */}
+          <div>
+            <label
+              htmlFor="facebookLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Facebook Link
+            </label>
+            <input
+              id="facebookLink"
+              type="url"
+              value={facebookLink}
+              onChange={(e) => setFacebookLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* YouTube Link */}
+          <div>
+            <label
+              htmlFor="youtubeLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              YouTube Link
+            </label>
+            <input
+              id="youtubeLink"
+              type="url"
+              value={youtubeLink}
+              onChange={(e) => setYoutubeLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+        </div>
+
+        {/* Bank Account Number */}
+        <div>
+          <label
+            htmlFor="bankAccountNumber"
+            className="block text-sm font-semibold text-gray-700"
+          >
+            Bank Account Number
+          </label>
+          <input
+            id="bankAccountNumber"
+            type="text"
+            value={bankAccountNumber}
+            onChange={(e) => setBankAccountNumber(e.target.value)}
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
           />
         </div>
 

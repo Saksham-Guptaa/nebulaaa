@@ -15,10 +15,16 @@ const MentorForm = () => {
   const [certificationLink, setCertificationLink] = useState<string>("");
   const [linkedinProfile, setLinkedinProfile] = useState<string>("");
   const [yearsOfExperience, setYearsOfExperience] = useState<number | string>(
-    ""
+    "",
   );
   const [bankAccountNumber, setBankAccountNumber] = useState("");
   const [bankName, setBankName] = useState("");
+  const [influencerName, setInfluencerName] = useState<string>("");
+  const [linkedInLink, setLinkedInLink] = useState<string>("");
+  const [instagramLink, setInstagramLink] = useState<string>("");
+  const [twitterLink, setTwitterLink] = useState<string>("");
+  const [facebookLink, setFacebookLink] = useState<string>("");
+  const [youtubeLink, setYoutubeLink] = useState<string>("");
   const [ifscCode, setIfscCode] = useState("");
   const [cryptoType, setCryptoType] = useState("");
   const [cryptoWalletAddress, setCryptoWalletAddress] = useState("");
@@ -44,6 +50,11 @@ const MentorForm = () => {
     }
 
     const mentorData = {
+      linkedInLink,
+      instagramLink,
+      twitterLink,
+      facebookLink,
+      youtubeLink,
       hourlyRate,
       availability,
       interests,
@@ -76,7 +87,7 @@ const MentorForm = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-blue-100/40 my-8 rounded-xl shadow-lg">
+    <div className="mx-auto my-8 max-w-4xl rounded-xl bg-blue-100/40 p-6 shadow-lg">
       <h1 className="mb-6 text-4xl font-bold text-gray-800">Mentor Form</h1>
       <form onSubmit={handleSubmit} className="space-y-8">
         {/* Section: Personal Information */}
@@ -84,7 +95,7 @@ const MentorForm = () => {
           <h2 className="mb-4 text-xl font-semibold text-gray-700">
             Personal Information
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {/* Hourly Rate */}
             <div>
               <label className="block text-sm font-semibold text-gray-700">
@@ -120,7 +131,7 @@ const MentorForm = () => {
           <h2 className="mb-4 text-xl font-semibold text-gray-700">
             Availability
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
               "Monday",
               "Tuesday",
@@ -144,12 +155,116 @@ const MentorForm = () => {
           </div>
         </div>
 
+        <div>
+          {/* Influencer Name */}
+          <div>
+            <label
+              htmlFor="influencerName"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Influencer Name
+            </label>
+            <input
+              id="influencerName"
+              type="text"
+              value={influencerName}
+              onChange={(e) => setInfluencerName(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* LinkedIn Link */}
+          <div>
+            <label
+              htmlFor="linkedInLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              LinkedIn Link
+            </label>
+            <input
+              id="linkedInLink"
+              type="url"
+              value={linkedInLink}
+              onChange={(e) => setLinkedInLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Instagram Link */}
+          <div>
+            <label
+              htmlFor="instagramLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Instagram Link
+            </label>
+            <input
+              id="instagramLink"
+              type="url"
+              value={instagramLink}
+              onChange={(e) => setInstagramLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Twitter Link */}
+          <div>
+            <label
+              htmlFor="twitterLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Twitter Link
+            </label>
+            <input
+              id="twitterLink"
+              type="url"
+              value={twitterLink}
+              onChange={(e) => setTwitterLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Facebook Link */}
+          <div>
+            <label
+              htmlFor="facebookLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Facebook Link
+            </label>
+            <input
+              id="facebookLink"
+              type="url"
+              value={facebookLink}
+              onChange={(e) => setFacebookLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* YouTube Link */}
+          <div>
+            <label
+              htmlFor="youtubeLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              YouTube Link
+            </label>
+            <input
+              id="youtubeLink"
+              type="url"
+              value={youtubeLink}
+              onChange={(e) => setYoutubeLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+        </div>
+
         {/* Section: Professional Details */}
         <div>
           <h2 className="mb-4 text-xl font-semibold text-gray-700">
             Professional Details
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {/* Interests */}
             <div>
               <label className="block text-sm font-semibold text-gray-700">
@@ -213,7 +328,7 @@ const MentorForm = () => {
           <h2 className="mb-4 text-xl font-semibold text-gray-700">
             Payment Details
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {/* Bank Account Number */}
             <div>
               <label className="block text-sm font-semibold text-gray-700">

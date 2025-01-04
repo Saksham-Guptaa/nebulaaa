@@ -2,14 +2,24 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { db } from "../../../../utils/firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { average, doc, setDoc } from "firebase/firestore";
 import { useAuth } from "../../../../hooks/useAuth"; // Custom hook for authentication
 
 const InvestorForm = () => {
-  const { user } = useAuth(); // Ensure user is authenticated
+  const { user } = useAuth();
   const router = useRouter();
   const [preferredIndustries, setPreferredIndustries] = useState<string[]>([]);
   const [investmentSize, setInvestmentSize] = useState<number | string>("");
+
+  const [investorEmail, setInvestorEmail] = useState<string>("");
+  const [investorName, setInvestorName] = useState<string>("");
+  const [contactInfo, setContactInfo] = useState<string>("");
+  const [linkedInLink, setLinkedInLink] = useState<string>("");
+  const [totalCapitalDeployed, setTotalCapitalDeployed] = useState<string>("");
+  const [instagramLink, setInstagramLink] = useState<string>("");
+  const [twitterLink, setTwitterLink] = useState<string>("");
+  const [facebookLink, setFacebookLink] = useState<string>("");
+  const [averageRoi, setAverageRoi] = useState<string>("");
   const [investmentStrategy, setInvestmentStrategy] = useState<string>("");
   const [investmentHistory, setInvestmentHistory] = useState<string>("");
   const [investmentFocus, setInvestmentFocus] = useState<string>("");
@@ -44,6 +54,15 @@ const InvestorForm = () => {
 
     // Prepare data to be saved
     const investorData = {
+      investorEmail,
+      investorName,
+      contactInfo,
+      linkedInLink,
+      totalCapitalDeployed,
+      instagramLink,
+      twitterLink,
+      facebookLink,
+      averageRoi,
       preferredIndustries,
       investmentSize,
       investmentStrategy,
@@ -134,6 +153,160 @@ const InvestorForm = () => {
             className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             required
           />
+        </div>
+        <div>
+          {/* Investor Email */}
+          <div>
+            <label
+              htmlFor="investorEmail"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Investor Email
+            </label>
+            <input
+              id="investorEmail"
+              type="email"
+              value={investorEmail}
+              onChange={(e) => setInvestorEmail(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Investor Name */}
+          <div>
+            <label
+              htmlFor="investorName"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Investor Name
+            </label>
+            <input
+              id="investorName"
+              type="text"
+              value={investorName}
+              onChange={(e) => setInvestorName(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <label
+              htmlFor="contactInfo"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Contact Info
+            </label>
+            <input
+              id="contactInfo"
+              type="text"
+              value={contactInfo}
+              onChange={(e) => setContactInfo(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* LinkedIn Link */}
+          <div>
+            <label
+              htmlFor="linkedInLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              LinkedIn Link
+            </label>
+            <input
+              id="linkedInLink"
+              type="url"
+              value={linkedInLink}
+              onChange={(e) => setLinkedInLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Total Capital Deployed */}
+          <div>
+            <label
+              htmlFor="totalCapitalDeployed"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Total Capital Deployed
+            </label>
+            <input
+              id="totalCapitalDeployed"
+              type="number"
+              value={totalCapitalDeployed}
+              onChange={(e) => setTotalCapitalDeployed(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Instagram Link */}
+          <div>
+            <label
+              htmlFor="instagramLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Instagram Link
+            </label>
+            <input
+              id="instagramLink"
+              type="url"
+              value={instagramLink}
+              onChange={(e) => setInstagramLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Twitter Link */}
+          <div>
+            <label
+              htmlFor="twitterLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Twitter Link
+            </label>
+            <input
+              id="twitterLink"
+              type="url"
+              value={twitterLink}
+              onChange={(e) => setTwitterLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Facebook Link */}
+          <div>
+            <label
+              htmlFor="facebookLink"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Facebook Link
+            </label>
+            <input
+              id="facebookLink"
+              type="url"
+              value={facebookLink}
+              onChange={(e) => setFacebookLink(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
+
+          {/* Average ROI */}
+          <div>
+            <label
+              htmlFor="averageRoi"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Average ROI
+            </label>
+            <input
+              id="averageRoi"
+              type="number"
+              value={averageRoi}
+              onChange={(e) => setAverageRoi(e.target.value)}
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+            />
+          </div>
         </div>
 
         {/* Investment Strategy */}
