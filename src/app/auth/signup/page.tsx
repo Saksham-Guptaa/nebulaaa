@@ -84,7 +84,6 @@ const SignUp: React.FC = () => {
         phoneNumber: formValues.phoneNumber,
         role: formValues.role,
       });
-
       router.push(`/auth/roles/${formValues.role}`);
     } catch (error) {
       console.error("Error during sign-up:", error);

@@ -82,7 +82,7 @@ const InfluencerForm = () => {
         doc(db, "users", user.uid, "roles", "influencer"),
         influencerData,
       );
-      router.push("/dashboard/influencer"); // Redirect to influencer dashboard
+      router.push("/"); // Redirect to influencer dashboard
     } catch (error) {
       console.error("Error saving influencer data:", error);
       alert("There was an error submitting your form.");

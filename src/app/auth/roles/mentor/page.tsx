@@ -79,7 +79,7 @@ const MentorForm = () => {
 
     try {
       await setDoc(doc(db, "users", user.uid, "roles", "mentor"), mentorData);
-      router.push("/dashboard/mentor");
+      router.push("/");
     } catch (error) {
       console.error("Error saving mentor data:", error);
       alert("There was an error submitting your form.");
