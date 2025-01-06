@@ -85,7 +85,7 @@ const SignUp: React.FC = () => {
         role: formValues.role,
       });
 
-      router.push(`/roles/${formValues.role}`);
+      router.push(`/auth/roles/${formValues.role}`);
     } catch (error) {
       console.error("Error during sign-up:", error);
       alert("Sign-up failed. Please try again.");
