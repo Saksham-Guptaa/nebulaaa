@@ -19,7 +19,7 @@ const MentorForm = () => {
   );
   const [bankAccountNumber, setBankAccountNumber] = useState("");
   const [bankName, setBankName] = useState("");
-  const [influencerName, setInfluencerName] = useState<string>("");
+  const [mentorName, setMentorName] = useState<string>("");
   const [linkedInLink, setLinkedInLink] = useState<string>("");
   const [instagramLink, setInstagramLink] = useState<string>("");
   const [twitterLink, setTwitterLink] = useState<string>("");
@@ -55,6 +55,7 @@ const MentorForm = () => {
       twitterLink,
       facebookLink,
       youtubeLink,
+      mentorName,
       hourlyRate,
       availability,
       interests,
@@ -159,16 +160,16 @@ const MentorForm = () => {
           {/* Influencer Name */}
           <div>
             <label
-              htmlFor="influencerName"
+              htmlFor="mentorName"
               className="block text-sm font-semibold text-gray-700"
             >
-              Influencer Name
+              Mentor Name
             </label>
             <input
-              id="influencerName"
+              id="mentorName"
               type="text"
-              value={influencerName}
-              onChange={(e) => setInfluencerName(e.target.value)}
+              value={mentorName}
+              onChange={(e) => setMentorName(e.target.value)}
               className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
             />
           </div>

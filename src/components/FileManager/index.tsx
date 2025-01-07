@@ -2,38 +2,41 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import { useFirebase } from "@/context/FirebaseContext";
+import { useUsers } from "@/context/RoleContext";
 
 const Breadcrumb = dynamic(
   () => import("@/components/Breadcrumbs/Breadcrumb"),
   { ssr: false },
 );
 
+const FileDetailsList = dynamic(() => import("@/components/FileDetailsList"), {
+  ssr: false,
+});
+
+const DownloadList = dynamic(() => import("@/components/DownloadList"), {
+  ssr: false,
+});
 const FileManager: React.FC = () => {
   const firebaseContext = useFirebase();
-
+  const { usersByRole, loading } = useUsers();
+  console.log(usersByRole, loading);
   if (!firebaseContext) return null;
-
-  const { userDetails } = firebaseContext;
-  
-
+  const { roles, userDetails } = firebaseContext;
+  console.log(roles, userDetails);
   return (
     <>
       <Breadcrumb pageName="Deck" />
-      <div className="p-4">
-        <div className="grid grid-cols-1 dark:text-white/80 text-black">
-              <div className="shadow-xl bg-bodydark1 dark:bg-boxdark p-16 space-y-6 leading-loose">
-                <h3 className="font-semibold text-2xl mb-2">{userDetails?.fullName || "No Name"}</h3>
-                <p className="tracking-widest">
-                  <strong>Email:</strong> {userDetails?.email || "No Email"}
-                </p>
-                <p className="tracking-widest">
-                  <strong>Role:</strong> {userDetails?.role || "No Role"}
-                </p>
-                <p className="tracking-widest">
-                  <strong>Contact Number:</strong> {userDetails?.phoneNumber || "No Phone Number"}
-                </p>
-              </div>
+      <FileDetailsList />
+      <div className="mt-7.5 grid grid-cols-12 gap-4 md:gap-6 2xl:gap-7.5">
+        <div className="col-span-12 xl:col-span-8">{/* <ChartTen /> */}</div>
+        <div className="col-span-12 xl:col-span-4">
+          <div className="flex flex-col gap-4 sm:flex-row md:gap-6 xl:flex-col xl:gap-7.5">
+            {/* <StorageChart /> */}
+            {/* <StorageList /> */}
+          </div>
         </div>
+
+        <DownloadList />
       </div>
     </>
   );
