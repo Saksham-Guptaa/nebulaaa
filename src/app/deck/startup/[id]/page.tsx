@@ -58,7 +58,6 @@ const StartupDetails: NextPage = () => {
         if (userDocSnap.exists()) {
           const userData = userDocSnap.data() as UserData;
           setUserData(userData);
-          console.log("User data:", userData);
 
           // Fetch roles if roles are a subcollection of the user
           const rolesCollectionRef = collection(
@@ -75,7 +74,6 @@ const StartupDetails: NextPage = () => {
           });
 
           setRoleData(rolesData);
-          console.log("Role data:", rolesData);
         } else {
           setError("No user found with this ID.");
         }

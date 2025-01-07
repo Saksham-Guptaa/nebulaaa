@@ -27,8 +27,6 @@ interface RoleData {
 
 const MentorDetails: NextPage = () => {
   const firebaseContext = useFirebase();
-  if (!firebaseContext) return null;
-  const { userDetails } = firebaseContext;
 
   const router = useRouter();
   const params = useParams();
@@ -45,6 +43,9 @@ const MentorDetails: NextPage = () => {
     role: string;
   } | null>(null);
 
+  if (!firebaseContext) return null;
+  const { userDetails } = firebaseContext;
+
   useEffect(() => {
     if (!id) return;
     const fetchUserAndRoles = async () => {
@@ -58,7 +59,6 @@ const MentorDetails: NextPage = () => {
         if (userDocSnap.exists()) {
           const userData = userDocSnap.data() as UserData;
           setUserData(userData);
-          console.log("User data:", userData);
 
           // Fetch roles if roles are a subcollection of the user
           const rolesCollectionRef = collection(
@@ -75,7 +75,6 @@ const MentorDetails: NextPage = () => {
           });
 
           setRoleData(rolesData);
-          console.log("Role data:", rolesData);
         } else {
           setError("No user found with this ID.");
         }
@@ -127,18 +126,103 @@ const MentorDetails: NextPage = () => {
   return (
     <div>
       <DefaultLayout>
-        <h1>Investor Details</h1>
-        {userData && (
-          <div>
-            <p>
-              <strong>Name:</strong> {userData.name}
-            </p>
-            <p>
-              <strong>Email:</strong> {userData.email}
-            </p>
+        <div className="container mx-auto p-4">
+          <h1 className="mb-4 text-2xl font-bold">Influencer Details</h1>
+          <div className="flex flex-col gap-4">
+            {userData && (
+              <div className="card flex justify-between rounded-lg bg-white p-4 shadow-md dark:bg-boxdark">
+                <p className="tracking-widest">
+                  <strong>Name:</strong> {userData.fullName}
+                </p>
+                <p className="tracking-widest">
+                  <strong>Email:</strong> {userData.email}
+                </p>
+                <p className="tracking-widest">
+                  <strong>Contact Number:</strong> {userData.phoneNumber}
+                </p>
+              </div>
+            )}
+            {roleData && (
+              <div className="card bg-white dark:bg-boxdark shadow-md rounded-lg p-6">
+                <h2 className="text-2xl font-semibold mb-4 border-b pb-2">Role Information</h2>
+                {Object.entries(roleData).map(([roleId, roleInfo]) => {
+                  // Keys to display
+                  const keysToDisplay = [
+                    "yearsOfExperience",
+                    "expertise",
+                    "hourlyRate",
+                    "interests",
+                    "availibility",
+                    "location",
+                    "instagramLink",
+                    "youtubeLink",
+                    "twitterLink",
+                    "linkedInLink",
+                    "facebookLink",
+                  ];
+
+                  return (
+                    <div
+                      key={roleId}
+                      className="border-b border-gray-300 pb-6 mb-6 last:border-none last:pb-0"
+                    >
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {Object.entries(roleInfo)
+                          .filter(([key]) => keysToDisplay.includes(key)) // Filter the keys
+                          .map(([key, value]) => {
+                            const keyMapping: { [key: string]: string } = {
+                              yearsOfExperience: "Years Of Experience",
+                              expertise: "Expertise",
+                              hourlyRate: "Hourly Rate",
+                              interests: "Interests",
+                              availibility: "Availibility",
+                              location: "Location",
+                              instagramLink: "Instagram Link",
+                              youtubeLink: "Youtube Link",
+                              twitterLink: "Twitter Link",
+                              linkedInLink: "LinkedIn Link",
+                              facebookLink: "Facebook Link"
+                            };
+
+                            const displayKey = keyMapping[key] || key;
+
+                            return (
+                              <div key={key} className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                                <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                                  {displayKey}
+                                </p>
+                                <p className="text-base text-gray-800 dark:text-gray-200 font-semibold">
+                                  {key === "websiteLink" && typeof value === "string" ? (
+                                    <a
+                                      href={value}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="text-blue-500 hover:underline"
+                                    >
+                                      {value}
+                                    </a>
+                                  ) : (
+                                    value !== undefined && value !== null ? value.toString() : "N/A"
+                                  )}
+                                </p>
+                              </div>
+                            );
+                          })}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
-        )}
-        <button onClick={handleShowInterest}>Show Interest</button>
+          <button
+            onClick={handleShowInterest}
+            className="mt-4 rounded-lg bg-blue-500 px-4 py-2 text-white shadow-md hover:bg-blue-600"
+          >
+            Show Interest
+          </button>
+        </div>
       </DefaultLayout>
     </div>
   );
