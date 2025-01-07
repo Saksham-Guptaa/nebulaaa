@@ -8,9 +8,6 @@ const Breadcrumb = dynamic(
   { ssr: false },
 );
 
-const DownloadList = dynamic(() => import("@/components/DownloadList"), {
-  ssr: false,
-});
 const FileManager: React.FC = () => {
   const firebaseContext = useFirebase();
 
