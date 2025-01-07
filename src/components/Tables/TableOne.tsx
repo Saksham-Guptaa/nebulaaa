@@ -89,7 +89,7 @@ const TableOne = () => {
             }`}
             key={key}
           >
-            <div className="flex items-center gap-3 p-2.5 xl:p-5">
+            {/* <div className="flex items-center gap-3 p-2.5 xl:p-5">
               <div className="flex-shrink-0">
                 <Image src={brand.logo} alt="Brand" width={48} height={48} />
               </div>
@@ -112,7 +112,7 @@ const TableOne = () => {
 
             <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
               <p className="text-meta-5">{brand.conversion}%</p>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
