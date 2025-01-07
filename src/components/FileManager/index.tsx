@@ -9,10 +9,6 @@ const Breadcrumb = dynamic(
   { ssr: false },
 );
 
-const FileDetailsList = dynamic(() => import("@/components/FileDetailsList"), {
-  ssr: false,
-});
-
 const DownloadList = dynamic(() => import("@/components/DownloadList"), {
   ssr: false,
 });
