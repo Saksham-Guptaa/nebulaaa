@@ -26,14 +26,21 @@ const FileManager: React.FC = () => {
   return (
     <>
       <Breadcrumb pageName="Deck" />
-      <FileDetailsList />
-      <div className="mt-7.5 grid grid-cols-12 gap-4 md:gap-6 2xl:gap-7.5">
-        <div className="col-span-12 xl:col-span-8">{/* <ChartTen /> */}</div>
-        <div className="col-span-12 xl:col-span-4">
-          <div className="flex flex-col gap-4 sm:flex-row md:gap-6 xl:flex-col xl:gap-7.5">
-            {/* <StorageChart /> */}
-            {/* <StorageList /> */}
-          </div>
+      <div className="p-4">
+        <div className="grid grid-cols-1 text-black dark:text-white/80">
+          {userDetails && (
+            <div className="card flex justify-between rounded-lg bg-white p-4 shadow-md dark:bg-boxdark">
+              <p className="tracking-widest">
+                <strong>Name:</strong> {userDetails.fullName}
+              </p>
+              <p className="tracking-widest">
+                <strong>Email:</strong> {userDetails.email}
+              </p>
+              <p className="tracking-widest">
+                <strong>Contact Number:</strong> {userDetails.phoneNumber}
+              </p>
+            </div>
+          )}
         </div>
 
         <DownloadList />

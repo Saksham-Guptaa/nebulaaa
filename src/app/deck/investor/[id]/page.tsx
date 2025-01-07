@@ -134,8 +134,6 @@ const InvestorDetails: NextPage = () => {
     }
   };
 
-  console.log(userData);
-
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
