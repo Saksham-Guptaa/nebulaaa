@@ -70,6 +70,8 @@ const NewsForum = () => {
                                 src={article.image}
                                 alt={article.title}
                                 className="w-full h-40 md:h-48 object-cover rounded-lg shadow-md"
+                                width={100}
+                                height={100}
                             />
                             {/* <h2 className="mt-2 text-lg md:text-xl font-semibold text-black">{article.title}</h2> */}
                             <p className="text-gray-900 font-bold text-sm md:text-base">{article.description}</p>

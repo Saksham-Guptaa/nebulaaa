@@ -94,7 +94,7 @@ const Navbar = () => {
             href="/signup"
             className="flex items-center text-lg font-semibold text-black hover:text-blue-500 transition"
           >
-            Sign Up
+            Visit Dashboard
           </Link>
         )}
 
