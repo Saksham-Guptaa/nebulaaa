@@ -48,8 +48,8 @@ const chatData: Chat[] = [
     name: "Comming Soon",
     text: "Comming Soon",
     time: 0,
-    textCount: 3,
-    dot: 6,
+    textCount: 0,
+    dot: 0,
   },
 ];
 
