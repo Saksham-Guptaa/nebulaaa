@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
@@ -76,73 +76,75 @@ const CaseStudy: React.FC = () => {
   }, []);
   return (
     <>
-    <Navbar/>
-    <div className="flex flex-col px-6 py-8 md:px-16 lg:px-24 space-y-10">
-      {/* Header */}
-      <h1 className="text-4xl font-extrabold text-gray-800 tracking-wide">Featured</h1>
+      <Navbar />
+      <div className="flex flex-col space-y-10 bg-white px-6 py-8 md:px-16 lg:px-24">
+        {/* Header */}
+        <h1 className="text-4xl font-extrabold tracking-wide text-gray-800">
+          Featured
+        </h1>
 
-      {/* Main Content */}
-      <div className="flex flex-col lg:flex-row space-y-10 lg:space-y-0 lg:space-x-16">
-        {/* Images Section */}
-        <div className="grid grid-cols-2 gap-6 lg:grid-cols-2">
-          {caseStudies[currentIndex].images.map((src, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.5 }}
-              className="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 bg-gray-100 rounded-lg shadow-md overflow-hidden"
-            >
-              <img
-                src={src}
-                alt={`Case Study ${currentIndex + 1} Image ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Text and Work Section */}
-        <div className="flex-1 space-y-8">
-          {/* Text Section */}
-          <div className="space-y-6">
-            {caseStudies[currentIndex].text.map((text, index) => (
-              <motion.p
+        {/* Main Content */}
+        <div className="flex flex-col space-y-10 lg:flex-row lg:space-x-16 lg:space-y-0">
+          {/* Images Section */}
+          <div className="grid grid-cols-2 gap-6 lg:grid-cols-2">
+            {caseStudies[currentIndex].images.map((src, index) => (
+              <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.5 }}
-                className="text-gray-700 text-base md:text-lg leading-relaxed"
+                className="h-36 w-36 overflow-hidden rounded-lg bg-gray-100 shadow-md sm:h-48 sm:w-48 md:h-56 md:w-56"
               >
-                {text}
-              </motion.p>
+                <img
+                  src={src}
+                  alt={`Case Study ${currentIndex + 1} Image ${index + 1}`}
+                  className="h-full w-full object-cover"
+                />
+              </motion.div>
             ))}
           </div>
 
-          {/* All Work Section */}
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900">All Work</h2>
-            <ul className="mt-4 space-y-2">
-              {caseStudies.map((caseStudy, index) => (
-                <li
+          {/* Text and Work Section */}
+          <div className="flex-1 space-y-8">
+            {/* Text Section */}
+            <div className="space-y-6">
+              {caseStudies[currentIndex].text.map((text, index) => (
+                <motion.p
                   key={index}
-                  className={`text-lg md:text-xl transition-all ${
-                    index === currentIndex
-                      ? "font-semibold text-blue-600"
-                      : "text-gray-500 hover:text-gray-700"
-                  }`}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-base leading-relaxed text-gray-700 md:text-lg"
                 >
-                  {caseStudy.workNumber}
-                </li>
+                  {text}
+                </motion.p>
               ))}
-            </ul>
+            </div>
+
+            {/* All Work Section */}
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900">All Work</h2>
+              <ul className="mt-4 space-y-2">
+                {caseStudies.map((caseStudy, index) => (
+                  <li
+                    key={index}
+                    className={`text-lg transition-all md:text-xl ${
+                      index === currentIndex
+                        ? "font-semibold text-blue-600"
+                        : "text-gray-500 hover:text-gray-700"
+                    }`}
+                  >
+                    {caseStudy.workNumber}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <Footer/>
+      <Footer />
     </>
   );
 };

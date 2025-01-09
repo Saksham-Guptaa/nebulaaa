@@ -2,56 +2,96 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="text-black  py-8">
-      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center md:items-start">
+    <footer className="bg-white py-8  text-black">
+      <div className="container mx-auto flex flex-col items-center justify-between px-4 md:flex-row md:items-start">
         {/* Left Logo Section */}
-        <div className="mb-6 md:mb-0 text-black">
-          <h1 className="font-extrabold text-4xl md:text-5xl tracking-wide transform transition-transform duration-300 hover:scale-110">
+        <div className="mb-6 text-black md:mb-0">
+          <h1 className="transform text-4xl font-extrabold tracking-wide transition-transform duration-300 hover:scale-110 md:text-5xl">
             NEBULA
           </h1>
         </div>
         {/* Links Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-3 md:text-left">
           <div className="text-black">
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-black hover:text-yellow-400 transition duration-200">About</a>
+                <a
+                  href="#"
+                  className="text-black transition duration-200 hover:text-yellow-400"
+                >
+                  About
+                </a>
               </li>
               <li>
-                <a href="#" className="text-black hover:text-yellow-400 transition duration-200">Services</a>
+                <a
+                  href="#"
+                  className="text-black transition duration-200 hover:text-yellow-400"
+                >
+                  Services
+                </a>
               </li>
               <li>
-                <a href="#" className="text-black hover:text-yellow-400 transition duration-200">Work</a>
+                <a
+                  href="#"
+                  className="text-black transition duration-200 hover:text-yellow-400"
+                >
+                  Work
+                </a>
               </li>
             </ul>
           </div>
           <div className="text-black">
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-black hover:text-yellow-400 transition duration-200">Membership</a>
+                <a
+                  href="#"
+                  className="text-black transition duration-200 hover:text-yellow-400"
+                >
+                  Membership
+                </a>
               </li>
             </ul>
           </div>
           <div className="text-black">
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-black hover:text-yellow-400 transition duration-200">X</a>
+                <a
+                  href="#"
+                  className="text-black transition duration-200 hover:text-yellow-400"
+                >
+                  X
+                </a>
               </li>
               <li>
-                <a href="#" className="text-black hover:text-yellow-400 transition duration-200">Instagram</a>
+                <a
+                  href="#"
+                  className="text-black transition duration-200 hover:text-yellow-400"
+                >
+                  Instagram
+                </a>
               </li>
               <li>
-                <a href="#" className="text-black hover:text-yellow-400 transition duration-200">Facebook</a>
+                <a
+                  href="#"
+                  className="text-black transition duration-200 hover:text-yellow-400"
+                >
+                  Facebook
+                </a>
               </li>
               <li>
-                <a href="#" className="text-black hover:text-yellow-400 transition duration-200">LinkedIn</a>
+                <a
+                  href="#"
+                  className="text-black transition duration-200 hover:text-yellow-400"
+                >
+                  LinkedIn
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Right Reserved Text */}
-        <div className="mt-6 md:mt-0 text-black text-sm italic">
+        <div className="mt-6 text-sm italic text-black md:mt-0">
           All rights reserved
         </div>
       </div>
