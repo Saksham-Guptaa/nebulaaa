@@ -46,53 +46,67 @@ const Navbar = () => {
   }, []);
 
   if (loading) {
-    return <div className="text-center py-4">Loading...</div>;
+    return <div className="py-4 text-center">Loading...</div>;
   }
 
   return (
-    <nav className="flex items-center justify-between lg:px-6 py-4 bg-white border-b-2 border-black shadow-md md:px-12 p-2">
+    <nav className="flex items-center justify-between border-b-2 border-black bg-white p-2 py-4 shadow-md md:px-12 lg:px-6">
       {/* Logo */}
-      <Link href="/">
-        <span className="hover:text-gray-400 mr-5 text-lg font-extrabold transition-colors duration-1000 text-black">
+      <Link href="/home">
+        <span className="mr-5 text-lg font-extrabold text-black transition-colors duration-1000 hover:text-gray-400">
           NEBULA
         </span>
       </Link>
 
       {/* Links for larger screens */}
-      <div className="hidden md:flex space-x-8 text-lg font-semibold flex-grow justify-evenly items-center">
-        
-        <Link href="/about" className="hover:text-gray-400 transition-colors duration-1000 text-xl text-black">
+      <div className="hidden flex-grow items-center justify-evenly space-x-8 text-lg font-semibold md:flex">
+        <Link
+          href="/about"
+          className="text-xl text-black transition-colors duration-1000 hover:text-gray-400"
+        >
           ABOUT
         </Link>
-        <Link href="/service" className="hover:text-gray-400 transition-colors duration-1000 text-xl text-black">
+        <Link
+          href="/service"
+          className="text-xl text-black transition-colors duration-1000 hover:text-gray-400"
+        >
           SERVICES
         </Link>
-        <Link href="/work" className="hover:text-gray-400 transition-colors duration-1000 text-xl text-black">
+        <Link
+          href="/work"
+          className="text-xl text-black transition-colors duration-1000 hover:text-gray-400"
+        >
           WORK
         </Link>
         {/* <Link href="/social" className="hover:text-gray-400 transition-colors duration-1000 text-xl text-black">
           MEMBERSHIP
         </Link> */}
-        <Link href="/" className="hover:text-white transition-colors duration-1000 text-xl text-black bg-[#2baee2] px-4 py-2 rounded">
-          MEMBERSHIP
+        <Link
+          href="/"
+          className="rounded bg-[#2baee2] px-4 py-2 text-xl text-black transition-colors duration-1000 hover:text-white"
+        >
+          Dashboard
         </Link>
       </div>
 
       {/* User Section */}
       <div className="flex items-center space-x-4">
         {user ? (
-          <Link href="/profile" className="hidden mx-5 md:flex items-center space-x-2">
+          <Link
+            href="/profile"
+            className="mx-5 hidden items-center space-x-2 md:flex"
+          >
             {/* <img
               src={user.avatar || "https://via.placeholder.com/150"} // Default avatar if not provided
               alt={user.name || "User"}
               className="w-10 h-10 rounded-full object-cover"
             /> */}
-            <span className="font-medium text-black">{user.name || "Profile"}</span>
+            <span className="font-medium text-black">Dashboard</span>
           </Link>
         ) : (
           <Link
-            href="/signup"
-            className="flex items-center text-lg font-semibold text-black hover:text-blue-500 transition"
+            href="/profile"
+            className="flex items-center text-lg font-semibold text-black transition hover:text-blue-500"
           >
             Visit Dashboard
           </Link>
@@ -101,7 +115,7 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="flex md:hidden text-black text-4xl"
+          className="flex text-4xl text-black md:hidden"
           aria-label="Toggle Menu"
         >
           <IoMenu />
@@ -110,34 +124,39 @@ const Navbar = () => {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`absolute top-16 left-0 w-full bg-white h-screen shadow-lg md:hidden z-50 overflow-hidden transition-max-height duration-500 ease-in-out ${
+        className={`transition-max-height absolute left-0 top-16 z-50 h-screen w-full overflow-hidden bg-white shadow-lg duration-500 ease-in-out md:hidden ${
           menuOpen ? "max-h-screen" : "max-h-0"
         }`}
       >
-        <ul className="flex flex-col items-center space-y-6 py-8 px-6 text-lg font-semibold">
+        <ul className="flex flex-col items-center space-y-6 px-6 py-8 text-lg font-semibold">
           <li>
-          {user ? (
-          <Link href="/profile" className="hidden mx-5 md:flex items-center space-x-2">
-            {/* <img
+            {user ? (
+              <Link
+                href="/profile"
+                className="mx-5 hidden items-center space-x-2 md:flex"
+              >
+                {/* <img
               src={user.avatar || "https://via.placeholder.com/150"} // Default avatar if not provided
               alt={user.name || "User"}
               className="w-10 h-10 rounded-full object-cover"
             /> */}
-            <span className="font-medium text-black">{user.name || "Profile"}</span>
-          </Link>
-        ) : (
-          <Link
-            href="/signup"
-            className="flex items-center text-lg font-semibold text-black hover:text-blue-500 transition"
-          >
-            Sign Up
-          </Link>
-        )}
+                <span className="font-medium text-black">
+                  {user.name || "Profile"}
+                </span>
+              </Link>
+            ) : (
+              <Link
+                href="/signup"
+                className="flex items-center text-lg font-semibold text-black transition hover:text-blue-500"
+              >
+                Sign Up
+              </Link>
+            )}
           </li>
           <li>
             <Link
               href="/"
-              className="block hover:text-blue-500 transition-colors text-black py-2 text-xl"
+              className="block py-2 text-xl text-black transition-colors hover:text-blue-500"
             >
               HOME
             </Link>
@@ -145,7 +164,7 @@ const Navbar = () => {
           <li>
             <Link
               href="/about"
-              className="block hover:text-blue-500 transition-colors text-black py-2 text-xl"
+              className="block py-2 text-xl text-black transition-colors hover:text-blue-500"
             >
               ABOUT
             </Link>
@@ -153,7 +172,7 @@ const Navbar = () => {
           <li>
             <Link
               href="/service"
-              className="block hover:text-blue-500 transition-colors text-black py-2 text-xl"
+              className="block py-2 text-xl text-black transition-colors hover:text-blue-500"
             >
               SERVICES
             </Link>
@@ -161,7 +180,7 @@ const Navbar = () => {
           <li>
             <Link
               href="/work"
-              className="block hover:text-blue-500 transition-colors text-black py-2 text-xl"
+              className="block py-2 text-xl text-black transition-colors hover:text-blue-500"
             >
               WORK
             </Link>
@@ -169,23 +188,23 @@ const Navbar = () => {
           <li>
             <Link
               href="/social"
-              className="block hover:text-blue-500 transition-colors text-black py-2 text-xl"
+              className="block py-2 text-xl text-black transition-colors hover:text-blue-500"
             >
-              MEMBERSHIP
+              Dashboard
             </Link>
           </li>
           <li>
             {user ? (
               <Link
                 href="/profile"
-                className="block hover:text-blue-500 transition-colors text-black py-2 text-xl"
+                className="block py-2 text-xl text-black transition-colors hover:text-blue-500"
               >
                 PROFILE
               </Link>
             ) : (
               <Link
                 href="/signup"
-                className="block hover:text-blue-500 transition-colors text-black py-2 text-xl"
+                className="block py-2 text-xl text-black transition-colors hover:text-blue-500"
               >
                 SIGN UP
               </Link>
