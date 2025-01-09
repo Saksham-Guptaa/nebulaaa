@@ -25,7 +25,7 @@ Sales Plan
 Growth Strategies
 Core Team Members (Names and Roles)
 Advisors and Mentors (Names and Credentials)
-Revenue Projections (Next 3–5 Years)
+Revenue Projections (Next 3–5 Years
 Profitability Timeline
 Use of Funds (Investment Allocation)
 Potential Risks
