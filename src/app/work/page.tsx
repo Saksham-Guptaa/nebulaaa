@@ -15,26 +15,26 @@ const caseStudies = [
       "/cs6.jpeg",
     ],
     text: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur iaculis felis, eget scelerisque nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Donec sit amet magna auctor orci feugiat consectetur. Morbi a dui quam. Morbi iaculis sit amet lorem sed eleifend. Pellentesque pharetra consequat quam, nec pellentesque.",
+      "Built partnerships with government bodies, academia, and private enterprises to support innovation.",
+      "Connected start-ups with venture capitalists, angel investors, and strategic advisors.",
     ],
     workNumber: "Case Study 1",
   },
-  // {
-  //   images: [
-  //     "/image7.jpg",
-  //     "/image8.jpg",
-  //     "/image9.jpg",
-  //     "/image10.jpg",
-  //     "/image11.jpg",
-  //     "/image12.jpg",
-  //   ],
-  //   text: [
-  //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur iaculis felis, eget scelerisque nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  //       "Donec sit amet magna auctor orci feugiat consectetur. Morbi a dui quam. Morbi iaculis sit amet lorem sed eleifend. Pellentesque pharetra consequat quam, nec pellentesque.",
-  //     ],
-  //   workNumber: "Case Study 2",
-  // },
+  {
+    images: [
+      "/cs1.jpeg",
+      "/cs2.jpeg",
+      "/cs3.jpeg",
+      "/cs4.jpeg",
+      "/cs5.jpeg",
+      "/cs6.jpeg",
+    ],
+    text: [
+      "Blockchain & AI CoE: Blockchain-backed transparency and trust in business operations.",
+      "FinTech & EdTech: Promoting advanced financial solutions and educational technologies.",
+    ],
+    workNumber: "Case Study 2",
+  },
   // {
   //   images: [
   //     "/image13.jpg",
@@ -130,7 +130,7 @@ const CaseStudy: React.FC = () => {
                 {caseStudies.map((caseStudy, index) => (
                   <li
                     key={index}
-                    className={`text-lg transition-all md:text-xl ${
+                    className={`cursor-pointer text-lg transition-all md:text-xl ${
                       index === currentIndex
                         ? "font-semibold text-blue-600"
                         : "text-gray-500 hover:text-gray-700"
