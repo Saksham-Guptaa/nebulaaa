@@ -10,7 +10,8 @@ import React, { useEffect, useState } from "react";
 import Loader from "@/components/common/Loader";
 import { FirebaseProvider } from "@/context/FirebaseContext";
 import { UserProvider } from "@/context/RoleContext";
-
+import { Footer } from "@/components/ui/footer";
+import { Navbar } from "@/components/ui/navbar";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,7 +31,9 @@ export default function RootLayout({
         <UserProvider>
           <FirebaseProvider>
             <div className="dark:bg-boxdark-2 dark:text-bodydark">
+              <Navbar />
               {loading ? <Loader /> : children}
+              <Footer />
             </div>
           </FirebaseProvider>
         </UserProvider>

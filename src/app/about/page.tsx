@@ -1,137 +1,220 @@
 "use client";
-import React from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import AboutSlider from "@/components/AboutSlider";
 
-const Page = () => {
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { ChevronRight } from "lucide-react";
+import Link from "next/link";
+
+export default function AboutPage() {
   return (
-    <>
-      <Navbar />
-      <div className="min-h-screen bg-white text-black font-sans">
-        {/* Header Section */}
-        <header className="px-6 md:px-16 py-10 bg-white text-center md:text-left">
-          <h1 className="text-4xl md:text-7xl 2xl:text-9xl font-bold uppercase leading-tight">
-            We Are Nebula
-          </h1>
-        </header>
+    <main className="pt-16">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">Who We Are</h1>
+          <p className="text-xl md:text-2xl text-white/90 max-w-2xl">
+            Nebula Accelerator drives your sparking idea towards a successful
+            business with mentoring, acceleration, and global expansion.
+          </p>
+        </div>
+      </section>
 
-        {/* Content Section */}
-        <section className="px-6 md:px-16 py-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Image Section */}
-            <div className="bg-gray-300 h-60 md:h-80 w-full rounded-lg shadow-md overflow-hidden">
-              <img
-                src="/programs.jpg"
-                alt="About Nebula"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            {/* Text Content */}
-            <div className="text-lg leading-relaxed space-y-6">
-              <p>
-                Nebula Accelerator is inclined towards Global Defence
-                technological innovations and aligns them for commercial
-                exploitation and social benefits. The Blockchain-driven
-                acceleration infuses trust and transparency assuring neutrality
-                among the start-ups.
+      {/* Vision & Mission */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <Card className="p-8">
+              <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <ChevronRight className="h-6 w-6 text-blue-600 flex-shrink-0" />
+                  <p>
+                    Incubating & Accelerating 3,000+ Entrepreneurs by 2024-27
+                  </p>
+                </li>
+                <li className="flex items-start">
+                  <ChevronRight className="h-6 w-6 text-blue-600 flex-shrink-0" />
+                  <p>
+                    Equipping 300+ entrepreneurs to be 'Investor Ready' by
+                    2024-27
+                  </p>
+                </li>
+                <li className="flex items-start">
+                  <ChevronRight className="h-6 w-6 text-blue-600 flex-shrink-0" />
+                  <p>Raising 500cr INR Global Innovation Fund by 2024-29</p>
+                </li>
+              </ul>
+            </Card>
+
+            <Card className="p-8">
+              <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
+              <p className="text-gray-600 mb-6">
+                To facilitate infrastructure, technical, and network backing for
+                start-ups, helping aspiring entrepreneurs connect with
+                government, investors, mentors, and promoters.
               </p>
-              <p>
-                Nebula Accelerator drives your sparking idea towards a
-                successful business with mentoring, acceleration, and global
-                expansion. We facilitate infrastructure, technical, and network
-                backing for the start-ups. The aspiring entrepreneurs cross the
-                moat and connect with the government, investors, mentors, and
-                promoters. During all the stages, Nebula supports you with
-                funding.
+              <p className="text-gray-600">
+                We are inclined towards Global Defence technological innovations
+                and align them for commercial exploitation and social benefits.
               </p>
-            </div>
+            </Card>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Why Nebula Accelerator */}
-        <section className="px-6 md:px-16 py-10 bg-gray-50">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-            <h2 className="text-4xl font-bold uppercase">Why Nebula Accelerator?</h2>
-            <ul className="text-lg leading-relaxed space-y-4 list-disc pl-6">
-              <li>Experienced mentors to polish your ideas.</li>
-              <li>
-                Industry-wide mentors spanning academics, technology, and more.
-              </li>
-              <li>
-                Established promoters with decades of experience help you
-                network.
-              </li>
-              <li>
-                Platforms to publish and promote your startup branding stories.
-              </li>
-              <li>
-                Blockchain system ensures complete transparency and trust.
-              </li>
-              <li>
-                Connect with local incubation centers to conceive your ideas.
-              </li>
-              <li>
-                Modern infrastructure with 3D printing, AV, and conferencing.
-              </li>
-              <li>
-                Bridges startups in tier-2 and tier-3 cities with incubation
-                centers.
-              </li>
-              <li>Save time, resources, and money as a founder.</li>
-            </ul>
+      {/* Areas of Interest */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Areas of Interest
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {areasOfInterest.map((area, index) => (
+              <Card
+                key={index}
+                className="p-6 hover:shadow-lg transition-shadow"
+              >
+                <img
+                  src={area.icon}
+                  alt={area.title}
+                  className="w-12 h-12 mb-4"
+                />
+                <h3 className="font-semibold mb-2">{area.title}</h3>
+                <p className="text-sm text-gray-600">{area.description}</p>
+              </Card>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Vision, Mission, Value Proposition */}
-        <section className="bg-[#001f3f] text-white px-6 md:px-16 py-16">
-          <div className="space-y-16 lg:space-y-0 lg:grid lg:grid-cols-1 lg:gap-16">
-            {/* Vision */}
-            <div className="lg:flex lg:space-x-8 lg:justify-between">
-              <h2 className="text-xl lg:text-7xl font-bold uppercase mb-6 lg:mb-0">
-                Vision
-              </h2>
-              <p className="text-lg leading-relaxed lg:w-1/2">
-                To drive global defense technological innovations and align
-                them for social and commercial impact.
-              </p>
-            </div>
-
-            {/* Mission */}
-            <div className="lg:flex lg:items-start lg:space-x-8 lg:justify-between">
-              <h2 className="text-xl lg:text-7xl font-bold uppercase mb-6 lg:mb-0">
-                Mission
-              </h2>
-              <p className="text-lg leading-relaxed lg:w-1/2">
-                To mentor and accelerate startups towards global success by
-                providing the infrastructure and network needed for their
-                journey.
-              </p>
-            </div>
-
-            {/* Value Proposition */}
-            <div className="lg:flex lg:items-start lg:space-x-8 lg:justify-between">
-              <h2 className="text-xl lg:text-7xl font-bold uppercase mb-6 lg:mb-0">
-                Value <br />
-                Proportion
-              </h2>
-              <p className="text-lg leading-relaxed lg:w-1/2">
-                Leveraging blockchain technology for transparency, Nebula
-                empowers startups with infrastructure, mentorship, and global
-                market connections.
-              </p>
-            </div>
+      {/* Why Choose Us */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why Choose Nebula Accelerator?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {benefits.map((benefit, index) => (
+              <div key={index} className="flex items-start space-x-4">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                  <benefit.icon className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">{benefit.title}</h3>
+                  <p className="text-gray-600">{benefit.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Portfolio Section */}
-        <section className="py-10">
-          <AboutSlider />
-        </section>
-      </div>
-      <Footer />
-    </>
+      {/* CTA Section */}
+      <section className="bg-blue-600 text-white py-20">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-6">
+            Ready to Join Our Program?
+          </h2>
+          <p className="text-xl mb-8">
+            Take the first step towards transforming your innovative idea into
+            reality.
+          </p>
+          <Button size="lg" variant="secondary" asChild>
+            <Link href="/apply">Apply Now</Link>
+          </Button>
+        </div>
+      </section>
+    </main>
   );
-};
+}
 
-export default Page;
+const areasOfInterest = [
+  {
+    title: "FinTech",
+    description: "Revolutionary financial technology solutions",
+    icon: "/fintech.jpeg",
+  },
+  {
+    title: "EdTech",
+    description: "Innovative educational technology",
+    icon: "/edtech.png",
+  },
+  {
+    title: "Blockchain & AI",
+    description: "Cutting-edge blockchain and AI solutions",
+    icon: "/blockchain.png",
+  },
+  {
+    title: "Defense Tech",
+    description: "Advanced defense technology innovations",
+    icon: "/defencetech.jpeg",
+  },
+  {
+    title: "Smart City",
+    description: "Urban innovation and smart solutions",
+    icon: "/smartcity.jpeg",
+  },
+  {
+    title: "Healthcare",
+    description: "Digital health and medical innovations",
+    icon: "/healthcare.jpeg",
+  },
+  {
+    title: "CleanTech",
+    description: "Sustainable and clean technology",
+    icon: "/cleantech.jpeg",
+  },
+  {
+    title: "AgriTech",
+    description: "Agricultural technology solutions",
+    icon: "/agritech.jpeg",
+  },
+];
+
+import {
+  Users,
+  Network,
+  Globe,
+  Building,
+  Shield,
+  Laptop,
+  BookOpen,
+  Target,
+  Award,
+} from "lucide-react";
+
+const benefits = [
+  {
+    title: "Experienced Mentors",
+    description:
+      "Access to industry experts who will guide you through your entrepreneurial journey",
+    icon: Users,
+  },
+  {
+    title: "Global Network",
+    description:
+      "Connect with a vast network of entrepreneurs, investors, and industry leaders",
+    icon: Globe,
+  },
+  {
+    title: "Modern Infrastructure",
+    description:
+      "State-of-the-art facilities equipped with the latest technology",
+    icon: Building,
+  },
+  {
+    title: "Defense Expertise",
+    description: "Specialized knowledge and connections in the defense sector",
+    icon: Shield,
+  },
+  {
+    title: "Technical Support",
+    description: "Comprehensive technical assistance for your startup",
+    icon: Laptop,
+  },
+  {
+    title: "Market Access",
+    description: "Strategic partnerships to help you reach your target market",
+    icon: Target,
+  },
+];
