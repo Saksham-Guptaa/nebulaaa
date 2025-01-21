@@ -191,7 +191,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="group relative flex flex-col items-center justify-around rounded-lg p-6">
+            {/* <div className="group relative flex flex-col items-center justify-around rounded-lg p-6">
               <motion.div
                 className="relative mb-4 h-52 w-52 overflow-hidden md:h-72 md:w-72"
                 initial={{ borderRadius: "0 30% 0 30%" }}
@@ -211,7 +211,6 @@ export default function Home() {
                   }}
                 />
 
-                {/* LinkedIn Logo and Hover Effects */}
                 <a
                   href="https://www.linkedin.com/in/yashashvi-sisodia-b662791a6/"
                   target="_blank"
@@ -226,7 +225,7 @@ export default function Home() {
                       culture, I am dedicated to driving both individual growth
                       and organizational success. My proactive, people-first
                       approach ensures impactful solutions that support business
-                      excellence.{" "}
+                      excellence.
                     </span>
                   </motion.div>
                   <motion.div className="absolute bottom-0 right-0 rounded-bl-2xl rounded-tr-2xl bg-[#007F40] p-2 transition-all duration-500 ease-in-out group-hover:scale-0">
@@ -238,7 +237,7 @@ export default function Home() {
                 Yashashvi Sisodia
               </h2>
               <p className="text-center text-gray-500">HR Business Partner</p>
-            </div>
+            </div> */}
           </div>
 
           {/* Second row - 4 profiles */}
