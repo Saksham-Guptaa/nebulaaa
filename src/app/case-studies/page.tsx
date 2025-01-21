@@ -15,13 +15,13 @@ export default function CaseStudiesPage() {
   return (
     <main className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 text-white">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
             Success Stories
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-2xl">
-            Discover how we've helped defense tech startups achieve their goals
+          <p className="max-w-2xl text-xl text-white/90 md:text-2xl">
+            Discover how we've helped Defence tech startups achieve their goals
             and make an impact.
           </p>
         </div>
@@ -36,26 +36,26 @@ export default function CaseStudiesPage() {
                 <img
                   src="/img17.jpg"
                   alt="Featured Case Study"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
               </div>
               <div className="p-8">
                 <CardHeader className="px-0">
-                  <CardTitle className="text-3xl mb-2">
-                    DefenseTech AI
+                  <CardTitle className="mb-2 text-3xl">
+                    DefenceTech AI
                   </CardTitle>
                   <CardDescription>
-                    AI-powered defense systems for next-generation security
+                    AI-powered Defence systems for next-generation security
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="px-0">
-                  <p className="text-gray-600 mb-6">
-                    Learn how DefenseTech AI revolutionized military
+                  <p className="mb-6 text-gray-600">
+                    Learn how DefenceTech AI revolutionized military
                     surveillance systems with their AI-powered solution,
-                    securing $10M in defense contracts.
+                    securing $10M in Defence contracts.
                   </p>
                   <Button asChild>
-                    <Link href="/case-studies/defensetech-ai">
+                    <Link href="/case-studies/Defencetech-ai">
                       Read Full Story <ChevronRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -67,19 +67,19 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* All Case Studies */}
-      <section className="py-20 bg-gray-50">
+      <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             More Success Stories
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {caseStudies.map((study, index) => (
               <Card key={index} className="overflow-hidden">
                 <div className="relative h-48">
                   <img
                     src={study.image}
                     alt={study.title}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                 </div>
                 <CardHeader>
@@ -87,12 +87,12 @@ export default function CaseStudiesPage() {
                   <CardDescription>{study.category}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-6">{study.excerpt}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <p className="mb-6 text-gray-600">{study.excerpt}</p>
+                  <div className="mb-6 flex flex-wrap gap-2">
                     {study.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="text-sm bg-blue-100 text-blue-800 rounded-full px-3 py-1"
+                        className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800"
                       >
                         {tag}
                       </span>
@@ -113,10 +113,10 @@ export default function CaseStudiesPage() {
       {/* Stats Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
             {stats.map((stat, index) => (
-              <Card key={index} className="text-center p-6">
-                <h3 className="text-4xl font-bold text-blue-600 mb-2">
+              <Card key={index} className="p-6 text-center">
+                <h3 className="mb-2 text-4xl font-bold text-blue-600">
                   {stat.value}
                 </h3>
                 <p className="text-gray-600">{stat.label}</p>
@@ -127,13 +127,13 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-20">
+      <section className="bg-blue-600 py-20 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">
+          <h2 className="mb-6 text-3xl font-bold">
             Ready to Write Your Success Story?
           </h2>
-          <p className="text-xl mb-8">
-            Join our program and become the next defense tech success story.
+          <p className="mb-8 text-xl">
+            Join our program and become the next Defence tech success story.
           </p>
           <Button size="lg" variant="secondary" asChild>
             <Link href="/apply">Apply Now</Link>
@@ -158,16 +158,16 @@ const caseStudies = [
     title: "DroneForce",
     category: "Unmanned Systems",
     excerpt:
-      "Revolutionary autonomous drone system for defense reconnaissance...",
+      "Revolutionary autonomous drone system for Defence reconnaissance...",
     image: "/img19.jpg",
     slug: "drone-force",
-    tags: ["Drones", "AI", "Defense"],
+    tags: ["Drones", "AI", "Defence"],
   },
   {
     title: "SecureComm",
     category: "Communications",
     excerpt:
-      "Quantum-resistant communication protocol for defense applications...",
+      "Quantum-resistant communication protocol for Defence applications...",
     image: "/img20.jpg",
     slug: "secure-comm",
     tags: ["Quantum", "Communications", "Security"],
@@ -184,7 +184,7 @@ const caseStudies = [
   {
     title: "ArmorTech",
     category: "Materials Science",
-    excerpt: "Next-generation protective materials for defense applications...",
+    excerpt: "Next-generation protective materials for Defence applications...",
     image: "/img16.jpg",
     slug: "armor-tech",
     tags: ["Materials", "Protection", "Innovation"],
@@ -192,10 +192,10 @@ const caseStudies = [
   {
     title: "NaviGuard",
     category: "Navigation Systems",
-    excerpt: "GPS-independent navigation system for defense vehicles...",
+    excerpt: "GPS-independent navigation system for Defence vehicles...",
     image: "/img15.jpg",
     slug: "navi-guard",
-    tags: ["Navigation", "Vehicles", "Defense"],
+    tags: ["Navigation", "Vehicles", "Defence"],
   },
 ];
 
@@ -210,7 +210,7 @@ const stats = [
   },
   {
     value: "200+",
-    label: "Defense Contracts",
+    label: "Defence Contracts",
   },
   {
     value: "1000+",

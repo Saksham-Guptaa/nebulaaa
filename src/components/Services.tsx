@@ -6,13 +6,13 @@ const contentData = [
   {
     heading: "POLICY MAKING",
     content:
-      "Nebula Accelerator is deeply involved in shaping policies to support innovation, entrepreneurship, and the startup ecosystem, particularly in the defense and technology sectors. We collaborate with key stakeholders to drive impactful change.",
+      "Nebula Accelerator is deeply involved in shaping policies to support innovation, entrepreneurship, and the startup ecosystem, particularly in the Defence and technology sectors. We collaborate with key stakeholders to drive impactful change.",
     image: "/policy.jpg",
   },
   {
     heading: "DEFENCE PARTNERS",
     content:
-      "We collaborate with defense industry leaders and partners to foster innovation in defense technology. Our network spans across government agencies, investors, and defense organizations, enabling startups to explore commercial applications.",
+      "We collaborate with Defence industry leaders and partners to foster innovation in Defence technology. Our network spans across government agencies, investors, and Defence organizations, enabling startups to explore commercial applications.",
     image: "/defence.jpg",
   },
   {

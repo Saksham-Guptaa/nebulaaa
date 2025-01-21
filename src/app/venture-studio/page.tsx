@@ -18,7 +18,7 @@ export default function VentureStudioPage() {
       <section className="relative h-[60vh]">
         <div className="absolute inset-0 overflow-hidden">
           <video
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
             autoPlay
             muted
             loop
@@ -30,12 +30,12 @@ export default function VentureStudioPage() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+        <div className="container relative z-10 mx-auto flex h-full flex-col justify-center px-4">
+          <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">
             Venture Studio
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
-            Building next-generation defense tech companies from the ground up
+          <p className="mb-8 max-w-2xl text-xl text-white/90 md:text-2xl">
+            Building next-generation Defence tech companies from the ground up
           </p>
         </div>
       </section>
@@ -43,12 +43,12 @@ export default function VentureStudioPage() {
       {/* How We Work */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">How We Work</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <h2 className="mb-12 text-center text-3xl font-bold">How We Work</h2>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {workProcess.map((step, index) => (
               <Card key={index} className="relative">
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100">
                     <step.icon className="h-6 w-6 text-blue-600" />
                   </div>
                   <CardTitle>{step.title}</CardTitle>
@@ -58,7 +58,7 @@ export default function VentureStudioPage() {
                   <ul className="space-y-2">
                     {step.points.map((point, idx) => (
                       <li key={idx} className="flex items-start space-x-2">
-                        <ChevronRight className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                        <ChevronRight className="h-5 w-5 flex-shrink-0 text-blue-600" />
                         <span className="text-gray-600">{point}</span>
                       </li>
                     ))}
@@ -71,19 +71,19 @@ export default function VentureStudioPage() {
       </section>
 
       {/* Portfolio Showcase */}
-      <section className="py-20 bg-gray-50">
+      <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             Portfolio Companies
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {portfolio.map((company, index) => (
               <Card key={index} className="overflow-hidden">
                 <div className="h-48">
                   <img
                     src={company.image}
                     alt={company.name}
-                    className="w-full h-full object-cover"
+                    className="h-full w-full object-cover"
                   />
                 </div>
                 <CardHeader>
@@ -91,12 +91,12 @@ export default function VentureStudioPage() {
                   <CardDescription>{company.category}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-4">{company.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <p className="mb-4 text-gray-600">{company.description}</p>
+                  <div className="mb-6 flex flex-wrap gap-2">
                     {company.technologies.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="text-sm bg-blue-100 text-blue-800 rounded-full px-3 py-1"
+                        className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800"
                       >
                         {tech}
                       </span>
@@ -117,14 +117,14 @@ export default function VentureStudioPage() {
       {/* Investment Focus */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             Investment Focus
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {investmentFocus.map((focus, index) => (
               <Card key={index}>
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100">
                     <focus.icon className="h-6 w-6 text-blue-600" />
                   </div>
                   <CardTitle>{focus.title}</CardTitle>
@@ -139,12 +139,12 @@ export default function VentureStudioPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-20">
+      <section className="bg-blue-600 py-20 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Build With Us</h2>
-          <p className="text-xl mb-8">
+          <h2 className="mb-6 text-3xl font-bold">Build With Us</h2>
+          <p className="mb-8 text-xl">
             Partner with our venture studio to build the next generation of
-            defense tech companies.
+            Defence tech companies.
           </p>
           <div className="flex justify-center gap-4">
             <Button size="lg" variant="secondary" asChild>
@@ -209,11 +209,11 @@ const workProcess = [
 
 const portfolio = [
   {
-    name: "DefenseTech AI",
+    name: "DefenceTech AI",
     category: "Artificial Intelligence",
-    description: "AI-powered defense systems for next-generation security",
-    image: "/DefenseTech AI.webp",
-    slug: "defensetech-ai",
+    description: "AI-powered Defence systems for next-generation security",
+    image: "/DefenceTech AI.webp",
+    slug: "Defencetech-ai",
     technologies: [
       "AI",
       "Machine Learning",
@@ -246,8 +246,8 @@ const portfolio = [
 
 const investmentFocus = [
   {
-    title: "Defense Tech",
-    description: "Advanced technology solutions for defense applications",
+    title: "Defence Tech",
+    description: "Advanced technology solutions for Defence applications",
     icon: Shield,
   },
   {
@@ -262,7 +262,7 @@ const investmentFocus = [
   },
   {
     title: "Global Impact",
-    description: "Solutions with international defense applications",
+    description: "Solutions with international Defence applications",
     icon: Globe,
   },
 ];
@@ -271,7 +271,7 @@ const team = [
   {
     name: "John Smith",
     role: "Managing Partner",
-    bio: "20+ years in defense tech venture capital",
+    bio: "20+ years in Defence tech venture capital",
     image: "/images/team/john-smith.jpg",
   },
   {
@@ -283,13 +283,13 @@ const team = [
   {
     name: "Michael Chen",
     role: "Investment Partner",
-    bio: "15+ years in defense industry investments",
+    bio: "15+ years in Defence industry investments",
     image: "/images/team/michael-chen.jpg",
   },
   {
     name: "Lisa Williams",
     role: "Operations Director",
-    bio: "Expert in scaling defense tech startups",
+    bio: "Expert in scaling Defence tech startups",
     image: "/images/team/lisa-williams.jpg",
   },
 ];

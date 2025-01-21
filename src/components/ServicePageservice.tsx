@@ -6,13 +6,13 @@ const contentData = [
   {
     heading: "POLICY MAKING",
     content:
-      "Nebula Accelerator is deeply involved in shaping policies to support innovation, entrepreneurship, and the startup ecosystem, particularly in the defense and technology sectors. We collaborate with key stakeholders to drive impactful change.",
+      "Nebula Accelerator is deeply involved in shaping policies to support innovation, entrepreneurship, and the startup ecosystem, particularly in the Defence and technology sectors. We collaborate with key stakeholders to drive impactful change.",
     image: "/policy.jpg",
   },
   {
     heading: "DEFENCE PARTNERS",
     content:
-      "We collaborate with defense industry leaders and partners to foster innovation in defense technology. Our network spans across government agencies, investors, and defense organizations, enabling startups to explore commercial applications.",
+      "We collaborate with Defence industry leaders and partners to foster innovation in Defence technology. Our network spans across government agencies, investors, and Defence organizations, enabling startups to explore commercial applications.",
     image: "/defence.jpg",
   },
   {
@@ -50,17 +50,18 @@ const ServicePageService = () => {
   return (
     <div className="w-full bg-white">
       {/* Desktop View */}
-      <div className="hidden md:grid grid-cols-[2fr_1fr_1fr] gap-8 items-start w-full px-6 md: py-10">
+      <div className="md: hidden w-full grid-cols-[2fr_1fr_1fr] items-start gap-8 px-6 py-10 md:grid">
         {/* Sidebar */}
-        <div className=" items-start flex flex-col space-y-4">
+        <div className=" flex flex-col items-start space-y-4">
           {contentData.map((item, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`text-3xl md:text-4xl lg:text-6xl font-extrabold uppercase text-justify transition-colors duration-300 ${index === currentIndex
+              className={`text-justify text-3xl font-extrabold uppercase transition-colors duration-300 md:text-4xl lg:text-6xl ${
+                index === currentIndex
                   ? "text-red-700"
                   : "text-gray-400 hover:text-red-500"
-                }`}
+              }`}
             >
               {item.heading}
             </button>
@@ -80,16 +81,16 @@ const ServicePageService = () => {
             <img
               src={currentContent.image}
               alt={currentContent.heading}
-              className="rounded-lg shadow-md object-cover w-full h-auto"
+              className="h-auto w-full rounded-lg object-cover shadow-md"
             />
           </div>
           <div className="w-1/2">
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-lg leading-relaxed text-gray-700">
               {currentContent.content}
             </p>
             <a
               href="#"
-              className="mt-4 inline-block text-red-700 font-bold underline hover:text-red-900"
+              className="mt-4 inline-block font-bold text-red-700 underline hover:text-red-900"
             >
               Learn More
             </a>
@@ -98,13 +99,14 @@ const ServicePageService = () => {
       </div>
 
       {/* Mobile View */}
-      <div className="md:hidden flex flex-col items-start px-6 py-10 space-y-8">
+      <div className="flex flex-col items-start space-y-8 px-6 py-10 md:hidden">
         <div className="space-y-4">
           {contentData.map((item, index) => (
             <button
               key={index}
-              className={`text-3xl text-justify  font-extrabold tracking-wide ${index === currentIndex ? "text-red-700" : "text-gray-400"
-                } transition-colors duration-300`}
+              className={`text-justify text-3xl  font-extrabold tracking-wide ${
+                index === currentIndex ? "text-red-700" : "text-gray-400"
+              } transition-colors duration-300`}
               onClick={() => setCurrentIndex(index)}
             >
               {item.heading}
@@ -124,12 +126,12 @@ const ServicePageService = () => {
             <img
               src={currentContent.image}
               alt={currentContent.heading}
-              className="rounded-md shadow-md w-full h-40 object-cover"
+              className="h-40 w-full rounded-md object-cover shadow-md"
             />
             <p className="text-lg text-gray-700">{currentContent.content}</p>
             <a
               href="#"
-              className="text-red-700 font-bold underline hover:text-red-900"
+              className="font-bold text-red-700 underline hover:text-red-900"
             >
               Learn More
             </a>

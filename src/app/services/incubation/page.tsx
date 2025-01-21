@@ -18,7 +18,7 @@ export default function IncubationPage() {
       <section className="relative h-[60vh]">
         <div className="absolute inset-0 overflow-hidden">
           <video
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
             autoPlay
             muted
             loop
@@ -30,12 +30,12 @@ export default function IncubationPage() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+        <div className="container relative z-10 mx-auto flex h-full flex-col justify-center px-4">
+          <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">
             Incubation Program
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
-            Build and scale your defense tech startup with comprehensive support
+          <p className="mb-8 max-w-2xl text-xl text-white/90 md:text-2xl">
+            Build and scale your Defence tech startup with comprehensive support
           </p>
         </div>
       </section>
@@ -43,20 +43,20 @@ export default function IncubationPage() {
       {/* Program Features */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             <div className="space-y-6">
               <h2 className="text-3xl font-bold">Program Features</h2>
               <p className="text-gray-600">
                 Our incubation program provides comprehensive support to help
-                defense tech startups build sustainable businesses and achieve
+                Defence tech startups build sustainable businesses and achieve
                 significant growth.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 {programFeatures.map((feature, index) => (
                   <Card key={index} className="bg-gray-50">
                     <CardContent className="pt-6">
-                      <feature.icon className="h-8 w-8 text-blue-600 mb-4" />
-                      <h3 className="font-semibold mb-2">{feature.title}</h3>
+                      <feature.icon className="mb-4 h-8 w-8 text-blue-600" />
+                      <h3 className="mb-2 font-semibold">{feature.title}</h3>
                       <p className="text-sm text-gray-600">
                         {feature.description}
                       </p>
@@ -67,34 +67,34 @@ export default function IncubationPage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <div className="rounded-lg overflow-hidden">
+                <div className="overflow-hidden rounded-lg">
                   <img
                     src="/incubationfeature1.jpeg"
                     alt="Incubation Feature 1"
-                    className="w-full h-48 object-cover"
+                    className="h-48 w-full object-cover"
                   />
                 </div>
-                <div className="rounded-lg overflow-hidden">
+                <div className="overflow-hidden rounded-lg">
                   <img
                     src="/incubationfeature2.jpeg"
                     alt="Incubation Feature 2"
-                    className="w-full h-48 object-cover"
+                    className="h-48 w-full object-cover"
                   />
                 </div>
               </div>
               <div className="space-y-4 pt-8">
-                <div className="rounded-lg overflow-hidden">
+                <div className="overflow-hidden rounded-lg">
                   <img
                     src="/incubationfeature3.jpeg"
                     alt="Incubation Feature 3"
-                    className="w-full h-48 object-cover"
+                    className="h-48 w-full object-cover"
                   />
                 </div>
-                <div className="rounded-lg overflow-hidden">
+                <div className="overflow-hidden rounded-lg">
                   <img
                     src="/incubationfeature4.jpeg"
                     alt="Incubation Feature 4"
-                    className="w-full h-48 object-cover"
+                    className="h-48 w-full object-cover"
                   />
                 </div>
               </div>
@@ -104,23 +104,23 @@ export default function IncubationPage() {
       </section>
 
       {/* Program Timeline */}
-      <section className="py-20 bg-gray-50">
+      <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             Program Timeline
           </h2>
-          <div className="max-w-4xl mx-auto">
+          <div className="mx-auto max-w-4xl">
             {timeline.map((phase, index) => (
               <div
                 key={index}
-                className="relative flex items-start mb-12 last:mb-0"
+                className="relative mb-12 flex items-start last:mb-0"
               >
-                <div className="flex flex-col items-center mr-8">
-                  <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl font-bold">
+                <div className="mr-8 flex flex-col items-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-xl font-bold text-white">
                     {index + 1}
                   </div>
                   {index < timeline.length - 1 && (
-                    <div className="w-0.5 h-full bg-blue-200 mt-4" />
+                    <div className="mt-4 h-full w-0.5 bg-blue-200" />
                   )}
                 </div>
                 <Card className="flex-1">
@@ -129,11 +129,11 @@ export default function IncubationPage() {
                     <CardDescription>{phase.duration}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 mb-4">{phase.description}</p>
+                    <p className="mb-4 text-gray-600">{phase.description}</p>
                     <ul className="space-y-2">
                       {phase.activities.map((activity, idx) => (
                         <li key={idx} className="flex items-start space-x-2">
-                          <ChevronRight className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                          <ChevronRight className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-600" />
                           <span className="text-gray-600">{activity}</span>
                         </li>
                       ))}
@@ -149,17 +149,17 @@ export default function IncubationPage() {
       {/* Facilities */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             Our Facilities
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {facilities.map((facility, index) => (
               <Card key={index} className="overflow-hidden">
                 <div className="relative h-48">
                   <img
                     src={facility.image}
                     alt={facility.title}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                 </div>
                 <CardHeader>
@@ -175,13 +175,13 @@ export default function IncubationPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-20">
+      <section className="bg-blue-600 py-20 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">
+          <h2 className="mb-6 text-3xl font-bold">
             Join Our Incubation Program
           </h2>
-          <p className="text-xl mb-8">
-            Take your defense tech startup to the next level with our
+          <p className="mb-8 text-xl">
+            Take your Defence tech startup to the next level with our
             comprehensive support.
           </p>
           <div className="flex justify-center gap-4">
@@ -217,17 +217,17 @@ const programFeatures = [
   },
   {
     title: "Expert Mentorship",
-    description: "Guidance from defense industry veterans",
+    description: "Guidance from Defence industry veterans",
     icon: Users,
   },
   {
     title: "Market Access",
-    description: "Direct connections to defense sector buyers",
+    description: "Direct connections to Defence sector buyers",
     icon: Target,
   },
   {
     title: "Technical Support",
-    description: "Access to advanced defense tech resources",
+    description: "Access to advanced Defence tech resources",
     icon: Shield,
   },
 ];
@@ -281,15 +281,15 @@ const timeline = [
 
 const facilities = [
   {
-    title: "Defense Tech Lab",
+    title: "Defence Tech Lab",
     description:
-      "State-of-the-art laboratory equipped with the latest defense technology testing equipment",
+      "State-of-the-art laboratory equipped with the latest Defence technology testing equipment",
     image: "/incubationfeature2.jpeg",
   },
   {
     title: "Collaboration Space",
     description:
-      "Modern co-working space designed for defense tech startups to collaborate and innovate",
+      "Modern co-working space designed for Defence tech startups to collaborate and innovate",
     image: "/incubationfeature3.jpeg",
   },
   {

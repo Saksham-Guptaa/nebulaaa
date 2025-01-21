@@ -15,11 +15,12 @@ export default function ServicesPage() {
   return (
     <main className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 text-white">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Our Services</h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-2xl">
-            Comprehensive support for defense tech startups at every stage of their journey.
+          <h1 className="mb-6 text-4xl font-bold md:text-6xl">Our Services</h1>
+          <p className="max-w-2xl text-xl text-white/90 md:text-2xl">
+            Comprehensive support for Defence tech startups at every stage of
+            their journey.
           </p>
         </div>
       </section>
@@ -27,26 +28,28 @@ export default function ServicesPage() {
       {/* Main Services */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {mainServices.map((service, index) => (
               <Card key={index} className="relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-48">
-                  <img 
-                    src={service.image} 
+                <div className="absolute left-0 top-0 h-48 w-full">
+                  <img
+                    src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover"
+                    className="h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
                 </div>
                 <CardHeader className="relative pt-52">
-                  <CardTitle className="text-2xl mb-2">{service.title}</CardTitle>
+                  <CardTitle className="mb-2 text-2xl">
+                    {service.title}
+                  </CardTitle>
                   <CardDescription>{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-4 mb-6">
+                  <ul className="mb-6 space-y-4">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start space-x-2">
-                        <ChevronRight className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <ChevronRight className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-600" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -62,18 +65,20 @@ export default function ServicesPage() {
       </section>
 
       {/* Program Benefits */}
-      <section className="py-20 bg-gray-50">
+      <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Program Benefits</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <h2 className="mb-12 text-center text-3xl font-bold">
+            Program Benefits
+          </h2>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {benefits.map((benefit, index) => (
               <Card key={index} className="p-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100">
                     <benefit.icon className="h-6 w-6 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">{benefit.title}</h3>
+                    <h3 className="mb-2 font-semibold">{benefit.title}</h3>
                     <p className="text-gray-600">{benefit.description}</p>
                   </div>
                 </div>
@@ -86,22 +91,26 @@ export default function ServicesPage() {
       {/* Timeline */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Program Timeline</h2>
-          <div className="max-w-3xl mx-auto">
+          <h2 className="mb-12 text-center text-3xl font-bold">
+            Program Timeline
+          </h2>
+          <div className="mx-auto max-w-3xl">
             {timeline.map((item, index) => (
-              <div key={index} className="flex items-start mb-8">
-                <div className="flex flex-col items-center mr-4">
-                  <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center">
+              <div key={index} className="mb-8 flex items-start">
+                <div className="mr-4 flex flex-col items-center">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white">
                     {index + 1}
                   </div>
                   {index < timeline.length - 1 && (
-                    <div className="w-0.5 h-full bg-blue-200 mt-2" />
+                    <div className="mt-2 h-full w-0.5 bg-blue-200" />
                   )}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                  <p className="text-gray-600 mb-2">{item.description}</p>
-                  <p className="text-sm text-gray-500">Duration: {item.duration}</p>
+                  <h3 className="mb-2 text-lg font-semibold">{item.title}</h3>
+                  <p className="mb-2 text-gray-600">{item.description}</p>
+                  <p className="text-sm text-gray-500">
+                    Duration: {item.duration}
+                  </p>
                 </div>
               </div>
             ))}
@@ -110,11 +119,14 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-20">
+      <section className="bg-blue-600 py-20 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Idea?</h2>
-          <p className="text-xl mb-8">
-            Join our next cohort and take your defense tech startup to the next level.
+          <h2 className="mb-6 text-3xl font-bold">
+            Ready to Transform Your Idea?
+          </h2>
+          <p className="mb-8 text-xl">
+            Join our next cohort and take your Defence tech startup to the next
+            level.
           </p>
           <div className="flex justify-center gap-4">
             <Button size="lg" variant="secondary" asChild>
@@ -141,8 +153,8 @@ const mainServices = [
       "Market research support",
       "Business model development",
       "Mentorship from industry experts",
-      "Access to workshops and training"
-    ]
+      "Access to workshops and training",
+    ],
   },
   {
     title: "Incubation",
@@ -154,8 +166,8 @@ const mainServices = [
       "Technical and business mentoring",
       "Networking opportunities",
       "Legal and compliance support",
-      "Access to funding networks"
-    ]
+      "Access to funding networks",
+    ],
   },
   {
     title: "Acceleration",
@@ -167,12 +179,12 @@ const mainServices = [
       "International market access",
       "Investor connections",
       "Strategic partnerships",
-      "Advanced business training"
-    ]
-  }
+      "Advanced business training",
+    ],
+  },
 ];
 
-import { 
+import {
   Rocket,
   Users,
   Target,
@@ -181,66 +193,67 @@ import {
   Award,
   BookOpen,
   Building,
-  Network
+  Network,
 } from "lucide-react";
 
 const benefits = [
   {
     title: "Expert Mentorship",
-    description: "Get guidance from industry veterans and successful entrepreneurs",
-    icon: Users
+    description:
+      "Get guidance from industry veterans and successful entrepreneurs",
+    icon: Users,
   },
   {
-    title: "Defense Network",
-    description: "Access to our extensive network in the defense sector",
-    icon: Shield
+    title: "Defence Network",
+    description: "Access to our extensive network in the Defence sector",
+    icon: Shield,
   },
   {
     title: "Global Reach",
     description: "Connect with international markets and partners",
-    icon: Globe
+    icon: Globe,
   },
   {
     title: "Modern Facilities",
     description: "State-of-the-art infrastructure and resources",
-    icon: Building
+    icon: Building,
   },
   {
     title: "Market Access",
     description: "Direct connections to potential customers and partners",
-    icon: Target
+    icon: Target,
   },
   {
     title: "Innovation Support",
     description: "Technical expertise and innovation resources",
-    icon: Rocket
-  }
+    icon: Rocket,
+  },
 ];
 
 const timeline = [
   {
     title: "Application & Selection",
     description: "Submit your application and go through our selection process",
-    duration: "2-3 weeks"
+    duration: "2-3 weeks",
   },
   {
     title: "Program Kickoff",
     description: "Orientation, goal setting, and initial mentorship matching",
-    duration: "1 week"
+    duration: "1 week",
   },
   {
     title: "Core Program",
     description: "Intensive mentoring, workshops, and development support",
-    duration: "8-12 weeks"
+    duration: "8-12 weeks",
   },
   {
     title: "Growth & Scaling",
     description: "Market access, investor connections, and expansion support",
-    duration: "4-6 weeks"
+    duration: "4-6 weeks",
   },
   {
     title: "Demo Day & Graduation",
     description: "Present to investors and industry leaders",
-    duration: "1 week"
-  }
+    duration: "1 week",
+  },
 ];

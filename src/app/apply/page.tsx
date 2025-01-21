@@ -61,7 +61,7 @@ export default function ApplyPage() {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -130,18 +130,18 @@ export default function ApplyPage() {
   return (
     <main className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 text-white">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Apply Now</h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-2xl">
-            Take the first step towards accelerating your defense tech startup.
+          <h1 className="mb-6 text-4xl font-bold md:text-6xl">Apply Now</h1>
+          <p className="max-w-2xl text-xl text-white/90 md:text-2xl">
+            Take the first step towards accelerating your Defence tech startup.
           </p>
         </div>
       </section>
 
       {/* Application Form */}
       <section className="py-20">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="container mx-auto max-w-4xl px-4">
           <Card>
             <CardHeader>
               <CardTitle>Program Application</CardTitle>
@@ -158,7 +158,7 @@ export default function ApplyPage() {
                     Personal Information
                   </h3>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="firstName">First Name *</Label>
                       <Input id="firstName" required />
@@ -263,8 +263,8 @@ export default function ApplyPage() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="military">Military</SelectItem>
-                        <SelectItem value="defense-contractors">
-                          Defense Contractors
+                        <SelectItem value="Defence-contractors">
+                          Defence Contractors
                         </SelectItem>
                         <SelectItem value="government">
                           Government Agencies
@@ -319,7 +319,7 @@ export default function ApplyPage() {
 
                   <div className="space-y-4">
                     <Label>What support are you looking for? *</Label>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                       {supportOptions.map((option) => (
                         <div
                           key={option.id}

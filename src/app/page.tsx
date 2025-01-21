@@ -37,7 +37,7 @@ export default function Home() {
 
         <div className="container relative z-10 mx-auto flex h-full flex-col justify-center px-4">
           <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">
-            Empowering Defense Tech Innovation
+            Empowering Defence Tech Innovation
           </h1>
           <p className="mb-8 max-w-2xl text-xl text-white/90 md:text-2xl">
             Nebula Accelerator drives your sparking idea towards a successful
@@ -658,7 +658,7 @@ export default function Home() {
                       journey has been defined by diverse roles in operations,
                       project management, and advisory capacities, marked by
                       continuous learning and significant contributions to
-                      aviation and defense innovation.
+                      aviation and Defence innovation.
                     </span>
                   </motion.div>
                   <motion.div className="absolute bottom-0 right-0 rounded-bl-2xl rounded-tr-2xl bg-[#007F40] p-2 transition-all duration-500 ease-in-out group-hover:scale-0">
@@ -907,7 +907,7 @@ const partners = [
 const mentors = [
   {
     name: "John Doe",
-    role: "Defense Technology Expert",
+    role: "Defence Technology Expert",
     image: "/images/mentors/mentor1.jpg",
   },
   {
@@ -929,21 +929,21 @@ const mentors = [
 
 const news = [
   {
-    title: "Nebula Accelerator Launches New Defense Tech Cohort",
+    title: "Nebula Accelerator Launches New Defence Tech Cohort",
     excerpt:
-      "Applications now open for innovative defense technology startups...",
+      "Applications now open for innovative Defence technology startups...",
     image: "/newsforum/1.jpg",
-    slug: "new-defense-tech-cohort",
+    slug: "new-Defence-tech-cohort",
   },
   {
-    title: "Partnership Announcement with Leading Defense Organization",
-    excerpt: "Strategic collaboration to boost defense innovation ecosystem...",
+    title: "Partnership Announcement with Leading Defence Organization",
+    excerpt: "Strategic collaboration to boost Defence innovation ecosystem...",
     image: "/newsforum/3.jpg",
     slug: "partnership-announcement",
   },
   {
     title: "Success Story: AI Startup Secures Major Contract",
-    excerpt: "Nebula-accelerated startup wins significant defense contract...",
+    excerpt: "Nebula-accelerated startup wins significant Defence contract...",
     image: "/newsforum/2.jpg",
     slug: "success-story-ai-startup",
   },

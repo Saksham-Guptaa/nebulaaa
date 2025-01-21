@@ -18,7 +18,7 @@ export default function PreIncubationPage() {
       <section className="relative h-[60vh]">
         <div className="absolute inset-0 overflow-hidden">
           <video
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
             autoPlay
             muted
             loop
@@ -30,12 +30,12 @@ export default function PreIncubationPage() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+        <div className="container relative z-10 mx-auto flex h-full flex-col justify-center px-4">
+          <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">
             Pre-Incubation Program
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
-            Transform your innovative defense tech idea into a viable business
+          <p className="mb-8 max-w-2xl text-xl text-white/90 md:text-2xl">
+            Transform your innovative Defence tech idea into a viable business
             model
           </p>
         </div>
@@ -44,20 +44,20 @@ export default function PreIncubationPage() {
       {/* Program Overview */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Program Overview</h2>
-              <p className="text-gray-600 mb-6">
+              <h2 className="mb-6 text-3xl font-bold">Program Overview</h2>
+              <p className="mb-6 text-gray-600">
                 Our Pre-Incubation program is designed to help aspiring
                 entrepreneurs validate their ideas and develop a solid
-                foundation for their defense tech startups.
+                foundation for their Defence tech startups.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 {programHighlights.map((highlight, index) => (
                   <Card key={index} className="bg-gray-50">
                     <CardContent className="pt-6">
-                      <highlight.icon className="h-8 w-8 text-blue-600 mb-4" />
-                      <h3 className="font-semibold mb-2">{highlight.title}</h3>
+                      <highlight.icon className="mb-4 h-8 w-8 text-blue-600" />
+                      <h3 className="mb-2 font-semibold">{highlight.title}</h3>
                       <p className="text-sm text-gray-600">
                         {highlight.description}
                       </p>
@@ -66,11 +66,11 @@ export default function PreIncubationPage() {
                 ))}
               </div>
             </div>
-            <div className="relative rounded-lg overflow-hidden h-[500px]">
+            <div className="relative h-[500px] overflow-hidden rounded-lg">
               <img
                 src="/overview.png"
                 alt="Pre-Incubation Program"
-                className=" w-full h-full "
+                className=" h-full w-full "
               />
             </div>
           </div>
@@ -78,19 +78,19 @@ export default function PreIncubationPage() {
       </section>
 
       {/* Program Benefits */}
-      <section className="py-20 bg-gray-50">
+      <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             Program Benefits
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {programBenefits.map((benefit, index) => (
               <Card key={index} className="relative overflow-hidden">
                 <div className="h-48">
                   <img
                     src={benefit.image}
                     alt={benefit.title}
-                    className="w-full h-full object-cover"
+                    className="h-full w-full object-cover"
                   />
                 </div>
                 <CardHeader>
@@ -101,7 +101,7 @@ export default function PreIncubationPage() {
                   <ul className="space-y-2">
                     {benefit.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start space-x-2">
-                        <ChevronRight className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                        <ChevronRight className="h-5 w-5 flex-shrink-0 text-blue-600" />
                         <span className="text-gray-600">{feature}</span>
                       </li>
                     ))}
@@ -116,17 +116,17 @@ export default function PreIncubationPage() {
       {/* Success Stories */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             Success Stories
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {successStories.map((story, index) => (
               <Card key={index} className="overflow-hidden">
                 <div className="relative h-48">
                   <img
                     src={story.image}
                     alt={story.title}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                 </div>
                 <CardHeader>
@@ -134,7 +134,7 @@ export default function PreIncubationPage() {
                   <CardDescription>{story.subtitle}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-4">{story.description}</p>
+                  <p className="mb-4 text-gray-600">{story.description}</p>
                   <Button variant="outline" className="w-full" asChild>
                     <Link href={`/case-studies/${story.slug}`}>
                       Read Full Story <ChevronRight className="ml-2 h-4 w-4" />
@@ -148,12 +148,12 @@ export default function PreIncubationPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-20">
+      <section className="bg-blue-600 py-20 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">
+          <h2 className="mb-6 text-3xl font-bold">
             Ready to Start Your Journey?
           </h2>
-          <p className="text-xl mb-8">
+          <p className="mb-8 text-xl">
             Join our pre-incubation program and transform your idea into
             reality.
           </p>
@@ -206,10 +206,10 @@ const programHighlights = [
 const programBenefits = [
   {
     title: "Technical Support",
-    description: "Access to cutting-edge defense tech resources",
+    description: "Access to cutting-edge Defence tech resources",
     image: "/img3.jpg",
     features: [
-      "Access to defense tech labs",
+      "Access to Defence tech labs",
       "Technical mentorship",
       "Prototype development support",
       "Testing facilities",
@@ -243,7 +243,7 @@ const successStories = [
   {
     title: "DroneShield",
     subtitle: "Anti-Drone Technology",
-    description: "From concept to securing major defense contracts in 8 months",
+    description: "From concept to securing major Defence contracts in 8 months",
     image: "/newsforum/1.jpg",
     slug: "drone-shield",
   },
@@ -259,7 +259,7 @@ const successStories = [
     title: "BattleView",
     subtitle: "Battlefield Analytics",
     description:
-      "AI-powered battlefield analysis platform now used by multiple defense forces",
+      "AI-powered battlefield analysis platform now used by multiple Defence forces",
     image: "/img19.jpg",
     slug: "battle-view",
   },

@@ -18,7 +18,7 @@ export default function AccelerationPage() {
       <section className="relative h-[60vh]">
         <div className="absolute inset-0 overflow-hidden">
           <video
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
             autoPlay
             muted
             loop
@@ -30,12 +30,12 @@ export default function AccelerationPage() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+        <div className="container relative z-10 mx-auto flex h-full flex-col justify-center px-4">
+          <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">
             Acceleration Program
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
-            Scale your defense tech startup globally with strategic support
+          <p className="mb-8 max-w-2xl text-xl text-white/90 md:text-2xl">
+            Scale your Defence tech startup globally with strategic support
           </p>
         </div>
       </section>
@@ -43,20 +43,20 @@ export default function AccelerationPage() {
       {/* Program Overview */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Program Overview</h2>
-              <p className="text-gray-600 mb-8">
-                Our acceleration program is designed to help established defense
+              <h2 className="mb-6 text-3xl font-bold">Program Overview</h2>
+              <p className="mb-8 text-gray-600">
+                Our acceleration program is designed to help established Defence
                 tech startups scale rapidly through strategic partnerships,
                 market access, and funding opportunities.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 {programFeatures.map((feature, index) => (
                   <Card key={index} className="bg-gray-50">
                     <CardContent className="pt-6">
-                      <feature.icon className="h-8 w-8 text-blue-600 mb-4" />
-                      <h3 className="font-semibold mb-2">{feature.title}</h3>
+                      <feature.icon className="mb-4 h-8 w-8 text-blue-600" />
+                      <h3 className="mb-2 font-semibold">{feature.title}</h3>
                       <p className="text-sm text-gray-600">
                         {feature.description}
                       </p>
@@ -67,34 +67,34 @@ export default function AccelerationPage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <div className="rounded-lg overflow-hidden">
+                <div className="overflow-hidden rounded-lg">
                   <img
                     src="/img7.jpg"
                     alt="Acceleration Feature 1"
-                    className="w-full h-48 object-cover"
+                    className="h-48 w-full object-cover"
                   />
                 </div>
-                <div className="rounded-lg overflow-hidden">
+                <div className="overflow-hidden rounded-lg">
                   <img
                     src="/img8.jpg"
                     alt="Acceleration Feature 2"
-                    className="w-full h-48 object-cover"
+                    className="h-48 w-full object-cover"
                   />
                 </div>
               </div>
               <div className="space-y-4 pt-8">
-                <div className="rounded-lg overflow-hidden">
+                <div className="overflow-hidden rounded-lg">
                   <img
                     src="/img9.jpg"
                     alt="Acceleration Feature 3"
-                    className="w-full h-48 object-cover"
+                    className="h-48 w-full object-cover"
                   />
                 </div>
-                <div className="rounded-lg overflow-hidden">
+                <div className="overflow-hidden rounded-lg">
                   <img
                     src="/img10.jpg"
                     alt="Acceleration Feature 4"
-                    className="w-full h-48 object-cover"
+                    className="h-48 w-full object-cover"
                   />
                 </div>
               </div>
@@ -104,19 +104,19 @@ export default function AccelerationPage() {
       </section>
 
       {/* Program Benefits */}
-      <section className="py-20 bg-gray-50">
+      <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             Program Benefits
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {programBenefits.map((benefit, index) => (
               <Card key={index} className="relative overflow-hidden">
                 <div className="h-48">
                   <img
                     src={benefit.image}
                     alt={benefit.title}
-                    className="w-full h-full object-cover"
+                    className="h-full w-full object-cover"
                   />
                 </div>
                 <CardHeader>
@@ -127,7 +127,7 @@ export default function AccelerationPage() {
                   <ul className="space-y-2">
                     {benefit.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start space-x-2">
-                        <ChevronRight className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                        <ChevronRight className="h-5 w-5 flex-shrink-0 text-blue-600" />
                         <span className="text-gray-600">{feature}</span>
                       </li>
                     ))}
@@ -142,14 +142,14 @@ export default function AccelerationPage() {
       {/* Success Metrics */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             Success Metrics
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
             {metrics.map((metric, index) => (
               <Card key={index} className="text-center">
                 <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
                     <metric.icon className="h-8 w-8 text-blue-600" />
                   </div>
                   <CardTitle className="text-4xl font-bold text-blue-600">
@@ -166,21 +166,21 @@ export default function AccelerationPage() {
       </section>
 
       {/* Global Network */}
-      <section className="py-20 bg-gray-50">
+      <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             Global Network
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {partners.map((partner, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center p-8 bg-white rounded-lg"
+                className="flex items-center justify-center rounded-lg bg-white p-8"
               >
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="max-h-12 grayscale hover:grayscale-0 transition-all"
+                  className="max-h-12 grayscale transition-all hover:grayscale-0"
                 />
               </div>
             ))}
@@ -189,11 +189,11 @@ export default function AccelerationPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-20">
+      <section className="bg-blue-600 py-20 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Scale Globally?</h2>
-          <p className="text-xl mb-8">
-            Join our acceleration program and take your defense tech startup to
+          <h2 className="mb-6 text-3xl font-bold">Ready to Scale Globally?</h2>
+          <p className="mb-8 text-xl">
+            Join our acceleration program and take your Defence tech startup to
             new heights.
           </p>
           <div className="flex justify-center gap-4">
@@ -224,22 +224,22 @@ import {
 const programFeatures = [
   {
     title: "Global Expansion",
-    description: "Access to international defense markets",
+    description: "Access to international Defence markets",
     icon: Globe,
   },
   {
     title: "Strategic Partnerships",
-    description: "Connect with major defense contractors",
+    description: "Connect with major Defence contractors",
     icon: Network,
   },
   {
     title: "Growth Capital",
-    description: "Access to defense-focused investors",
+    description: "Access to Defence-focused investors",
     icon: ChartBar,
   },
   {
     title: "Market Access",
-    description: "Direct entry to defense procurement",
+    description: "Direct entry to Defence procurement",
     icon: Target,
   },
 ];
@@ -247,10 +247,10 @@ const programFeatures = [
 const programBenefits = [
   {
     title: "Market Access",
-    description: "Direct connections to defense procurement",
+    description: "Direct connections to Defence procurement",
     image: "/market-access.jpg",
     features: [
-      "Defense contractor network",
+      "Defence contractor network",
       "Government procurement access",
       "International market entry",
       "Strategic partnerships",
@@ -258,11 +258,11 @@ const programBenefits = [
   },
   {
     title: "Investment Opportunities",
-    description: "Access to defense-focused investors",
+    description: "Access to Defence-focused investors",
     image: "/investment.jpg",
     features: [
       "Venture capital connections",
-      "Defense investment funds",
+      "Defence investment funds",
       "Government grants",
       "Strategic investors",
     ],
@@ -293,7 +293,7 @@ const metrics = [
   },
   {
     value: "200+",
-    label: "Defense Contracts",
+    label: "Defence Contracts",
     icon: Shield,
   },
   {
@@ -305,7 +305,7 @@ const metrics = [
 
 const partners = [
   {
-    name: "Defense Corp",
+    name: "Defence Corp",
     logo: "/images/partners/partner1.svg",
   },
   {
@@ -313,7 +313,7 @@ const partners = [
     logo: "/images/partners/partner2.svg",
   },
   {
-    name: "Global Defense",
+    name: "Global Defence",
     logo: "/images/partners/partner3.svg",
   },
   {
@@ -325,11 +325,11 @@ const partners = [
     logo: "/images/partners/partner5.svg",
   },
   {
-    name: "Defense Innovation",
+    name: "Defence Innovation",
     logo: "/images/partners/partner6.svg",
   },
   {
-    name: "Cyber Defense",
+    name: "Cyber Defence",
     logo: "/images/partners/partner7.svg",
   },
   {

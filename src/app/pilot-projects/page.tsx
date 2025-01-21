@@ -18,7 +18,7 @@ export default function PilotProjectsPage() {
       <section className="relative h-[60vh]">
         <div className="absolute inset-0 overflow-hidden">
           <video
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
             autoPlay
             muted
             loop
@@ -30,12 +30,12 @@ export default function PilotProjectsPage() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+        <div className="container relative z-10 mx-auto flex h-full flex-col justify-center px-4">
+          <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">
             Pilot Projects
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
-            Innovative defense tech solutions in action
+          <p className="mb-8 max-w-2xl text-xl text-white/90 md:text-2xl">
+            Innovative Defence tech solutions in action
           </p>
         </div>
       </section>
@@ -43,7 +43,7 @@ export default function PilotProjectsPage() {
       {/* Featured Projects */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             Featured Projects
           </h2>
           <div className="grid grid-cols-1 gap-8">
@@ -54,7 +54,7 @@ export default function PilotProjectsPage() {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="absolute inset-0 h-full w-full object-cover"
                     />
                   </div>
                   <div className="p-8">
@@ -65,12 +65,12 @@ export default function PilotProjectsPage() {
                       <CardDescription>{project.category}</CardDescription>
                     </CardHeader>
                     <CardContent className="px-0">
-                      <p className="text-gray-600 mb-6">
+                      <p className="mb-6 text-gray-600">
                         {project.description}
                       </p>
                       <div className="space-y-4">
                         <div>
-                          <h4 className="font-semibold mb-2">
+                          <h4 className="mb-2 font-semibold">
                             Key Achievements:
                           </h4>
                           <ul className="space-y-2">
@@ -79,7 +79,7 @@ export default function PilotProjectsPage() {
                                 key={idx}
                                 className="flex items-start space-x-2"
                               >
-                                <ChevronRight className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                                <ChevronRight className="h-5 w-5 flex-shrink-0 text-blue-600" />
                                 <span className="text-gray-600">
                                   {achievement}
                                 </span>
@@ -104,19 +104,19 @@ export default function PilotProjectsPage() {
       </section>
 
       {/* Project Categories */}
-      <section className="py-20 bg-gray-50">
+      <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             Project Categories
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {categories.map((category, index) => (
               <Card key={index} className="relative overflow-hidden">
                 <div className="h-48">
                   <img
                     src={category.image}
                     alt={category.title}
-                    className="w-full h-full object-cover"
+                    className="h-full w-full object-cover"
                   />
                 </div>
                 <CardHeader>
@@ -124,10 +124,10 @@ export default function PilotProjectsPage() {
                   <CardDescription>{category.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2 mb-6">
+                  <ul className="mb-6 space-y-2">
                     {category.examples.map((example, idx) => (
                       <li key={idx} className="flex items-start space-x-2">
-                        <ChevronRight className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                        <ChevronRight className="h-5 w-5 flex-shrink-0 text-blue-600" />
                         <span className="text-gray-600">{example}</span>
                       </li>
                     ))}
@@ -147,14 +147,14 @@ export default function PilotProjectsPage() {
       {/* Success Metrics */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             Impact Metrics
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
             {metrics.map((metric, index) => (
               <Card key={index} className="text-center">
                 <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
                     <metric.icon className="h-8 w-8 text-blue-600" />
                   </div>
                   <CardTitle className="text-4xl font-bold text-blue-600">
@@ -171,11 +171,11 @@ export default function PilotProjectsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-20">
+      <section className="bg-blue-600 py-20 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Start Your Pilot Project</h2>
-          <p className="text-xl mb-8">
-            Join our program and turn your innovative defense tech solution into
+          <h2 className="mb-6 text-3xl font-bold">Start Your Pilot Project</h2>
+          <p className="mb-8 text-xl">
+            Join our program and turn your innovative Defence tech solution into
             reality.
           </p>
           <div className="flex justify-center gap-4">
@@ -196,12 +196,12 @@ import { Shield, Target, Globe, Users, ChartBar, Rocket } from "lucide-react";
 
 const featuredProjects = [
   {
-    title: "Autonomous Defense Drone System",
+    title: "Autonomous Defence Drone System",
     category: "Unmanned Systems",
     description:
       "Revolutionary drone system for military reconnaissance and surveillance",
     image: "/dronsystem.jpg",
-    slug: "autonomous-defense-drone",
+    slug: "autonomous-Defence-drone",
     achievements: [
       "Successfully deployed in 3 military exercises",
       "50% reduction in reconnaissance mission time",
@@ -241,7 +241,7 @@ const featuredProjects = [
 const categories = [
   {
     title: "Unmanned Systems",
-    description: "Autonomous systems for defense applications",
+    description: "Autonomous systems for Defence applications",
     image: "/unmanned.jpg",
     slug: "unmanned-systems",
     examples: [
@@ -253,12 +253,12 @@ const categories = [
   },
   {
     title: "Cybersecurity",
-    description: "Advanced security solutions for defense",
+    description: "Advanced security solutions for Defence",
     image: "/cyber.webp",
     slug: "cybersecurity",
     examples: [
       "Quantum encryption",
-      "Network defense",
+      "Network Defence",
       "Threat detection",
       "Secure communications",
     ],

@@ -43,7 +43,7 @@ const faqs = [
   {
     question: "What stage startups do you accept?",
     answer:
-      "We accept startups from idea stage to early growth stage, with a focus on defense technology innovations.",
+      "We accept startups from idea stage to early growth stage, with a focus on defence technology innovations.",
   },
   {
     question: "How long are your programs?",
@@ -114,10 +114,10 @@ export default function ContactPage() {
   return (
     <main className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 text-white">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Contact Us</h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-2xl">
+          <h1 className="mb-6 text-4xl font-bold md:text-6xl">Contact Us</h1>
+          <p className="max-w-2xl text-xl text-white/90 md:text-2xl">
             Get in touch with our team to learn more about our programs and how
             we can help your startup.
           </p>
@@ -127,21 +127,21 @@ export default function ContactPage() {
       {/* Contact Information */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-3">
             {contactInfo.map((info, index) => (
-              <Card key={index} className="text-center p-6">
+              <Card key={index} className="p-6 text-center">
                 <CardContent>
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100">
                     <info.icon className="h-6 w-6 text-blue-600" />
                   </div>
-                  <h3 className="font-semibold mb-2">{info.title}</h3>
+                  <h3 className="mb-2 font-semibold">{info.title}</h3>
                   <p className="text-gray-600">{info.content}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             {/* Contact Form */}
             <Card>
               <CardHeader>
@@ -153,7 +153,7 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent>
                 <form className="space-y-6" onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="firstName">First Name</Label>
                       <Input
@@ -230,7 +230,7 @@ export default function ContactPage() {
                   <Button type="submit" className="w-full">
                     Send Message
                   </Button>
-                  {status && <p className="text-center mt-4">{status}</p>}
+                  {status && <p className="mt-4 text-center">{status}</p>}
                 </form>
               </CardContent>
             </Card>
@@ -244,9 +244,9 @@ export default function ContactPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="aspect-video bg-gray-200 rounded-lg mb-4">
+                <div className="mb-4 aspect-video rounded-lg bg-gray-200">
                   {/* Replace with actual map implementation */}
-                  <div className="w-full h-full flex items-center justify-center text-gray-500">
+                  <div className="flex h-full w-full items-center justify-center text-gray-500">
                     Map will be embedded here
                   </div>
                 </div>
@@ -269,12 +269,12 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             Frequently Asked Questions
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
             {faqs.map((faq, index) => (
               <Card key={index}>
                 <CardHeader>

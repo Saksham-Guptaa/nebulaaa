@@ -9,10 +9,10 @@ export default function AboutPage() {
   return (
     <main className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 text-white">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Who We Are</h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-2xl">
+          <h1 className="mb-6 text-4xl font-bold md:text-6xl">Who We Are</h1>
+          <p className="max-w-2xl text-xl text-white/90 md:text-2xl">
             Nebula Accelerator drives your sparking idea towards a successful
             business with mentoring, acceleration, and global expansion.
           </p>
@@ -22,33 +22,33 @@ export default function AboutPage() {
       {/* Vision & Mission */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             <Card className="p-8">
-              <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
+              <h2 className="mb-4 text-2xl font-bold">Our Vision</h2>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <ChevronRight className="h-6 w-6 text-blue-600 flex-shrink-0" />
+                  <ChevronRight className="h-6 w-6 flex-shrink-0 text-blue-600" />
                   <p>
                     Incubating & Accelerating 3,000+ Entrepreneurs by 2024-27
                   </p>
                 </li>
                 <li className="flex items-start">
-                  <ChevronRight className="h-6 w-6 text-blue-600 flex-shrink-0" />
+                  <ChevronRight className="h-6 w-6 flex-shrink-0 text-blue-600" />
                   <p>
                     Equipping 300+ entrepreneurs to be 'Investor Ready' by
                     2024-27
                   </p>
                 </li>
                 <li className="flex items-start">
-                  <ChevronRight className="h-6 w-6 text-blue-600 flex-shrink-0" />
+                  <ChevronRight className="h-6 w-6 flex-shrink-0 text-blue-600" />
                   <p>Raising 500cr INR Global Innovation Fund by 2024-29</p>
                 </li>
               </ul>
             </Card>
 
             <Card className="p-8">
-              <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
-              <p className="text-gray-600 mb-6">
+              <h2 className="mb-4 text-2xl font-bold">Our Mission</h2>
+              <p className="mb-6 text-gray-600">
                 To facilitate infrastructure, technical, and network backing for
                 start-ups, helping aspiring entrepreneurs connect with
                 government, investors, mentors, and promoters.
@@ -63,23 +63,23 @@ export default function AboutPage() {
       </section>
 
       {/* Areas of Interest */}
-      <section className="py-20 bg-gray-50">
+      <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             Areas of Interest
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
             {areasOfInterest.map((area, index) => (
               <Card
                 key={index}
-                className="p-6 hover:shadow-lg transition-shadow"
+                className="p-6 transition-shadow hover:shadow-lg"
               >
                 <img
                   src={area.icon}
                   alt={area.title}
-                  className="w-12 h-12 mb-4"
+                  className="mb-4 h-12 w-12"
                 />
-                <h3 className="font-semibold mb-2">{area.title}</h3>
+                <h3 className="mb-2 font-semibold">{area.title}</h3>
                 <p className="text-sm text-gray-600">{area.description}</p>
               </Card>
             ))}
@@ -90,17 +90,17 @@ export default function AboutPage() {
       {/* Why Choose Us */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="mb-12 text-center text-3xl font-bold">
             Why Choose Nebula Accelerator?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100">
                   <benefit.icon className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2">{benefit.title}</h3>
+                  <h3 className="mb-2 font-semibold">{benefit.title}</h3>
                   <p className="text-gray-600">{benefit.description}</p>
                 </div>
               </div>
@@ -110,12 +110,12 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-20">
+      <section className="bg-blue-600 py-20 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">
+          <h2 className="mb-6 text-3xl font-bold">
             Ready to Join Our Program?
           </h2>
-          <p className="text-xl mb-8">
+          <p className="mb-8 text-xl">
             Take the first step towards transforming your innovative idea into
             reality.
           </p>
@@ -145,8 +145,8 @@ const areasOfInterest = [
     icon: "/blockchain.png",
   },
   {
-    title: "Defense Tech",
-    description: "Advanced defense technology innovations",
+    title: "Defence Tech",
+    description: "Advanced Defence technology innovations",
     icon: "/defencetech.jpeg",
   },
   {
@@ -203,8 +203,8 @@ const benefits = [
     icon: Building,
   },
   {
-    title: "Defense Expertise",
-    description: "Specialized knowledge and connections in the defense sector",
+    title: "Defence Expertise",
+    description: "Specialized knowledge and connections in the Defence sector",
     icon: Shield,
   },
   {
