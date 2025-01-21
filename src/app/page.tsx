@@ -201,7 +201,7 @@ export default function Home() {
                 }}
               >
                 <motion.img
-                  src="/yashashvi.jpg"
+                  src="/Yashashvi.jpg"
                   alt="yashashvi"
                   className="absolute inset-0 h-full w-full"
                   initial={{ scale: 1 }}
