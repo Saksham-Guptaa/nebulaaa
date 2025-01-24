@@ -21,6 +21,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
+import Navbar from "@/components/Navbar";
+import { Footer } from "@/components/ui/footer";
 
 export default function ApplyPage() {
   const [formData, setFormData] = useState<{
@@ -128,7 +130,8 @@ export default function ApplyPage() {
   };
 
   return (
-    <main className="pt-16">
+    <main className="">
+      <Navbar />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 text-white">
         <div className="container mx-auto px-4">
@@ -353,6 +356,7 @@ export default function ApplyPage() {
           </Card>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

@@ -4,12 +4,10 @@ import Hero from "@/components/Hero";
 import WhatWeDo from "@/components/WeDo";
 import Services from "@/components/Services";
 import NewsForum from "@/components/News";
-import Footer from "@/components/Footer";
 import Team from "@/components/Team";
+import { Footer } from "@/components/ui/footer";
 
-type Props = {};
-
-const HomePage = (props: Props) => {
+const HomePage = () => {
   return (
     <>
       <div className="bg-white">

@@ -13,7 +13,9 @@ import Link from "next/link";
 
 export default function ServicesPage() {
   return (
-    <main className="pt-16">
+    <main className="">
+      <Navbar />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 text-white">
         <div className="container mx-auto px-4">
@@ -54,9 +56,11 @@ export default function ServicesPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full" asChild>
-                    <Link href={service.link}>Learn More</Link>
-                  </Button>
+                  <Link href={service.link}>
+                    <Button className="w-full border-2 border-green-400 bg-white hover:bg-green-500 ">
+                      <p>Learn More</p>
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
@@ -138,6 +142,7 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }
@@ -146,7 +151,7 @@ const mainServices = [
   {
     title: "Pre-Incubation",
     description: "Transform your idea into a viable business model",
-    image: "/images/services/pre-incubation-hero.jpg",
+    image: "/preincubation.svg",
     link: "/services/pre-incubation",
     features: [
       "Idea validation and refinement",
@@ -159,7 +164,7 @@ const mainServices = [
   {
     title: "Incubation",
     description: "Build and grow your startup with comprehensive support",
-    image: "/images/services/incubation-hero.jpg",
+    image: "/incubation.jpg",
     link: "/services/incubation",
     features: [
       "Office space and infrastructure",
@@ -172,8 +177,34 @@ const mainServices = [
   {
     title: "Acceleration",
     description: "Scale your business globally with strategic support",
-    image: "/images/services/acceleration-hero.jpg",
+    image: "/accelerator.png",
     link: "/services/acceleration",
+    features: [
+      "Growth strategy development",
+      "International market access",
+      "Investor connections",
+      "Strategic partnerships",
+      "Advanced business training",
+    ],
+  },
+  {
+    title: "Venutre Studio",
+    description: "Scale your business globally with strategic support",
+    image: "/venture.jpg",
+    link: "/services/venture-studio",
+    features: [
+      "Growth strategy development",
+      "International market access",
+      "Investor connections",
+      "Strategic partnerships",
+      "Advanced business training",
+    ],
+  },
+  {
+    title: "AIF",
+    description: "Scale your business globally with strategic support",
+    image: "/incubationfeature2.jpeg",
+    link: "/services/AIF",
     features: [
       "Growth strategy development",
       "International market access",
@@ -195,6 +226,8 @@ import {
   Building,
   Network,
 } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import { Footer } from "@/components/ui/footer";
 
 const benefits = [
   {

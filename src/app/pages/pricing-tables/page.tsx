@@ -1,5 +1,5 @@
 import React from "react";
-import PricingTableOne from "@/components/PricingTables/PricingTableOne";
+import PricingTableOne from "@/components/PricingTables/page";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

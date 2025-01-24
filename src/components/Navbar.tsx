@@ -24,25 +24,25 @@ const Navbar = () => {
           ABOUT
         </Link>
         <Link
-          href="/service"
+          href="/services"
           className="text-xl text-black transition-colors duration-1000 hover:text-gray-400"
         >
           SERVICES
         </Link>
         <Link
-          href="/work"
+          href="/Investnow"
           className="text-xl text-black transition-colors duration-1000 hover:text-gray-400"
         >
-          WORK
+          INVEST NOW
         </Link>
         {/* <Link href="/social" className="hover:text-gray-400 transition-colors duration-1000 text-xl text-black">
           MEMBERSHIP
         </Link> */}
         <Link
-          href="/"
+          href="/Pricing"
           className="rounded px-4 py-2 text-xl  text-red-600 transition-colors "
         >
-          TedX Bharat
+          Membership
         </Link>
       </div>
 
@@ -79,10 +79,10 @@ const Navbar = () => {
         <ul className="flex flex-col items-center space-y-6 px-6 py-8 text-lg font-semibold">
           <li>
             <Link
-              href="/signup"
-              className="flex items-center  text-xl font-semibold text-black text-red-500 "
+              href="/Pricing"
+              className="flex items-center  text-xl font-semibold  text-red-500 "
             >
-              TedX
+              MEMBERSHIP
             </Link>
           </li>
           <li>
@@ -111,10 +111,10 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href="/work"
+              href="/Investnow"
               className="block py-2 text-xl text-black transition-colors hover:text-blue-500"
             >
-              WORK
+              INVEST NOW
             </Link>
           </li>
           <li>

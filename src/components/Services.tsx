@@ -83,10 +83,7 @@ const Services = () => {
             />
           </div>
           <div className="mt-6 w-full md:ml-8 md:mt-0 md:w-1/2">
-            <p className="text-[#A0B985]">{currentContent.content}</p>
-            <button className="mt-4 font-semibold text-green-700 hover:underline">
-              Learn More
-            </button>
+            <p className="font-bold text-[#A0B985]">{currentContent.content}</p>
           </div>
         </motion.div>
       </div>
@@ -124,12 +121,6 @@ const Services = () => {
             <p className="text-lg font-semibold text-gray-700">
               {currentContent.content}
             </p>
-            <a
-              href="#"
-              className="font-bold text-green-700 underline transition-colors hover:text-green-900"
-            >
-              Learn More
-            </a>
           </motion.div>
         </AnimatePresence>
       </div>

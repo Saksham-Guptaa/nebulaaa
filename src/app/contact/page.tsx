@@ -1,5 +1,6 @@
 "use client";
 
+import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -8,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Footer } from "@/components/ui/footer";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -112,7 +114,8 @@ export default function ContactPage() {
     }
   };
   return (
-    <main className="pt-16">
+    <main className="">
+      <Navbar />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-20 text-white">
         <div className="container mx-auto px-4">
@@ -288,6 +291,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

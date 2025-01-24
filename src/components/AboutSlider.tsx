@@ -21,7 +21,6 @@ const contentData = [
       "Nebula Accelerator offers diverse programs such as Venture Studio, Pre-Incubation, Incubation, and Accelerator to help entrepreneurs develop, validate, and scale their ideas into successful ventures, with tailored support from industry mentors and experts.",
     image: "/programs.jpg",
   },
-
 ];
 
 const AboutSlider = () => {
@@ -39,15 +38,13 @@ const AboutSlider = () => {
   return (
     <>
       {/* Desktop and Tablet View */}
-      <div className="hidden md:flex flex-col items-center justify-center mt-6 w-full min-h-screen bg-white p-4">
-        
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center">
+      <div className="mt-6 hidden min-h-screen w-full flex-col items-center justify-center bg-white p-4 md:flex">
+        <div className="grid grid-cols-1 justify-center gap-6 md:grid-cols-3">
           {contentData.map((item, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`text-2xl md:text-5xl  font-extrabold uppercase focus:outline-none ${
+              className={`text-2xl font-extrabold  uppercase focus:outline-none md:text-5xl ${
                 index === currentIndex
                   ? "text-green-700"
                   : "text-[#A0B985] hover:text-green-500"
@@ -60,35 +57,34 @@ const AboutSlider = () => {
 
         <motion.div
           key={currentContent.heading}
-          className="flex flex-col md:flex-row items-center justify-between mt-8 w-full max-w-4xl"
+          className="mt-8 flex w-full max-w-4xl flex-col items-center justify-between md:flex-row"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -50 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="w-full md:w-1/2 h-64 bg-gray-300 rounded-lg overflow-hidden shadow-lg">
+          <div className="h-64 w-full overflow-hidden rounded-lg bg-gray-300 shadow-lg md:w-1/2">
             <img
               src={currentContent.image}
               alt={currentContent.heading}
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover"
             />
           </div>
-          <div className="mt-6 md:mt-0 md:ml-8 w-full md:w-1/2">
-            <p className="text-[#A0B985]">{currentContent.content}</p>
-            <button className="mt-4 text-green-700 font-semibold hover:underline">
-              Learn More
-            </button>
+          <div className="mt-6 w-full md:ml-8 md:mt-0 md:w-1/2">
+            <p className="font-bold text-[#A0B985] ">
+              {currentContent.content}
+            </p>
           </div>
         </motion.div>
       </div>
 
       {/* Mobile View */}
-      <div className="flex flex-col md:hidden justify-between items-start space-y-8 px-4">
+      <div className="flex flex-col items-start justify-between space-y-8 px-4 md:hidden">
         <div className="flex flex-col space-y-4">
           {contentData.map((item, index) => (
             <button
               key={index}
-              className={`text-left font-extrabold text-2xl ${
+              className={`text-left text-2xl font-extrabold ${
                 index === currentIndex ? "text-green-700" : "text-gray-400"
               } transition-colors duration-300`}
               onClick={() => setCurrentIndex(index)}
@@ -110,17 +106,11 @@ const AboutSlider = () => {
             <img
               src={currentContent.image}
               alt={currentContent.heading}
-              className="rounded-md w-full h-40 object-cover"
+              className="h-40 w-full rounded-md object-cover"
             />
             <p className="text-lg font-semibold text-gray-700">
               {currentContent.content}
             </p>
-            <a
-              href="#"
-              className="text-green-700 font-bold underline hover:text-green-900 transition-colors"
-            >
-              Learn More
-            </a>
           </motion.div>
         </AnimatePresence>
       </div>

@@ -13,7 +13,8 @@ import Link from "next/link";
 
 export default function IncubationPage() {
   return (
-    <main className="pt-16">
+    <main className="">
+      <Navbar />
       {/* Hero Section with Video */}
       <section className="relative h-[60vh]">
         <div className="absolute inset-0 overflow-hidden">
@@ -194,6 +195,7 @@ export default function IncubationPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }
@@ -208,6 +210,8 @@ import {
   BookOpen,
   Globe,
 } from "lucide-react";
+import { Footer } from "@/components/ui/footer";
+import Navbar from "@/components/Navbar";
 
 const programFeatures = [
   {

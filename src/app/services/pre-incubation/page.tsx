@@ -13,7 +13,8 @@ import Link from "next/link";
 
 export default function PreIncubationPage() {
   return (
-    <main className="pt-16">
+    <main className="">
+      <Navbar />
       {/* Hero Section */}
       <section className="relative h-[60vh]">
         <div className="absolute inset-0 overflow-hidden">
@@ -114,7 +115,7 @@ export default function PreIncubationPage() {
       </section>
 
       {/* Success Stories */}
-      <section className="py-20">
+      {/* <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="mb-12 text-center text-3xl font-bold">
             Success Stories
@@ -145,7 +146,7 @@ export default function PreIncubationPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="bg-blue-600 py-20 text-white">
@@ -167,6 +168,7 @@ export default function PreIncubationPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }
@@ -179,6 +181,8 @@ import {
   BookOpen,
   Network,
 } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import { Footer } from "@/components/ui/footer";
 
 const programHighlights = [
   {
