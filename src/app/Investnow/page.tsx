@@ -211,7 +211,7 @@ export default function InvestNowPage() {
           </div>
           <div>
             <img
-              src="/images/nebula-ecosystem.jpg"
+              src="/plane.jpg"
               alt="Nebula Ecosystem"
               className="rounded-xl shadow-lg"
             />

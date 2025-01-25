@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { CardContent } from "@/components/ui/card";
 import { CardHeader } from "@/components/ui/card";
 import { Footer } from "@/components/ui/footer";
+import Link from "next/link";
 
 export default function AIFPage() {
   return (
@@ -19,9 +20,6 @@ export default function AIFPage() {
             Unlock exclusive investment opportunities with Nebula Accelerator's
             AIF platform, designed to fuel groundbreaking ventures.
           </p>
-          <Button className="rounded-lg bg-white px-6 py-3 font-medium text-green-600 shadow-md hover:bg-gray-100">
-            Explore AIF Opportunities
-          </Button>
         </div>
       </section>
 
@@ -44,13 +42,15 @@ export default function AIFPage() {
               <li>Opportunities across multiple industries and geographies.</li>
               <li>Managed by experienced fund managers and advisors.</li>
             </ul>
-            <Button className="rounded-lg bg-green-600 px-6 py-3 font-medium text-white shadow-md hover:bg-green-700">
-              Learn More About AIF
-            </Button>
+            <Link href="/about">
+              <Button className="rounded-lg bg-green-600 px-6 py-3 font-medium text-white shadow-md hover:bg-green-700">
+                Learn More About Us
+              </Button>
+            </Link>
           </div>
           <div>
             <img
-              src="/images/aif-overview.jpg"
+              src="/plane.jpg"
               alt="AIF Overview"
               className="rounded-xl shadow-lg"
             />
@@ -70,19 +70,19 @@ export default function AIFPage() {
                 title: "Curated Investment Options",
                 description:
                   "Gain access to a handpicked portfolio of startups with strong growth potential.",
-                img: "/images/curated-investments.jpg",
+                img: "/2.png",
               },
               {
                 title: "Diverse Industry Exposure",
                 description:
                   "Invest across sectors like technology, healthcare, sustainability, and more.",
-                img: "/images/diverse-exposure.jpg",
+                img: "/3.png",
               },
               {
                 title: "Expert Fund Management",
                 description:
                   "Our experienced team ensures rigorous due diligence and strategic investments.",
-                img: "/images/expert-management.jpg",
+                img: "/4.png",
               },
             ].map((benefit, idx) => (
               <Card key={idx} className="rounded-lg shadow-md">
@@ -136,7 +136,7 @@ export default function AIFPage() {
             </div>
             <div>
               <img
-                src="/images/how-aif-works.jpg"
+                src="/plane.jpg"
                 alt="How AIF Works"
                 className="rounded-xl shadow-lg"
               />
@@ -155,9 +155,6 @@ export default function AIFPage() {
             Join Nebula Accelerator's AIF platform and be part of a visionary
             investment ecosystem.
           </p>
-          <Button className="rounded-lg bg-white px-6 py-3 font-medium text-teal-600 shadow-md hover:bg-gray-100">
-            Get Started with AIF
-          </Button>
         </div>
       </section>
       <Footer />
