@@ -45,29 +45,7 @@ const PricingTableOne: React.FC = () => {
 
         {/* <!-- Pricing Item --> */}
         <div className="relative rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark md:p-9 xl:p-11.5">
-          <span className="absolute -right-1 top-3.5">
-            <svg
-              width={109}
-              height={34}
-              viewBox="0 0 109 34"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M24 0L106 0C107.657 0 109 1.34315 109 3V30L24 30L24 0Z"
-                fill="#3C50E0"
-              />
-              <foreignObject x={24} y={0} width={81} height={30}>
-                <div>
-                  <div className="mt-1 text-center font-satoshi text-sm font-medium text-white">
-                    Best Value
-                  </div>
-                </div>
-              </foreignObject>
-              <path d="M0 0H24V30H0L19 15L0 0Z" fill="#3C50E0" />
-              <path d="M105 34L109 30H105V34Z" fill="#2539C8" />
-            </svg>
-          </span>
+          <span className="absolute -right-1 top-3.5"></span>
           <span className="mb-2.5 block text-title-sm2 font-bold text-black dark:text-white">
             Founders and Teams
           </span>
