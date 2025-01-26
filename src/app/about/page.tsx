@@ -116,7 +116,7 @@ const Page = () => {
             <div className="lg:flex lg:items-start lg:justify-between lg:space-x-8">
               <h2 className="mb-6 text-xl font-bold uppercase lg:mb-0 lg:text-7xl">
                 Value <br />
-                Proportion
+                proposition
               </h2>
               <p className="text-lg leading-relaxed lg:w-1/2">
                 Leveraging blockchain technology for transparency, Nebula

@@ -175,7 +175,7 @@ const mainServices = [
     ],
   },
   {
-    title: "Acceleration",
+    title: "Accelerator",
     description: "Scale your business globally with strategic support",
     image: "/accelerator.png",
     link: "/services/acceleration",
@@ -188,7 +188,7 @@ const mainServices = [
     ],
   },
   {
-    title: "Venutre Studio",
+    title: "Venture Studio",
     description: "Scale your business globally with strategic support",
     image: "/venture.jpg",
     link: "/services/venture-studio",
