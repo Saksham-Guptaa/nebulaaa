@@ -95,7 +95,7 @@ const Page = () => {
                 Vision
               </h2>
               <p className="text-lg leading-relaxed lg:w-1/2">
-                To drive global defense technological innovations and align them
+                To drive global defence technological innovations and align them
                 for social and commercial impact.
               </p>
             </div>
@@ -408,7 +408,7 @@ const Page = () => {
                         my journey has been defined by diverse roles in
                         operations, project management, and advisory capacities,
                         marked by continuous learning and significant
-                        contributions to aviation and defense innovation.
+                        contributions to aviation and defence innovation.
                       </span>
                     </motion.div>
                     <motion.div className="absolute bottom-0 right-0 rounded-bl-2xl rounded-tr-2xl bg-[#007F40] p-2 transition-all duration-500 ease-in-out group-hover:scale-0">

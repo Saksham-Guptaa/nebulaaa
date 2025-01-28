@@ -36,7 +36,7 @@ export default function VentureStudioPage() {
             Venture Studio
           </h1>
           <p className="mb-8 max-w-2xl text-xl text-white/90 md:text-2xl">
-            Building next-generation Defence tech companies from the ground up
+            Building next-generation DefenceTech companies from the ground up
           </p>
         </div>
       </section>

@@ -19,7 +19,7 @@ const NewsForum = () => {
     {
       title: "Article 4",
       description:
-        "India's Defense Budget Boost Fuels Record-Breaking R&D in Hypersonic Missiles",
+        "India's defence Budget Boost Fuels Record-Breaking R&D in Hypersonic Missiles",
       image: "/newsforum/4.jpg",
     },
     {
