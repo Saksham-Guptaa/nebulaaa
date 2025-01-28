@@ -6,10 +6,17 @@ import { useRouter } from "next/navigation";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../../utils/firebase";
-
+import { useFirebase } from "../../context/FirebaseContext";
+import { useUsers } from "@/context/RoleContext";
 const DropdownUser = () => {
   // Get user details from the context
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const firebaseContext = useFirebase();
+  const { usersByRole } = useUsers();
+  console.log(usersByRole);
+  if (!firebaseContext) return null;
+  const { roles, userDetails } = firebaseContext;
+  console.log(roles, userDetails);
   const [user, setUser] = useState<null | {
     uid: string;
     fullName: string;
@@ -100,7 +107,8 @@ const DropdownUser = () => {
           <Image
             width={112}
             height={112}
-            src={"/images/user/user-01.png"}
+            src={userDetails?.profileImageUrl}
+            className="rounded-full object-cover"
             style={{
               width: "auto",
               height: "auto",

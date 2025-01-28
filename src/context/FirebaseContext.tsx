@@ -62,7 +62,6 @@ export const FirebaseProvider = ({
         setRoles(null);
       }
     });
-
     return () => unsubscribe();
   }, []);
 

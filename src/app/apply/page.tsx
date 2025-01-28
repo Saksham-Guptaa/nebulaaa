@@ -137,7 +137,7 @@ export default function ApplyPage() {
         <div className="container mx-auto px-4">
           <h1 className="mb-6 text-4xl font-bold md:text-6xl">Apply Now</h1>
           <p className="max-w-2xl text-xl text-white/90 md:text-2xl">
-            Take the first step towards accelerating your Defence tech startup.
+            Take the first step towards accelerating your DefenceTech startup.
           </p>
         </div>
       </section>

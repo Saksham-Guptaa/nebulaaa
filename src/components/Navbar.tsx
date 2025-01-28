@@ -3,9 +3,16 @@ import { useState } from "react";
 import Link from "next/link";
 import { IoMenu } from "react-icons/io5";
 import React from "react";
+import { useFirebase } from "@/context/FirebaseContext";
+import { useUsers } from "@/context/RoleContext";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const firebaseContext = useFirebase();
+  const { usersByRole } = useUsers();
+  console.log(usersByRole);
+  if (!firebaseContext) return null;
+  const { roles, userDetails } = firebaseContext;
+  console.log(roles, userDetails);
   return (
     <nav className="flex items-center justify-between border-b-2 border-black bg-white p-2 py-4 shadow-md md:px-12 lg:px-6">
       {/* Logo */}
@@ -52,12 +59,15 @@ const Navbar = () => {
           href="/profile"
           className="mx-5 hidden items-center space-x-2 md:flex"
         >
-          {/* <img
-              src={user.avatar || "https://via.placeholder.com/150"} // Default avatar if not provided
-              alt={user.name || "User"}
-              className="w-10 h-10 rounded-full object-cover"
-            /> */}
-          <span className="text-xl font-bold  text-black">Dashboard</span>
+          {userDetails?.profileImageUrl ? (
+            <img
+              src={userDetails.profileImageUrl}
+              alt="User Profile"
+              className="h-10 w-10 rounded-full object-cover"
+            />
+          ) : (
+            <span className="text-xl font-bold text-black">Dashboard</span>
+          )}
         </Link>
 
         {/* Mobile Menu Button */}
@@ -119,10 +129,18 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href="/dashboard/main"
-              className="block py-2 text-xl text-black transition-colors hover:text-blue-500"
+              href="/profile"
+              className="mx-5 hidden items-center space-x-2 md:flex"
             >
-              Dashboard
+              {userDetails?.profileImageUrl ? (
+                <img
+                  src={userDetails.profileImageUrl}
+                  alt="User Profile"
+                  className="h-10 w-10 rounded-full object-cover"
+                />
+              ) : (
+                <span className="text-xl font-bold text-black">Dashboard</span>
+              )}
             </Link>
           </li>
         </ul>

@@ -21,7 +21,7 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <h1 className="mb-6 text-4xl font-bold md:text-6xl">Our Services</h1>
           <p className="max-w-2xl text-xl text-white/90 md:text-2xl">
-            Comprehensive support for Defence tech startups at every stage of
+            Comprehensive support for DefenceTech startups at every stage of
             their journey.
           </p>
         </div>
@@ -129,7 +129,7 @@ export default function ServicesPage() {
             Ready to Transform Your Idea?
           </h2>
           <p className="mb-8 text-xl">
-            Join our next cohort and take your Defence tech startup to the next
+            Join our next cohort and take your DefenceTech startup to the next
             level.
           </p>
           <div className="flex justify-center gap-4">
@@ -193,24 +193,24 @@ const mainServices = [
     image: "/venture.jpg",
     link: "/services/venture-studio",
     features: [
-      "Growth strategy development",
-      "International market access",
-      "Investor connections",
-      "Strategic partnerships",
-      "Advanced business training",
+      "Expert Mentorship and Guidance",
+      "Access to Seed Capital",
+      "End-to-End Startup Support",
+      "Strategic Partnerships",
+      "Shared Resources and Infrastructure",
     ],
   },
   {
-    title: "AIF",
+    title: "AIF (Alternate Investment Funds) ",
     description: "Scale your business globally with strategic support",
     image: "/incubationfeature2.jpeg",
     link: "/services/AIF",
     features: [
-      "Growth strategy development",
-      "International market access",
-      "Investor connections",
-      "Strategic partnerships",
-      "Advanced business training",
+      "Diversified Investment Strategies",
+      "Access to High-Quality, Non-Public Assets",
+      "Professional Management",
+      "Risk Mitigation through Portfolio Diversification",
+      "Regulatory Oversight and Compliance",
     ],
   },
 ];

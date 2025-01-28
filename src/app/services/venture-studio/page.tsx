@@ -101,7 +101,7 @@ export default function VentureStudioPage() {
           <h2 className="mb-6 text-3xl font-bold">Build With Us</h2>
           <p className="mb-8 text-xl">
             Partner with our venture studio to build the next generation of
-            Defence tech companies.
+            DefenceTech companies.
           </p>
           <div className="flex justify-center gap-4">
             <Button size="lg" variant="secondary" asChild>
@@ -206,7 +206,7 @@ const portfolio = [
 
 const investmentFocus = [
   {
-    title: "Defence Tech",
+    title: "DefenceTech",
     description: "Advanced technology solutions for Defence applications",
     icon: Shield,
   },
@@ -231,7 +231,7 @@ const team = [
   {
     name: "John Smith",
     role: "Managing Partner",
-    bio: "20+ years in Defence tech venture capital",
+    bio: "20+ years in DefenceTech venture capital",
     image: "/images/team/john-smith.jpg",
   },
   {
@@ -249,7 +249,7 @@ const team = [
   {
     name: "Lisa Williams",
     role: "Operations Director",
-    bio: "Expert in scaling Defence tech startups",
+    bio: "Expert in scaling DefenceTech startups",
     image: "/images/team/lisa-williams.jpg",
   },
 ];

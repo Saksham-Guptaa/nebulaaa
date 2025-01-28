@@ -86,7 +86,6 @@ const MentorForm = () => {
       alert("There was an error submitting your form.");
     }
   };
-
   return (
     <div className="mx-auto my-8 max-w-4xl rounded-xl bg-blue-100/40 p-6 shadow-lg">
       <h1 className="mb-6 text-4xl font-bold text-gray-800">Mentor Form</h1>

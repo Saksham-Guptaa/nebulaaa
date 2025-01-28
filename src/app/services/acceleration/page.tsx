@@ -36,7 +36,7 @@ export default function AccelerationPage() {
             Acceleration Program
           </h1>
           <p className="mb-8 max-w-2xl text-xl text-white/90 md:text-2xl">
-            Scale your Defence tech startup globally with strategic support
+            Scale your DefenceTech startup globally with strategic support
           </p>
         </div>
       </section>
@@ -194,7 +194,7 @@ export default function AccelerationPage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="mb-6 text-3xl font-bold">Ready to Scale Globally?</h2>
           <p className="mb-8 text-xl">
-            Join our acceleration program and take your Defence tech startup to
+            Join our acceleration program and take your DefenceTech startup to
             new heights.
           </p>
           <div className="flex justify-center gap-4">

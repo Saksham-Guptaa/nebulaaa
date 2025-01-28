@@ -36,7 +36,7 @@ export default function PreIncubationPage() {
             Pre-Incubation Program
           </h1>
           <p className="mb-8 max-w-2xl text-xl text-white/90 md:text-2xl">
-            Transform your innovative Defence tech idea into a viable business
+            Transform your innovative DefenceTech idea into a viable business
             model
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function PreIncubationPage() {
               <p className="mb-6 text-gray-600">
                 Our Pre-Incubation program is designed to help aspiring
                 entrepreneurs validate their ideas and develop a solid
-                foundation for their Defence tech startups.
+                foundation for their DefenceTech startups.
               </p>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 {programHighlights.map((highlight, index) => (
@@ -210,10 +210,10 @@ const programHighlights = [
 const programBenefits = [
   {
     title: "Technical Support",
-    description: "Access to cutting-edge Defence tech resources",
+    description: "Access to cutting-edge DefenceTech resources",
     image: "/img3.jpg",
     features: [
-      "Access to Defence tech labs",
+      "Access to DefenceTech labs",
       "Technical mentorship",
       "Prototype development support",
       "Testing facilities",

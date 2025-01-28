@@ -12,7 +12,7 @@ export function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-bold">About Nebula</h3>
             <p className="mb-4 text-gray-400">
-              Empowering defence tech startups through innovation, mentorship,
+              Empowering DefenceTech startups through innovation, mentorship,
               and strategic growth opportunities.
             </p>
             <div className="flex space-x-4">

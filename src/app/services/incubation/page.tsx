@@ -36,7 +36,7 @@ export default function IncubationPage() {
             Incubation Program
           </h1>
           <p className="mb-8 max-w-2xl text-xl text-white/90 md:text-2xl">
-            Build and scale your Defence tech startup with comprehensive support
+            Build and scale your DefenceTech startup with comprehensive support
           </p>
         </div>
       </section>
@@ -49,7 +49,7 @@ export default function IncubationPage() {
               <h2 className="text-3xl font-bold">Program Features</h2>
               <p className="text-gray-600">
                 Our incubation program provides comprehensive support to help
-                Defence tech startups build sustainable businesses and achieve
+                DefenceTech startups build sustainable businesses and achieve
                 significant growth.
               </p>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -182,7 +182,7 @@ export default function IncubationPage() {
             Join Our Incubation Program
           </h2>
           <p className="mb-8 text-xl">
-            Take your Defence tech startup to the next level with our
+            Take your DefenceTech startup to the next level with our
             comprehensive support.
           </p>
           <div className="flex justify-center gap-4">
@@ -231,7 +231,7 @@ const programFeatures = [
   },
   {
     title: "Technical Support",
-    description: "Access to advanced Defence tech resources",
+    description: "Access to advanced DefenceTech resources",
     icon: Shield,
   },
 ];
@@ -285,15 +285,15 @@ const timeline = [
 
 const facilities = [
   {
-    title: "Defence Tech Lab",
+    title: "DefenceTech Lab",
     description:
-      "State-of-the-art laboratory equipped with the latest Defence technology testing equipment",
+      "State-of-the-art laboratory equipped with the latest DefenceTechnology testing equipment",
     image: "/incubationfeature2.jpeg",
   },
   {
     title: "Collaboration Space",
     description:
-      "Modern co-working space designed for Defence tech startups to collaborate and innovate",
+      "Modern co-working space designed for DefenceTech startups to collaborate and innovate",
     image: "/incubationfeature3.jpeg",
   },
   {

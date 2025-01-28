@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
@@ -15,6 +14,7 @@ interface SignUpFormValues {
   password: string;
   phoneNumber: string;
   role: Role;
+  profileImage: File | null;
 }
 
 const SignUp: React.FC = () => {
@@ -25,6 +25,7 @@ const SignUp: React.FC = () => {
     password: "",
     phoneNumber: "",
     role: "startup",
+    profileImage: null,
   });
 
   interface SignUpFormErrors {
@@ -33,6 +34,7 @@ const SignUp: React.FC = () => {
     password?: string;
     phoneNumber?: string;
     role?: string;
+    profileImage?: string;
   }
 
   const [errors, setErrors] = useState<SignUpFormErrors>({});
@@ -42,10 +44,18 @@ const SignUp: React.FC = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value, type } = e.target as HTMLInputElement;
-    setFormValues((prev) => ({
-      ...prev,
-      [name]: type === "file" ? (e.target as HTMLInputElement).files : value,
-    }));
+
+    if (type === "file") {
+      setFormValues((prev) => ({
+        ...prev,
+        profileImage: (e.target as HTMLInputElement).files?.[0] || null,
+      }));
+    } else {
+      setFormValues((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
   };
 
   const validateForm = (): boolean => {
@@ -56,9 +66,33 @@ const SignUp: React.FC = () => {
     if (!formValues.phoneNumber)
       newErrors.phoneNumber = "Phone Number is required";
     if (!formValues.role) newErrors.role = "Role is required";
+    if (!formValues.profileImage)
+      newErrors.profileImage = "Profile image is required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
+  };
+
+  const uploadProfileImage = async (file: File): Promise<string | null> => {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to upload image");
+      }
+
+      const { url } = await response.json();
+      return url;
+    } catch (error) {
+      console.error("Error uploading profile image:", error);
+      return null;
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -69,6 +103,16 @@ const SignUp: React.FC = () => {
     setLoading(true);
 
     try {
+      // Upload the profile image
+      const profileImageUrl = await uploadProfileImage(
+        formValues.profileImage!,
+      );
+
+      if (!profileImageUrl) {
+        alert("Failed to upload profile image. Please try again.");
+        return;
+      }
+
       // Create user in Firebase Authentication
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -83,7 +127,9 @@ const SignUp: React.FC = () => {
         email: formValues.email,
         phoneNumber: formValues.phoneNumber,
         role: formValues.role,
+        profileImageUrl, // Save the uploaded image URL
       });
+
       router.push(`/auth/roles/${formValues.role}`);
     } catch (error) {
       console.error("Error during sign-up:", error);
@@ -393,6 +439,47 @@ const SignUp: React.FC = () => {
                 )}
               </div>
 
+              <div className="space-y-2">
+                <label
+                  htmlFor="profileImage"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Profile Image
+                </label>
+                <div className="flex items-center space-x-4">
+                  <div>
+                    {formValues.profileImage ? (
+                      <img
+                        src={URL.createObjectURL(formValues.profileImage)}
+                        alt="Profile Preview"
+                        className="h-16 w-16 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gray-200">
+                        <span className="text-sm text-gray-500">No Image</span>
+                      </div>
+                    )}
+                  </div>
+                  <label
+                    htmlFor="profileImage"
+                    className="cursor-pointer rounded-md bg-blue-600 px-4 py-2 text-white shadow-sm hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  >
+                    Upload Image
+                    <input
+                      type="file"
+                      id="profileImage"
+                      name="profileImage"
+                      accept="image/*"
+                      className="sr-only"
+                      onChange={handleInputChange}
+                    />
+                  </label>
+                </div>
+                {errors.profileImage && (
+                  <p className="text-sm text-red-500">{errors.profileImage}</p>
+                )}
+              </div>
+
               <div className="mb-5">
                 <input
                   type="submit"
@@ -424,427 +511,3 @@ const SignUp: React.FC = () => {
 };
 
 export default SignUp;
-
-// "use client";
-
-// import React, { useState, useRef } from "react";
-// import Link from "next/link";
-// import { createUserWithEmailAndPassword } from "firebase/auth";
-// import { doc, setDoc } from "firebase/firestore";
-// import { useRouter } from "next/navigation";
-// import { auth, db } from "../../../utils/firebase";
-// import Script from "next/script";
-
-// type Role =
-//   | "startup"
-//   | "investor"
-//   | "influencer"
-//   | "mentor"
-//   | "admin"
-//   | "nebula_user";
-
-// interface SignUpFormValues {
-//   fullName: string;
-//   email: string;
-//   password: string;
-//   phoneNumber: string;
-//   role: Role;
-//   profileImage: File | null;
-//   profileImageUrl: string;
-//   membershipPaid: boolean;
-//   address: string;
-//   companyName: string;
-//   dateOfBirth: string;
-//   gender: string;
-//   bio: string;
-// }
-
-// const SignUp: React.FC = () => {
-//   const [loading, setLoading] = useState(false);
-//   const [uploading, setUploading] = useState(false);
-//   const fileInputRef = useRef<HTMLInputElement>(null);
-//   const [imagePreview, setImagePreview] = useState<string | null>(null);
-//   const [formValues, setFormValues] = useState<SignUpFormValues>({
-//     fullName: "",
-//     email: "",
-//     password: "",
-//     phoneNumber: "",
-//     role: "nebula_user",
-//     profileImage: null,
-//     profileImageUrl: "",
-//     membershipPaid: false,
-//     address: "",
-//     companyName: "",
-//     dateOfBirth: "",
-//     gender: "",
-//     bio: "",
-//   });
-
-//   interface SignUpFormErrors {
-//     fullName?: string;
-//     email?: string;
-//     password?: string;
-//     phoneNumber?: string;
-//     role?: string;
-//     profileImage?: string;
-//     address?: string;
-//     companyName?: string;
-//     dateOfBirth?: string;
-//     gender?: string;
-//     bio?: string;
-//   }
-
-//   const [errors, setErrors] = useState<SignUpFormErrors>({});
-//   const router = useRouter();
-
-//   const handleImageUpload = async (file: File) => {
-//     setUploading(true);
-//     try {
-//       const formData = new FormData();
-//       formData.append("file", file);
-
-//       const response = await fetch("/api/upload", {
-//         method: "POST",
-//         body: formData,
-//       });
-
-//       const data = await response.json();
-//       if (data.url) {
-//         setFormValues((prev) => ({
-//           ...prev,
-//           profileImageUrl: data.url,
-//         }));
-//       } else {
-//         throw new Error("Upload failed");
-//       }
-//     } catch (error) {
-//       console.error("Error uploading image:", error);
-//       alert("Failed to upload image. Please try again.");
-//     } finally {
-//       setUploading(false);
-//     }
-//   };
-
-//   const handleInputChange = async (
-//     e: React.ChangeEvent<
-//       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-//     >,
-//   ) => {
-//     const { name, value, type } = e.target as HTMLInputElement;
-
-//     if (type === "file") {
-//       const files = (e.target as HTMLInputElement).files;
-//       if (files && files[0]) {
-//         setFormValues((prev) => ({ ...prev, profileImage: files[0] }));
-//         // Create image preview
-//         const reader = new FileReader();
-//         reader.onloadend = () => {
-//           setImagePreview(reader.result as string);
-//         };
-//         reader.readAsDataURL(files[0]);
-//         // Upload to Cloudinary
-//         await handleImageUpload(files[0]);
-//       }
-//     } else {
-//       setFormValues((prev) => ({ ...prev, [name]: value }));
-//     }
-//   };
-
-//   const validateForm = (): boolean => {
-//     const newErrors: SignUpFormErrors = {};
-//     if (!formValues.fullName) newErrors.fullName = "Full Name is required";
-//     if (!formValues.email) newErrors.email = "Email is required";
-//     if (!formValues.password) newErrors.password = "Password is required";
-//     if (!formValues.phoneNumber)
-//       newErrors.phoneNumber = "Phone Number is required";
-//     if (!formValues.role) newErrors.role = "Role is required";
-//     if (!formValues.profileImageUrl)
-//       newErrors.profileImage = "Profile Image is required";
-//     if (!formValues.address) newErrors.address = "Address is required";
-//     if (!formValues.companyName)
-//       newErrors.companyName = "Company Name is required";
-//     if (!formValues.dateOfBirth)
-//       newErrors.dateOfBirth = "Date of Birth is required";
-//     if (!formValues.gender) newErrors.gender = "Gender is required";
-//     if (!formValues.bio) newErrors.bio = "Bio is required";
-
-//     setErrors(newErrors);
-//     return Object.keys(newErrors).length === 0;
-//   };
-
-//   const initializeRazorpayPayment = async () => {
-//     const res = await fetch("/api/razorpay", {
-//       method: "POST",
-//     });
-//     const data = await res.json();
-
-//     if (data.error) {
-//       alert("Payment initialization failed");
-//       return false;
-//     }
-
-//     const options = {
-//       key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-//       amount: 500 * 100, // Amount in paise
-//       currency: "INR",
-//       name: "Nebula",
-//       description: "Membership Payment",
-//       order_id: data.orderId,
-//       handler: async (response: any) => {
-//         // Handle successful payment
-//         setFormValues((prev) => ({ ...prev, membershipPaid: true }));
-//         await handleSignup();
-//       },
-//       prefill: {
-//         name: formValues.fullName,
-//         email: formValues.email,
-//         contact: formValues.phoneNumber,
-//       },
-//     };
-
-//     const paymentObject = new (window as any).Razorpay(options);
-//     paymentObject.open();
-//   };
-
-//   const handleSignup = async () => {
-//     try {
-//       // Create user in Firebase Authentication
-//       const userCredential = await createUserWithEmailAndPassword(
-//         auth,
-//         formValues.email,
-//         formValues.password,
-//       );
-//       const userId = userCredential.user.uid;
-
-//       // Store user data in Firestore
-//       await setDoc(doc(db, "users", userId), {
-//         fullName: formValues.fullName,
-//         email: formValues.email,
-//         phoneNumber: formValues.phoneNumber,
-//         role: formValues.role,
-//         profileImageUrl: formValues.profileImageUrl,
-//         membershipPaid: formValues.membershipPaid,
-//         address: formValues.address,
-//         companyName: formValues.companyName,
-//         dateOfBirth: formValues.dateOfBirth,
-//         gender: formValues.gender,
-//         bio: formValues.bio,
-//         createdAt: new Date().toISOString(),
-//       });
-
-//       router.push(`/auth/roles/${formValues.role}`);
-//     } catch (error) {
-//       console.error("Error during sign-up:", error);
-//       alert("Sign-up failed. Please try again.");
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   const handleSubmit = async (e: React.FormEvent) => {
-//     e.preventDefault();
-//     if (!validateForm()) return;
-
-//     await initializeRazorpayPayment();
-//   };
-
-//   return (
-//     <>
-//       <Script
-//         src="https://checkout.razorpay.com/v1/checkout.js"
-//         strategy="lazyOnload"
-//       />
-//       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-//         <div className="flex items-center justify-between border-b border-stroke p-4 dark:border-strokedark">
-//           <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
-//             <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
-//               <h2 className="mb-9 text-2xl font-bold text-black dark:text-white">
-//                 Sign Up to Nebula
-//               </h2>
-
-//               <form onSubmit={handleSubmit}>
-//                 {/* Profile Image Upload */}
-//                 <div className="mb-4">
-//                   <label className="mb-2.5 block font-medium text-black dark:text-white">
-//                     Profile Image
-//                   </label>
-//                   <div className="relative">
-//                     <input
-//                       type="file"
-//                       ref={fileInputRef}
-//                       accept="image/*"
-//                       onChange={handleInputChange}
-//                       name="profileImage"
-//                       className="hidden"
-//                     />
-//                     <div
-//                       onClick={() => fileInputRef.current?.click()}
-//                       className="flex h-32 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed hover:bg-gray-50"
-//                     >
-//                       {uploading ? (
-//                         <div className="text-center">
-//                           <p>Uploading...</p>
-//                         </div>
-//                       ) : imagePreview ? (
-//                         <img
-//                           src={imagePreview}
-//                           alt="Preview"
-//                           className="h-24 w-24 rounded-full object-cover"
-//                         />
-//                       ) : (
-//                         <div className="text-center">
-//                           <p>Click to upload profile image</p>
-//                           <p className="text-sm text-gray-500">
-//                             PNG, JPG up to 5MB
-//                           </p>
-//                         </div>
-//                       )}
-//                     </div>
-//                     {errors.profileImage && (
-//                       <p className="text-sm text-red-500">
-//                         {errors.profileImage}
-//                       </p>
-//                     )}
-//                   </div>
-//                 </div>
-
-//                 {/* Address */}
-//                 <div className="mb-4">
-//                   <label className="mb-1 block text-sm font-medium">
-//                     Address
-//                   </label>
-//                   <input
-//                     type="text"
-//                     name="address"
-//                     value={formValues.address}
-//                     onChange={handleInputChange}
-//                     className="w-full rounded-lg border border-stroke bg-transparent px-6 py-4 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-//                   />
-//                   {errors.address && (
-//                     <p className="text-sm text-red-500">{errors.address}</p>
-//                   )}
-//                 </div>
-
-//                 {/* Company Name */}
-//                 <div className="mb-4">
-//                   <label className="mb-1 block text-sm font-medium">
-//                     Company Name
-//                   </label>
-//                   <input
-//                     type="text"
-//                     name="companyName"
-//                     value={formValues.companyName}
-//                     onChange={handleInputChange}
-//                     className="w-full rounded-lg border border-stroke bg-transparent px-6 py-4 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-//                   />
-//                   {errors.companyName && (
-//                     <p className="text-sm text-red-500">{errors.companyName}</p>
-//                   )}
-//                 </div>
-
-//                 {/* Date of Birth */}
-//                 <div className="mb-4">
-//                   <label className="mb-1 block text-sm font-medium">
-//                     Date of Birth
-//                   </label>
-//                   <input
-//                     type="date"
-//                     name="dateOfBirth"
-//                     value={formValues.dateOfBirth}
-//                     onChange={handleInputChange}
-//                     className="w-full rounded-lg border border-stroke bg-transparent px-6 py-4 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-//                   />
-//                   {errors.dateOfBirth && (
-//                     <p className="text-sm text-red-500">{errors.dateOfBirth}</p>
-//                   )}
-//                 </div>
-
-//                 {/* Gender */}
-//                 <div className="mb-4">
-//                   <label className="mb-1 block text-sm font-medium">
-//                     Gender
-//                   </label>
-//                   <select
-//                     name="gender"
-//                     value={formValues.gender}
-//                     onChange={handleInputChange}
-//                     className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-//                   >
-//                     <option value="">Select Gender</option>
-//                     <option value="male">Male</option>
-//                     <option value="female">Female</option>
-//                     <option value="other">Other</option>
-//                   </select>
-//                   {errors.gender && (
-//                     <p className="text-sm text-red-500">{errors.gender}</p>
-//                   )}
-//                 </div>
-
-//                 {/* Bio */}
-//                 <div className="mb-4">
-//                   <label className="mb-1 block text-sm font-medium">Bio</label>
-//                   <textarea
-//                     name="bio"
-//                     value={formValues.bio}
-//                     onChange={handleInputChange}
-//                     className="w-full rounded-lg border border-stroke bg-transparent px-6 py-4 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-//                     rows={4}
-//                   ></textarea>
-//                   {errors.bio && (
-//                     <p className="text-sm text-red-500">{errors.bio}</p>
-//                   )}
-//                 </div>
-
-//                 {/* Role */}
-//                 <div className="mb-4">
-//                   <label className="mb-1 block text-sm font-medium">Role</label>
-//                   <select
-//                     name="role"
-//                     value={formValues.role}
-//                     onChange={handleInputChange}
-//                     className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-//                   >
-//                     <option value="nebula_user">Nebula User</option>
-//                     <option value="startup">Startup</option>
-//                     <option value="investor">Investor</option>
-//                     <option value="influencer">Influencer</option>
-//                     <option value="mentor">Mentor</option>
-//                     <option value="admin">Admin</option>
-//                   </select>
-//                   {errors.role && (
-//                     <p className="text-sm text-red-500">{errors.role}</p>
-//                   )}
-//                 </div>
-
-//                 <div className="mb-5">
-//                   <button
-//                     type="submit"
-//                     disabled={loading || uploading}
-//                     className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90 disabled:opacity-50"
-//                   >
-//                     {loading
-//                       ? "Processing..."
-//                       : uploading
-//                         ? "Uploading Image..."
-//                         : "Continue to Payment"}
-//                   </button>
-//                 </div>
-
-//                 <div className="mt-6 text-center">
-//                   <p>
-//                     Already have an account?{" "}
-//                     <Link href="/auth/signin" className="text-primary">
-//                       Sign in
-//                     </Link>
-//                   </p>
-//                 </div>
-//               </form>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default SignUp;

@@ -35,7 +35,7 @@ export default function PilotProjectsPage() {
             Pilot Projects
           </h1>
           <p className="mb-8 max-w-2xl text-xl text-white/90 md:text-2xl">
-            Innovative Defence tech solutions in action
+            Innovative DefenceTech solutions in action
           </p>
         </div>
       </section>
@@ -175,7 +175,7 @@ export default function PilotProjectsPage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="mb-6 text-3xl font-bold">Start Your Pilot Project</h2>
           <p className="mb-8 text-xl">
-            Join our program and turn your innovative Defence tech solution into
+            Join our program and turn your innovative DefenceTech solution into
             reality.
           </p>
           <div className="flex justify-center gap-4">
