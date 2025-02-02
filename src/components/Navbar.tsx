@@ -9,10 +9,8 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const firebaseContext = useFirebase();
   const { usersByRole } = useUsers();
-  console.log(usersByRole);
   if (!firebaseContext) return null;
   const { roles, userDetails } = firebaseContext;
-  console.log(roles, userDetails);
   return (
     <nav className="flex items-center justify-between border-b-2 border-black bg-white p-2 py-4 shadow-md md:px-12 lg:px-6">
       {/* Logo */}

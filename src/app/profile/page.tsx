@@ -31,10 +31,10 @@ const Profile = () => {
   }
   const firebaseContext = useFirebase();
   const { usersByRole } = useUsers();
-  console.log(usersByRole);
+
   if (!firebaseContext) return null;
   const { roles, userDetails } = firebaseContext;
-  console.log(roles, userDetails);
+
   return (
     <>
       {user && (
