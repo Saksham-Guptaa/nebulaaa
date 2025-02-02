@@ -37,6 +37,12 @@ const Navbar = () => {
           SERVICES
         </Link>
         <Link
+          href="/portfolio"
+          className="text-xl text-black transition-colors duration-1000 hover:text-gray-400"
+        >
+          PORTFOLIO
+        </Link>
+        <Link
           href="/Investnow"
           className="text-xl text-black transition-colors duration-1000 hover:text-gray-400"
         >
@@ -121,6 +127,14 @@ const Navbar = () => {
           </li>
           <li>
             <Link
+              href="/portfolio"
+              className="block py-2 text-xl text-black transition-colors hover:text-blue-500"
+            >
+              PORTFOLIO
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/Investnow"
               className="block py-2 text-xl text-black transition-colors hover:text-blue-500"
             >
@@ -128,10 +142,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link
-              href="/profile"
-              className="mx-5 hidden items-center space-x-2 md:flex"
-            >
+            <Link href="/profile" className=" items-center space-x-2 md:flex">
               {userDetails?.profileImageUrl ? (
                 <img
                   src={userDetails.profileImageUrl}
