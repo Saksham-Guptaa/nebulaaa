@@ -15,9 +15,10 @@ const Navbar = () => {
     <nav className="flex items-center justify-between border-b-2 border-black bg-white p-2 py-4 shadow-md md:px-12 lg:px-6">
       {/* Logo */}
       <Link href="/home">
-        <span className="mr-5 text-lg font-extrabold text-black transition-colors duration-1000 hover:text-gray-400">
+        {/* <span className="mr-5 text-lg font-extrabold text-black transition-colors duration-1000 hover:text-gray-400">
           NEBULA
-        </span>
+        </span> */}
+        <img src="/nebulalogo.png" className="h-14 w-full"></img>
       </Link>
 
       {/* Links for larger screens */}
