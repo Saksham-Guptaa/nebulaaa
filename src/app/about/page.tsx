@@ -3,8 +3,13 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import AboutSlider from "@/components/AboutSlider";
 import { Footer } from "@/components/ui/footer";
-import { FaLinkedin } from "react-icons/fa";
-import { motion } from "framer-motion";
+import AreasOfInterest from "@/components/AreasofOnterest";
+import WhyChoosePitchRoom from "@/components/WhyChoosePitchRoom";
+import MentorsInResidence from "@/components/MentorsinResidence";
+import InvestorsInResidence from "@/components/InvestorinResidence";
+import InfluencersInResidence from "@/components/InfluencersinResidence";
+import ProgramRoadmap from "@/components/Roadmap";
+import PitchRoom from "@/components/PitchRoom";
 const Page = () => {
   return (
     <>
@@ -126,6 +131,13 @@ const Page = () => {
             </div>
           </div>
         </section>
+
+        <AreasOfInterest />
+
+        <MentorsInResidence />
+        <InvestorsInResidence />
+        <InfluencersInResidence />
+        <ProgramRoadmap />
 
         {/* Portfolio Section */}
         <section className="py-10">

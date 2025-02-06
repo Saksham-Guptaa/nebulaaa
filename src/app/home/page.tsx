@@ -9,6 +9,10 @@ import Team from "@/components/Team";
 import { FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Footer } from "@/components/ui/footer";
+import WhyChoosePitchRoom from "@/components/WhyChoosePitchRoom";
+import PitchRoom from "@/components/PitchRoom";
+import IncubationProgram from "@/components/IncubationPrograms";
+import Programs from "@/components/CohortDetails";
 
 const HomePage = () => {
   return (
@@ -17,6 +21,9 @@ const HomePage = () => {
         <Navbar />
         <Hero />
         <WhatWeDo />
+        <WhyChoosePitchRoom />
+        <IncubationProgram />
+        <Programs />
         <Team />
         <div className="flex min-h-screen flex-col items-center justify-center py-8">
           <p className="mb-8 text-6xl font-bold md:mb-16 lg:mb-20">

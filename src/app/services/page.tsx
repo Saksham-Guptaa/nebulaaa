@@ -92,35 +92,9 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-center text-3xl font-bold">
-            Program Timeline
-          </h2>
-          <div className="mx-auto max-w-3xl">
-            {timeline.map((item, index) => (
-              <div key={index} className="mb-8 flex items-start">
-                <div className="mr-4 flex flex-col items-center">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white">
-                    {index + 1}
-                  </div>
-                  {index < timeline.length - 1 && (
-                    <div className="mt-2 h-full w-0.5 bg-blue-200" />
-                  )}
-                </div>
-                <div>
-                  <h3 className="mb-2 text-lg font-semibold">{item.title}</h3>
-                  <p className="mb-2 text-gray-600">{item.description}</p>
-                  <p className="text-sm text-gray-500">
-                    Duration: {item.duration}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <DefTechCohort />
+      <CSR />
+      <AICsProgram />
 
       {/* CTA Section */}
       <section className="bg-blue-600 py-20 text-white">
@@ -142,6 +116,7 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+      <CareersWithNebula />
       <Footer />
     </main>
   );
@@ -228,6 +203,10 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/ui/footer";
+import DefTechCohort from "@/components/DefTechCohort";
+import CSR from "@/components/CSR";
+import AICsProgram from "@/components/AIC";
+import CareersWithNebula from "@/components/Careers";
 
 const benefits = [
   {
