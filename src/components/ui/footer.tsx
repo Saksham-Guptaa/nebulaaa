@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
+import { Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* About */}
           <div>
             <h3 className="mb-4 text-lg font-bold">About Nebula</h3>
@@ -65,7 +65,35 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Contact */}
+          <div>
+            <h3 className="mb-4 text-lg font-bold">Contact Us</h3>
+            <ul className="space-y-2 text-gray-400">
+              <li className="flex items-center space-x-2">
+                <MapPin className="h-5 w-5" />
+                <span>
+                  606, 6th Floor, Tower B, Logix Technova, Sector - 13, Noida,
+                  Gautama Buddha Nagar- 201301, Uttar Pradesh
+                </span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <Mail className="h-5 w-5" />
+                <span>Paltan@nebulaaccelerator.org</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <Mail className="h-5 w-5" />
+                <span>Careers@nebulaaccelerator.org</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <Mail className="h-5 w-5" />
+                <span>CeoOffice@nebulaaccelerator.org</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <Phone className="h-5 w-5" />
+                <span>+91 9638413900</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
