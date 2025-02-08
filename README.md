@@ -133,25 +133,7 @@ IFSC/SWIFT Code
 Cryptocurrency Type
 Wallet Address
 
-Influencers :
-
-Name and Title
-Tagline or Motto
-Contact Information:
-Email Address
-Phone Number
-Social Media Handles
-Website or Blog (if applicable)
-Content Focus (e.g., travel, fitness, technology, lifestyle)
-Specialty Areas (e.g., luxury travel, sustainable fashion)
-Total Followers (for each platform)
-Engagement Rates (likes, comments, shares, or average views)
-Audience Details:
-Age Groups
-Gender Distribution
-Geographic Locations
-Interests or Behaviors
-Primary Platforms (e.g., Instagram, YouTube, TikTok, Twitter)
+ter)
 Key Metrics:
 Average Reach per Post/Video
 Video Views (for platforms like YouTube or TikTok)
