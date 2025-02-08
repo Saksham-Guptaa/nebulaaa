@@ -6,6 +6,8 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import Image from "next/image";
+import image1 from '@/../public/pictures/WA1.jpeg';
+import image2 from '@/../public/pictures/WA7.jpeg';
 
 const cohortDetails = {
   title: "DefTech CoHort",
@@ -75,44 +77,28 @@ export default function Programs() {
         {/* DefTech Cohort */}
         <Card className="mb-12 rounded-xl bg-white shadow-lg dark:bg-gray-800">
           <CardHeader className="relative">
-            <Image
-              src="/images/cohort.jpg"
-              alt="Cohort Image"
-              width={800}
-              height={400}
-              className="h-64 w-full rounded-t-xl object-cover"
-            />
-            <CardTitle className="mt-4 text-center text-3xl font-bold text-gray-900 dark:text-white">
-              {cohortDetails.title}
-            </CardTitle>
+            <Image src={image1} alt="Cohort Image" width={800} height={400} className="h-64 w-full rounded-t-xl object-cover" />
+            <CardTitle className="mt-4 text-center text-3xl font-bold text-gray-900 dark:text-white">{cohortDetails.title}</CardTitle>
           </CardHeader>
           <CardContent className="p-6">
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              {cohortDetails.description}
-            </p>
-
-            <h3 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">
-              Program Highlights
-            </h3>
-            <ul className="mt-4 space-y-2">
+            <p className="text-lg text-gray-700 dark:text-gray-300">{cohortDetails.description}</p>
+            
+            <h3 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">Program Highlights</h3>
+            <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               {cohortDetails.highlights.map((highlight, index) => (
-                <li key={index} className="text-gray-700 dark:text-gray-300">
-                  ✔ {highlight}
-                </li>
+                <Card key={index} className="p-4 bg-gray-100 dark:bg-gray-800 shadow-md">
+                  <p className="text-gray-700 dark:text-gray-300">{highlight}</p>
+                </Card>
               ))}
-            </ul>
-
-            <h3 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">
-              Who Can Apply?
-            </h3>
+            </div>
+            
+            <h3 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">Who Can Apply?</h3>
             <ul className="mt-4 space-y-2">
               {cohortDetails.whoCanApply.map((person, index) => (
-                <li key={index} className="text-gray-700 dark:text-gray-300">
-                  ✔ {person}
-                </li>
+                <li key={index} className="text-gray-700 dark:text-gray-300">✔ {person}</li>
+
               ))}
             </ul>
-
             <h3 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">
               Program Sessions & Workshops
             </h3>
@@ -141,36 +127,24 @@ export default function Programs() {
             </ul>
           </CardContent>
         </Card>
-
+        
         {/* Incubation Program */}
         <Card className="rounded-xl bg-white shadow-lg dark:bg-gray-800">
           <CardHeader className="relative">
-            <Image
-              src="/images/incubation.jpg"
-              alt="Incubation Image"
-              width={800}
-              height={400}
-              className="h-64 w-full rounded-t-xl object-cover"
-            />
-            <CardTitle className="mt-4 text-center text-3xl font-bold text-gray-900 dark:text-white">
-              {incubationDetails.title}
-            </CardTitle>
+            <Image src={image2} alt="Incubation Image" width={800} height={400} className="h-64 w-full rounded-t-xl object-cover" />
+            <CardTitle className="mt-4 text-center text-3xl font-bold text-gray-900 dark:text-white">{incubationDetails.title}</CardTitle>
           </CardHeader>
           <CardContent className="p-6">
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              {incubationDetails.description}
-            </p>
-
-            <h3 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">
-              Program Highlights
-            </h3>
-            <ul className="mt-4 space-y-2">
+            <p className="text-lg text-gray-700 dark:text-gray-300">{incubationDetails.description}</p>
+            
+            <h3 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">Program Highlights</h3>
+            <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               {incubationDetails.highlights.map((highlight, index) => (
-                <li key={index} className="text-gray-700 dark:text-gray-300">
-                  ✔ {highlight}
-                </li>
+                <Card key={index} className="p-4 bg-gray-100 dark:bg-gray-800 shadow-md">
+                  <p className="text-gray-700 dark:text-gray-300">{highlight}</p>
+                </Card>
               ))}
-            </ul>
+            </div>
 
             <h3 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">
               Who Can Apply?

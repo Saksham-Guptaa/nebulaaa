@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { CheckCircle } from "lucide-react";
 
 const programs = [
   {
@@ -55,39 +56,34 @@ const programs = [
 
 const PitchRoom = () => {
   return (
-    <section className="relative bg-gray-50 px-6 py-16 md:px-12 lg:px-24">
-      {/* Background Scattered Images */}
-      <div className="absolute left-5 top-10 opacity-20">
-        <Image src="/images/decor1.png" width={100} height={100} alt="Decor" />
-      </div>
-      <div className="absolute bottom-10 right-5 opacity-20">
-        <Image src="/images/decor2.png" width={120} height={120} alt="Decor" />
-      </div>
-
+    <section className="relative bg-gradient-to-b from-blue-50 to-white px-6 py-16 md:px-12 lg:px-24">
       {/* Section Title */}
-      <h2 className="mb-8 text-center text-3xl font-bold text-gray-800 md:text-4xl">
-        Why Choose the PITCH ROOM at NEBULA?
-      </h2>
-      <p className="mx-auto mb-12 max-w-3xl text-center text-lg text-gray-600">
-        At NEBULA, we foster innovation, collaboration, and growth. The PITCH
-        ROOM is a thriving ecosystem where ideas evolve, partnerships flourish,
-        and the future is shaped. Join us and take the next step in your
-        entrepreneurial journey.
-      </p>
+      <div className="text-center">
+        <h2 className="text-4xl font-extrabold text-gray-800 md:text-5xl">
+          Why Choose the PITCH ROOM at NEBULA?
+        </h2>
+        <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600 md:text-xl">
+          At NEBULA, we foster innovation, collaboration, and growth. The PITCH
+          ROOM is a thriving ecosystem where ideas evolve, partnerships flourish,
+          and the future is shaped. Join us and take the next step in your
+          entrepreneurial journey.
+        </p>
+      </div>
 
       {/* Program Breakdown */}
-      <div className="space-y-12">
+      <div className="mt-12 space-y-12">
         {programs.map((program, index) => (
           <div key={index} className="space-y-4">
-            <h3 className="text-2xl font-semibold text-gray-800">
-              {program.title}
-            </h3>
+            <h3 className="text-3xl font-semibold text-gray-800">{program.title}</h3>
             <Separator className="my-4" />
-            <Card className="shadow-lg transition-transform duration-300 hover:scale-105">
+            <Card className="rounded-lg border border-gray-200 shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
               <CardContent className="p-6">
-                <ul className="list-inside list-disc space-y-2 text-gray-700">
+                <ul className="space-y-3">
                   {program.points.map((point, i) => (
-                    <li key={i}>{point}</li>
+                    <li key={i} className="flex items-start space-x-3 text-gray-700">
+                      <CheckCircle className="text-blue-600" size={22} />
+                      <span>{point}</span>
+                    </li>
                   ))}
                 </ul>
               </CardContent>

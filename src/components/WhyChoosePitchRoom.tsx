@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import image1 from "../../public/pictures/WA4.jpeg";
+import image2 from "../../public/pictures/WA2.jpeg";
+import image3 from "../../public/pictures/WA3.jpeg";
 
 const PitchRoomData = [
   {
@@ -95,6 +98,12 @@ const WhyChoosePitchRoom = () => {
             </Card>
           </div>
         ))}
+      </div>
+
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mx-auto items-center">
+        <Image src={image2} alt="Pitch Room 2" width={400} height={300} className="rounded-lg shadow-md" />
+        <Image src={image1} alt="Pitch Room 1" width={400} height={300} className="rounded-lg shadow-md" />
+        <Image src={image3} alt="Pitch Room 3" width={400} height={300} className="rounded-lg shadow-md" />
       </div>
     </section>
   );

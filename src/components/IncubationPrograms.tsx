@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
+import image1 from '../../public/pictures/WA1.jpeg'
+import image2 from '../../public/pictures/WA2.jpeg'
 
 const programBenefits = [
   "1-2-1 Business Mentoring sessions with esteemed Industry experts",
@@ -23,36 +25,37 @@ const eligibility = [
 
 const IncubationProgram = () => {
   return (
-    <section className="relative bg-gray-100 px-6 py-16 md:px-12 lg:px-24">
-      {/* Background Scattered Images */}
-      <div className="absolute left-5 top-10 opacity-20">
-        <Image src="/images/decor1.png" width={100} height={100} alt="Decor" />
+    <section className="relative bg-gradient-to-b from-blue-50 to-white px-6 py-16 md:px-12 lg:px-24">
+      {/* Background Images
+      <div className="absolute left-24 top-10">
+        <Image src={image1} width={300} height={300} alt="Decor" />
       </div>
-      <div className="absolute bottom-10 right-5 opacity-20">
-        <Image src="/images/decor2.png" width={120} height={120} alt="Decor" />
-      </div>
+      <div className="absolute bottom-10 right-5">
+        <Image src={image2} width={140} height={140} alt="Decor" />
+      </div> */}
 
       {/* Section Title */}
-      <h2 className="mb-8 text-center text-3xl font-bold text-gray-800 md:text-4xl">
-        Incubation Program for AICs
-      </h2>
-      <p className="mx-auto mb-12 max-w-3xl text-center text-lg text-gray-600">
-        Nebula Accelerator supports early-stage tech incubators by providing
-        direct access to an international network of top mentors, partners, and
-        investors. Over a structured 3-week program, participants engage in
-        expert-led workshops, mentorship, and funding opportunities to scale
-        their incubators successfully.
-      </p>
+      <div className="text-center">
+        <h2 className="text-4xl font-extrabold text-gray-800 md:text-5xl">
+          Incubation Program for AICs
+        </h2>
+        <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600 md:text-xl">
+          Nebula Accelerator supports early-stage tech incubators by providing
+          direct access to an international network of top mentors, partners, and
+          investors. Over a structured 3-week program, participants engage in
+          expert-led workshops, mentorship, and funding opportunities.
+        </p>
+      </div>
 
       {/* Program Benefits */}
-      <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {programBenefits.map((benefit, index) => (
           <Card
             key={index}
-            className="shadow-md transition-transform duration-300 hover:scale-105"
+            className="rounded-lg border border-gray-200 shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl"
           >
-            <CardContent className="flex items-start space-x-3 p-4">
-              <CheckCircle className="text-blue-600" size={24} />
+            <CardContent className="flex items-start space-x-3 p-5">
+              <CheckCircle className="text-blue-600" size={28} />
               <p className="text-gray-700">{benefit}</p>
             </CardContent>
           </Card>
@@ -60,14 +63,17 @@ const IncubationProgram = () => {
       </div>
 
       {/* Who Can Apply */}
-      <h3 className="mb-6 text-center text-2xl font-semibold text-gray-800">
-        Who Can Apply?
-      </h3>
-      <ul className="mx-auto mb-12 max-w-2xl list-inside list-disc space-y-2 text-gray-700">
-        {eligibility.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
+      <div className="mt-16 text-center">
+        <h3 className="text-3xl font-semibold text-gray-800">Who Can Apply?</h3>
+        <ul className="mx-auto mt-6 max-w-2xl space-y-3 text-lg text-gray-700">
+          {eligibility.map((item, index) => (
+            <li key={index} className="flex items-center space-x-3">
+              <CheckCircle className="text-green-600" size={22} />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 };
