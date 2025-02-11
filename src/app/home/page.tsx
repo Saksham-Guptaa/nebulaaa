@@ -24,7 +24,7 @@ const HomePage = () => {
         <WhyChoosePitchRoom />
         <IncubationProgram />
         <Programs />
-        <Team />
+        {/* <Team /> */}
         <div className="flex min-h-screen flex-col items-center justify-center py-8">
           <p className="mb-8 text-6xl font-bold md:mb-16 lg:mb-20">
             MENTORS-IN-RESIDENCE
